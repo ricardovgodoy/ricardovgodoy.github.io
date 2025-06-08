@@ -4,6 +4,6 @@ title: "CV"
 permalink: /cv/
 ---
 
-<a href="/files/Ricardo_Godoy___CV___Academy.pdf" download>Download my CV here</a>.
+<a href="/files/Ricardo_Godoy___CV___Academy.pdf" download>Click here to download my CV.</a>.
 
-<span style="font-size: 0.8em; color: gray;">last updated: 08/06/2025</span>
+<span style="font-size: 0.8em; color: gray;">Last updated: 08/06/2025</span>
