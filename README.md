@@ -11,10 +11,6 @@ My work focuses on cutting-edge research in:
 
 🔗 Visit the website: [https://your-username.github.io/academicpages](https://ricardovgodoy.github.io)
 
-## Team
-- Prof. Ricardo Godoy (PI)
-- [More members in `_people/`](https://your-username.github.io/academicpages/people/)
-
 ## Publications
 Check out my latest work [here](https://ricardovgodoy.github.io/publications/).
 
