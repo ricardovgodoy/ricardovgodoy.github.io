@@ -23,35 +23,35 @@ repository               : "ricardovgodoy/ricardovgodoy.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Dr. Ricardo Vilela de Godoy"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "I am a postdoctoral researcher at the Mobile Robotics Group at the University of São Paulo, Brazil. I've been working with four-legged robots with robotic arms and grippers for intuitive teleoperation and dexterous manipulation."
+  location         : "Brazil"
+  employer         : "University of São Paulo"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "vgodoy.ricardo@gmail.com" 
 
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=vVXZEB8AAAAJ&hl=en&oi=ao"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : "https://orcid.org/0000-0002-5323-9299"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
+  pubmed           : # URL
+  researchgate     : "https://www.researchgate.net/profile/Ricardo-Vilela-De-Godoy?ev=hdr_xprf"
   scopus           : # URL
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "ricardovgodoy"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -60,7 +60,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "https://www.linkedin.com/in/ricardo-vilela-de-godoy/"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
