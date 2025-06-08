@@ -22,7 +22,7 @@ repository               : "ricardovgodoy/ricardovgodoy.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "new_profile.JPG"
   name             : "Dr. Ricardo Vilela de Godoy"
   pronouns         : # example: "she/her"  
   bio              : "I am a postdoctoral researcher at the Mobile Robotics Group at the University of São Paulo, Brazil. I've been working with four-legged robots with robotic arms and grippers for intuitive teleoperation and dexterous manipulation."
