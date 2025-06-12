@@ -11,7 +11,8 @@ location: "São Paulo, Brazil"
 The course covers several types of biological signals and the physiological processes that generate them, as well as introducing the main tools for processing and analyzing these signals for applications in medicine and robotics. Techniques for processing and analyzing biomedical images will also be presented. The course also includes Python programming practices to present the main libraries used to process signals and consolidate the theoretical content presented in class.
 
 
-PROGRAM CONTENT
+Program Content
+======
 
 - Characterization of the nature of biomedical signals;
 - Signal sampling in continuous time;
@@ -29,11 +30,4 @@ PROGRAM CONTENT
 - Fourier transform in the spatial domain, spatial filters, histogram analysis, intensity transformations, feature extraction techniques, image segmentation, and classification;
 - Development of machine learning frameworks for decoding biological signals and classification of medical images.
 
-Heading 1
-======
 
-Heading 2
-======
-
-Heading 3
-======
