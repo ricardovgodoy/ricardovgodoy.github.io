@@ -2,7 +2,7 @@
 title: "Course: Processing of Medical Signals and Images"
 collection: teaching
 type: "Biomedical Engineering Bachelor's program"
-permalink: /teaching/2025-medical-signal-images-processing
+permalink: /teaching/2014-spring-teaching-1
 venue: "Faculdade Israelita de Ciências da Saúde, Hospital Israelita Albert Einstein"
 date: 2025-01-01
 location: "São Paulo, Brazil"
