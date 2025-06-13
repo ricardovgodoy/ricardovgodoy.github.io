@@ -1,7 +1,7 @@
 ---
 title: "Course: Postgraduate Degree in Bioengineering Applied to Health"
 collection: teaching
-type: "Postgraduate degree in Bioengineering"
+type: "Assistant professor. Postgraduate degree in Bioengineering"
 permalink: /teaching/2025-postgrad-Bioengineering
 venue: "Faculdade Israelita de Ciências da Saúde, Hospital Israelita Albert Einstein"
 date: 2025-01-01
