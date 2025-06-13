@@ -1,7 +1,7 @@
 ---
 title: "Course: Processing of Medical Signals and Images"
 collection: teaching
-type: "Biomedical Engineering Bachelor's program"
+type: "Assistant professor. Biomedical Engineering Bachelor's program"
 permalink: /teaching/2025-medical-image-signal-processing
 venue: "Faculdade Israelita de Ciências da Saúde, Hospital Israelita Albert Einstein"
 date: 2025-01-01
