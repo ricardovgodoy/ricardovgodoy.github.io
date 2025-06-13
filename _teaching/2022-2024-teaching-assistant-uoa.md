@@ -2,7 +2,7 @@
 title: "Course: Biomechatronic Systems (MECHENG 736)"
 collection: teaching
 type: "Teaching Assistant for Engineering Courses"
-permalink: /teaching/2022-2024-teaching-assistant-uoa.md
+permalink: /teaching/2022-2024-teaching-assistant-uoa
 venue: "University of Auckland"
 date: 2024-01-01
 location: "Auckland, New Zealand"
