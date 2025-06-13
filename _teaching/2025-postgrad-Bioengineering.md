@@ -1,5 +1,5 @@
 ---
-title: "Course: Postgraduate degree in Bioengineering applied to health"
+title: "Course: Postgraduate Degree in Bioengineering Applied to Health"
 collection: teaching
 type: "Postgraduate degree in Bioengineering"
 permalink: /teaching/2025-postgrad-Bioengineering
