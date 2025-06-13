@@ -1,5 +1,5 @@
 ---
-title: "Course: Biomechatronic Systems (MECHENG 736)"
+title: "Course MECHENG 736: Biomechatronic Systems"
 collection: teaching
 type: "Teaching Assistant for Engineering Courses"
 permalink: /teaching/2022-2024-teaching-assistant-uoa
