@@ -4,7 +4,7 @@ collection: talks
 type: "Conference proceedings talk"
 permalink: /talks/2024-einstein-1
 venue: "Hospital Albert Einstein"
-date: 2014-03-01
+date: 2024-08-01
 location: "São Paulo, Brazil"
 ---
 
