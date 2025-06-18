@@ -1,5 +1,5 @@
 ---
-title: "On lightmyography based muscle-machine interfaces for the efficient decoding of human gestures and forces"
+title: "Electromyography-Based, Robust Hand Motion Classification Employing Temporal Multi-Channel Vision Transformers"
 collection: publications
 category: manuscripts
 permalink: /publication/2022-emg-ral-1
