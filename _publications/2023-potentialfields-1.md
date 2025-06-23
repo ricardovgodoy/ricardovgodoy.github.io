@@ -1,0 +1,13 @@
+---
+title: "On Semi-Autonomous Robotic Telemanipulation Employing Electromyography Based Motion Decoding and Potential Fields"
+collection: publications
+category: conferences
+permalink: /publication/2023-potentialfields-1
+excerpt: 'This paper proposes a semi-autonomous framework for robotic telemanipulation that employs Electromyography (EMG) based motion decoding and potential fields to execute complex object stacking tasks with a dexterous robot arm-hand system.'
+date: 2023-10-01
+venue: '2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
+paperurl: 'https://ieeexplore.ieee.org/document/10342155'
+bibtexurl: 'http://ricardovgodoy.github.io/files/2023-potentialfields-1.bib'
+citation: 'B. Guan, R. V. Godoy, F. Sanches, A. Dwivedi and M. Liarokapis, "On Semi-Autonomous Robotic Telemanipulation Employing Electromyography Based Motion Decoding and Potential Fields," 2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Detroit, MI, USA, 2023, pp. 6991-6997, doi: 10.1109/IROS55552.2023.10342155.'
+---
+Telemanipulation is widely used in robotics applications, ranging from maintenance of various industrial systems to search and rescue response in remote and/or hazardous environments. Human operators are often responsible for the control of such robotic systems. However, these remote interactions require highly trained and experienced operators owing to their complex nature. Semi-autonomous systems are presented as an alternative to complex and counter-intuitive manual systems, combining decoded user intentions with autonomous control modules. This paper proposes a semi-autonomous framework for robotic telemanipulation that employs Electromyography (EMG) based motion decoding and potential fields to execute complex object stacking tasks with a dexterous robot arm-hand system. Even though simple EMG-based teleoperation is promising, the signals are often noisy leading to induced randomness and control errors. To assist the user during task executions, potential fields are utilized to avoid obstacles and guide the robot end-effector toward the objects of interest, thus reducing the cognitive load on the user and the need for accurate predictions. The user's motion is decoded from the myoelectric activations of the human upper arm and upper torso using a Random Forest-based regression methodology. The objects are detected in the environment with an external camera that provides their goal poses to the potential fields scheme. EMG control and potential fields work in a synergistic manner simplifying the system's operation. The framework performance is experimentally validated in real-time experiments involving complex cube and cylinder stacking tasks.
