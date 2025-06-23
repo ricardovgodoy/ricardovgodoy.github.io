@@ -2,12 +2,12 @@
 title: "Electromyography-Based, Robust Hand Motion Classification Employing Temporal Multi-Channel Vision Transformers"
 collection: publications
 category: conferences
-permalink: /publication/2022-biorob
+permalink: /publication/2022-biorob-1
 excerpt: 'In this work, we propose Temporal Multi-Channel Vision Transformers as a deep learning technique that has the potential to achieve dexterous control of robots and bionic hands.'
 date: 2022-08-21
 venue: '2022 9th IEEE RAS/EMBS International Conference for Biomedical Robotics and Biomechatronics (BioRob)'
 paperurl: 'https://ieeexplore.ieee.org/document/9925307'
-bibtexurl: 'http://ricardovgodoy.github.io/files/2022-biorob.bib'
+bibtexurl: 'http://ricardovgodoy.github.io/files/2022-biorob-1.bib'
 citation: 'R. V. Godoy et al., "Electromyography-Based, Robust Hand Motion Classification Employing Temporal Multi-Channel Vision Transformers," 2022 9th IEEE RAS/EMBS International Conference for Biomedical Robotics and Biomechatronics (BioRob), Seoul, Korea, Republic of, 2022, pp. 1-8, doi: 10.1109/BioRob52689.2022.9925307.'
 ---
 
