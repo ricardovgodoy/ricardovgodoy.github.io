@@ -17,7 +17,7 @@ My main research topics are:
 - Deep learning for processing multimodal sensor systems
 - Real-time control frameworks for manipulators and legged robots
 
-I work with platforms including Boston Dynamics’ Spot, robotic arms, and wearable sensor systems.  
+I work with platforms including robotic arms, legged robots, and wearable sensor systems.  
 I am passionate about solving real-world problems through engineering, experimentation, and collaborations.
 
 📄 Learn more about my [publications](/publications/).
