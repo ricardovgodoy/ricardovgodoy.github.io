@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/2025-lars-teleop
 excerpt: 'This paper was submitted to LARS 2025.'
 date: 2025-08-18
-venue: '2025 IEEE Latin American Robotics Symposium (LARS) (Under review)'
+venue: '2025 IEEE Latin American Robotics Symposium (LARS)'
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/klgpq57c8UM?si=bR5CQGy6fnOEymTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
