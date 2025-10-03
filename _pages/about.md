@@ -20,6 +20,10 @@ My main research topics are:
 I work with platforms including robotic arms, legged robots, and wearable sensor systems.  
 I am passionate about solving real-world problems through engineering, experimentation, and collaborations.
 
+Linkedin: [https://www.linkedin.com/in/ricardo-vilela-de-godoy/](https://www.linkedin.com/in/ricardo-vilela-de-godoy/)
+
 📄 Learn more about my [publications](/publications/).
 
-📫 For collaboration inquiries, feel free to contact me at [vgodoy.ricardo@gmail.com](mailto:vgodoy.ricardo@gmail.com).
+📫 For collaboration inquiries, feel free to contact me at [ricardo.godoy@alumni.usp.br](mailto:ricardo.godoy@alumni.usp.br).
+
+<p><em>Last updated: {{ site.time | date: "%B %d, %Y" }}</em></p>
