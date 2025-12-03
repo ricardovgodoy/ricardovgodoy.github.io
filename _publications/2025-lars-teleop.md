@@ -10,6 +10,8 @@ paperurl: 'https://arxiv.org/abs/2508.14994'
 citation: 'da Silva, Murilo Vinicius, Matheus Hipolito Carvalho, Juliano Negri, Thiago Segreto, Gustavo JG Lahr, Ricardo V. Godoy, and Marcelo Becker. "A Vision-Based Shared-Control Teleoperation Scheme for Controlling the Robotic Arm of a Four-Legged Robot." arXiv preprint arXiv:2508.14994 (2025).'
 ---
 
+This paper received the Best Paper Award at LARS 20205!
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/klgpq57c8UM?si=bR5CQGy6fnOEymTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
