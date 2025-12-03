@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Welcome!"
+title: "Dr. Ricardo Vilela de Godoy - Robotics Researcher"
 author_profile: true
 redirect_from: 
   - /about/
