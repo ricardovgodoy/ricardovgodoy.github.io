@@ -8,7 +8,7 @@ date: 2023-01-01
 location: "Auckland, New Zealand"
 ---
 
-Supervised research on a topic in engineering culminating in an independent written project report that includes a literature review, a description of the research and its findings, and a statement of research contribution. Further supporting technical material will be provided as a compendium.
+Supervised research on a topic in engineering culminating in an independent written project report that includes a literature review, a description of the research and its findings, and a statement of research contribution.
 
 Course Overview
 ======
