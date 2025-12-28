@@ -7,7 +7,6 @@ on:
       - ".github/workflows/build-cv.yml"
   workflow_dispatch:
 
-# Prevent overlapping runs (older runs get cancelled if you push again)
 concurrency:
   group: cv-pdf-${{ github.ref }}
   cancel-in-progress: true
@@ -23,7 +22,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.ref_name }}
 
       - name: Clean old LaTeX artifacts
         run: |
