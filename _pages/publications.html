@@ -25,6 +25,68 @@ author_profile: true
   .pub-root.show-topics .pub-tags { display:block; }
 
   .pub-empty { padding: 1rem 0; opacity:.8; display:none; }
+
+  /* ---- Dark mode readability for filters (Vivaldi/Chromium + common toggles) ---- */
+  .pub-root { color-scheme: light dark; }
+
+  .pub-controls input,
+  .pub-controls select,
+  .pub-controls button {
+    background: #ffffff;
+    color: #111111;
+    border-color: rgba(0,0,0,.18);
+  }
+
+  .pub-controls input::placeholder { color: rgba(0,0,0,.55); }
+
+  @media (prefers-color-scheme: dark) {
+    .pub-controls input,
+    .pub-controls select,
+    .pub-controls button {
+      background: #1b1b1b;
+      color: #eaeaea;
+      border-color: rgba(255,255,255,.22);
+    }
+
+    .pub-controls input::placeholder { color: rgba(234,234,234,.60); }
+
+    .pub-controls select option {
+      background: #1b1b1b;
+      color: #eaeaea;
+    }
+  }
+
+  html[data-theme="dark"] .pub-controls input,
+  html[data-theme="dark"] .pub-controls select,
+  html[data-theme="dark"] .pub-controls button,
+  html.dark .pub-controls input,
+  html.dark .pub-controls select,
+  html.dark .pub-controls button,
+  body.dark .pub-controls input,
+  body.dark .pub-controls select,
+  body.dark .pub-controls button,
+  body.theme-dark .pub-controls input,
+  body.theme-dark .pub-controls select,
+  body.theme-dark .pub-controls button {
+    background: #1b1b1b;
+    color: #eaeaea;
+    border-color: rgba(255,255,255,.22);
+  }
+
+  html[data-theme="dark"] .pub-controls input::placeholder,
+  html.dark .pub-controls input::placeholder,
+  body.dark .pub-controls input::placeholder,
+  body.theme-dark .pub-controls input::placeholder {
+    color: rgba(234,234,234,.60);
+  }
+
+  html[data-theme="dark"] .pub-controls select option,
+  html.dark .pub-controls select option,
+  body.dark .pub-controls select option,
+  body.theme-dark .pub-controls select option {
+    background: #1b1b1b;
+    color: #eaeaea;
+  }
 </style>
 
 {% assign pubs = site.publications | sort: "date" | reverse %}
@@ -89,7 +151,6 @@ author_profile: true
   </div>
 
   {% comment %}
-    Helper include-like snippet (inlined) to render one pub item.
     Type logic:
       - prefer pubtype if present
       - else use category (academicpages often uses "journals"/"conferences")
@@ -313,7 +374,8 @@ author_profile: true
     });
 
     sections.forEach(sec => {
-      const hasVisible = Array.from(sec.querySelectorAll(".pub-item")).some(it => it.style.display !== "none");
+      const hasVisible = Array.from(sec.querySelectorAll(".pub-item"))
+        .some(it => it.style.display !== "none");
       sec.style.display = hasVisible ? "" : "none";
     });
 
@@ -325,8 +387,11 @@ author_profile: true
     root.classList.toggle("show-topics", showTopics.checked);
   });
 
-  [q, y, t, g].forEach(el => el.addEventListener("input", apply));
-  [y, t, g].forEach(el => el.addEventListener("change", apply));
+  // IMPORTANT: input for typing, change for selects (covers Chromium/Vivaldi well)
+  q.addEventListener("input", apply);
+  y.addEventListener("change", apply);
+  t.addEventListener("change", apply);
+  g.addEventListener("change", apply);
 
   clearBtn.addEventListener("click", () => {
     q.value = ""; y.value = ""; t.value = ""; g.value = "";
