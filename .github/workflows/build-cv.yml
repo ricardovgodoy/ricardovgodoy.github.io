@@ -2,6 +2,9 @@ name: Build CV PDF
 
 on:
   push:
+    paths:
+      - "cv-src/**"
+      - ".github/workflows/build-cv.yml"
   workflow_dispatch:
 
 permissions:
@@ -9,16 +12,6 @@ permissions:
 
 jobs:
   build:
-    # Only run if push includes changes in cv-src/ or this workflow file.
-    # This avoids looping when the action commits files/cv.pdf.
-    if: |
-      github.event_name == 'workflow_dispatch' ||
-      contains(join(github.event.commits.*.modified, ' '), 'cv-src/') ||
-      contains(join(github.event.commits.*.added, ' '), 'cv-src/') ||
-      contains(join(github.event.commits.*.removed, ' '), 'cv-src/') ||
-      contains(join(github.event.commits.*.modified, ' '), '.github/workflows/build-cv.yml') ||
-      contains(join(github.event.commits.*.added, ' '), '.github/workflows/build-cv.yml')
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
