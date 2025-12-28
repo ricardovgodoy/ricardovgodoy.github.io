@@ -2,6 +2,9 @@
 title: "An Affordances and Electromyography Based Telemanipulation Framework for Control of Robotic Arm-Hand Systems"
 collection: publications
 category: conferences
+pubtype: conference
+tags: [teleoperation, shared-control, wearable-sensing, control, biosignal, manipulation]
+doi: 10.1109/IROS55552.2023.10341955        # optional
 permalink: /publication/2023-affordances-1
 excerpt: 'In this paper, we propose an intuitive, affordances-oriented EMG-based telemanipulation framework for a robot arm-hand system that allows for dexterous control of the device.'
 date: 2023-10-01
