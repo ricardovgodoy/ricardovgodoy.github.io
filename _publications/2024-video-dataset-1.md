@@ -2,6 +2,10 @@
 title: "A Video Dataset of Everyday Life Grasps for the Training of Shared Control Operation Models for Myoelectric Prosthetic Hands"
 collection: publications
 category: conferences
+pubtype: conference
+tags: [vision, grasping, perception, manipulation]
+doi: 10.1109/EMBC53108.2024.10782638
+code: https://newdexterity.org/everydaygraspdataset/
 permalink: /publication/2024-video-dataset-1
 excerpt: 'In this paper, we present a new dataset capturing user interactions with a wide variety of everyday life objects using a fully actuated, human-like robot hand and an onboard camera.'
 date: 2024-07-24
