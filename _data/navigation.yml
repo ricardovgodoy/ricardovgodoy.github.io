@@ -19,6 +19,9 @@ main:
     
   #- title: "Portfolio"
   #  url: /portfolio/
+
+  - title: "Videos"
+    url: /videos/
         
   - title: "Blog Posts"
     url: /year-archive/
