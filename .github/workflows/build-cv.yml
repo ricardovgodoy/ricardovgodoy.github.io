@@ -14,8 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repo (full history so we can find last cv-src commit)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Clean old LaTeX artifacts
         run: |
@@ -39,8 +41,15 @@ jobs:
           mkdir -p files
           cp cv-src/cv.pdf files/cv.pdf
 
-      - name: Commit updated PDF
+      - name: Write last-updated date (last commit touching cv-src)
+        run: |
+          mkdir -p _data
+          echo "date: \"$(git log -1 --format=%cI -- cv-src)\"" > _data/cv_last_updated.yml
+
+      - name: Commit updated PDF + date
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update CV PDF [skip ci]"
-          file_pattern: "files/cv.pdf"
+          file_pattern: |
+            files/cv.pdf
+            _data/cv_last_updated.yml
