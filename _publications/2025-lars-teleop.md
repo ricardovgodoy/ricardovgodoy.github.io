@@ -2,12 +2,18 @@
 title: "A Vision-Based Shared-Control Teleoperation Scheme for Controlling the Robotic Arm of a Four-Legged Robot"
 collection: publications
 category: conferences
+pubtype: conference
+tags: [teleoperation, shared-control, control, vision, perception, manipulation, grasping, mobile-manipulation, legged-robots]
+doi: 10.1109/LARS69345.2025.11272961       # optional
+code: https://github.com/EESC-LabRoM/MoveitServoing/blob/spot_teleop/
 permalink: /publication/2025-lars-teleop
 excerpt: 'This paper introduces a vision-based teleoperation shared control framework designed to overcome real-time teleoperation limitations, providing intuitive, real-time control of a quadruped’s manipulator'
 date: 2025-10-03
 venue: '2025 IEEE Latin American Robotics Symposium (LARS)'
-paperurl: 'https://arxiv.org/abs/2508.14994'
-citation: 'da Silva, Murilo Vinicius, Matheus Hipolito Carvalho, Juliano Negri, Thiago Segreto, Gustavo JG Lahr, Ricardo V. Godoy, and Marcelo Becker. "A Vision-Based Shared-Control Teleoperation Scheme for Controlling the Robotic Arm of a Four-Legged Robot." arXiv preprint arXiv:2508.14994 (2025).'
+paperurl: 'https://ieeexplore.ieee.org/document/11272961'
+citation: 'M. V. D. Silva et al., "A Vision-Based Shared-Control Teleoperation Scheme for Controlling the Robotic Arm of a Four-Legged Robot," 2025 Latin American Robotics Symposium (LARS), Monterrey, Mexico, 2025, pp. 1-6, doi: 10.1109/LARS69345.2025.11272961. keywords: {Wrist;Service robots;Tracking;Robot vision systems;Manipulators;Real-time systems;Safety;Quadrupedal robots;Collision avoidance;Robots}
+
+'
 ---
 
 This paper received the Best Paper Award at LARS 20205!
