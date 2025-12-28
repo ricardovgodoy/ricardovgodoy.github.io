@@ -4,6 +4,8 @@ permalink: /videos/
 author_profile: true
 ---
 
+Short clips of experiments, system demos, and robot setups.
+
 <div class="yt-header">
   <a class="yt-subscribe" href="https://www.youtube.com/@RicardoVGodoy" target="_blank" rel="noopener">
     Visit my YouTube channel
