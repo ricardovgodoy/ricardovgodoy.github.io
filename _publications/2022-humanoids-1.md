@@ -2,6 +2,9 @@
 title: "Comparing Human and Robot Performance in the Execution of Kitchen Tasks: Evaluating Grasping and Dexterous Manipulation Skills"
 collection: publications
 category: conferences
+pubtype: conference
+tags: [grasping, manipulation]
+doi: 10.1109/Humanoids53995.2022.10000248
 permalink: /publication/2022-humanoids-1
 excerpt: 'In this work, we focus on comparing human and robot performance in the execution of complex kitchen tasks, assessing the grasping and dexterous manipulation skills that are required.'
 date: 2022-11-28
