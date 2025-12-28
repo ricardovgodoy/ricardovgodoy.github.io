@@ -24,7 +24,7 @@ author_profile: true
 </div>
 
 <style>
-.yt-header{margin:0 0 18px 0;display:flex;justify-content:flex-end}
+.yt-header{margin:0 0 18px 0;display:flex;justify-content:center}
 .yt-subscribe{font-size:.95em;text-decoration:none;border:1px solid rgba(0,0,0,.15);padding:8px 12px;border-radius:10px}
 .yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
 .yt-card{text-decoration:none;display:block}
