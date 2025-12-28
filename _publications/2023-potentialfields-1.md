@@ -2,6 +2,9 @@
 title: "On Semi-Autonomous Robotic Telemanipulation Employing Electromyography Based Motion Decoding and Potential Fields"
 collection: publications
 category: conferences
+pubtype: conference
+tags: [teleoperation, shared-control, wearable-sensing, control, biosignal, manipulation, grasping]
+doi: 10.1109/IROS55552.2023.10342155
 permalink: /publication/2023-potentialfields-1
 excerpt: 'This paper proposes a semi-autonomous framework for robotic telemanipulation that employs Electromyography (EMG) based motion decoding and potential fields to execute complex object stacking tasks with a dexterous robot arm-hand system.'
 date: 2023-10-01
