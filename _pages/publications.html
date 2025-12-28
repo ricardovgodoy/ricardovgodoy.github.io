@@ -1,36 +1,173 @@
 ---
-layout: archive
-title: "Publications"
 permalink: /publications/
+title: "Publications"
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<style>
+  .pub-controls { display:flex; gap:.75rem; flex-wrap:wrap; margin: 1rem 0 1.25rem 0; align-items:center; }
+  .pub-controls input, .pub-controls select { padding:.45rem .6rem; border:1px solid #ddd; border-radius:.4rem; }
+  .pub-controls button { padding:.45rem .7rem; border:1px solid #ddd; border-radius:.4rem; background:#fff; cursor:pointer; }
+  .pub-count { opacity:.8; margin-left:auto; }
+  .pub-item { padding: .9rem 0; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .pub-title { margin:0; font-weight: 600; }
+  .pub-meta { margin:.25rem 0 .35rem 0; opacity:.85; }
+  .pub-badges { display:flex; gap:.4rem; flex-wrap:wrap; margin:.35rem 0; }
+  .pub-badge { font-size:.78rem; border:1px solid rgba(0,0,0,.15); border-radius: 999px; padding:.15rem .55rem; }
+  .pub-links a { margin-right:.65rem; }
+  .pub-empty { padding: 1rem 0; opacity:.8; display:none; }
+</style>
 
-{% include base_path %}
+{% assign pubs = site.publications | sort: "date" | reverse %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
+<div class="pub-controls">
+  <input id="pubSearch" type="text" placeholder="Search title, authors, venue, tags…" autocomplete="off" />
+
+  <select id="pubYear">
+    <option value="">All years</option>
+    {% assign years = "" | split: "" %}
+    {% for p in pubs %}
+      {% assign y = p.date | date: "%Y" %}
+      {% unless years contains y %}
+        {% assign years = years | push: y %}
       {% endunless %}
-      {% include archive-single.html %}
     {% endfor %}
+    {% assign years = years | sort | reverse %}
+    {% for y in years %}
+      <option value="{{y}}">{{y}}</option>
+    {% endfor %}
+  </select>
+
+  <select id="pubType">
+    <option value="">All types</option>
+    <option value="journal">Journal</option>
+    <option value="conference">Conference</option>
+    <option value="workshop">Workshop</option>
+    <option value="preprint">Preprint</option>
+    <option value="thesis">Thesis</option>
+    <option value="chapter">Chapter</option>
+    <option value="other">Other</option>
+  </select>
+
+  <select id="pubTag">
+    <option value="">All topics</option>
+    {% assign alltags = "" | split: "" %}
+    {% for p in pubs %}
+      {% if p.tags %}
+        {% for t in p.tags %}
+          {% assign td = t | downcase %}
+          {% unless alltags contains td %}
+            {% assign alltags = alltags | push: td %}
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% assign alltags = alltags | sort %}
+    {% for t in alltags %}
+      <option value="{{t}}">{{t}}</option>
+    {% endfor %}
+  </select>
+
+  <button id="pubClear" type="button">Clear</button>
+  <div class="pub-count"><span id="pubShown">0</span> / <span id="pubTotal">{{ pubs.size }}</span></div>
+</div>
+
+<div id="pubList">
+  {% for p in pubs %}
+    {% assign year = p.date | date: "%Y" %}
+    {% assign ptype = p.pubtype | default: "other" | downcase %}
+    {% assign tags_join = "" %}
+    {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
+
+    {% comment %}
+      Search blob: title + citation + venue + tags
+      (works even if some fields are missing)
+    {% endcomment %}
+    {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
+
+    <div class="pub-item"
+         data-year="{{year}}"
+         data-type="{{ptype}}"
+         data-tags="{{tags_join | downcase}}"
+         data-search="{{searchblob | downcase | escape}}">
+      <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+
+      <div class="pub-meta">
+        <span>{{ year }}</span>
+        {% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
+      </div>
+
+      <div class="pub-badges">
+        <span class="pub-badge">{{ ptype }}</span>
+        {% if p.tags %}
+          {% for t in p.tags %}
+            <span class="pub-badge">{{ t }}</span>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="pub-links">
+        {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+        {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+        {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+        {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+      </div>
+    </div>
   {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+</div>
 
+<div id="pubEmpty" class="pub-empty">No publications match your filters.</div>
 
+<script>
+(function () {
+  const q = document.getElementById("pubSearch");
+  const y = document.getElementById("pubYear");
+  const t = document.getElementById("pubType");
+  const g = document.getElementById("pubTag");
+  const clearBtn = document.getElementById("pubClear");
+  const shown = document.getElementById("pubShown");
+  const empty = document.getElementById("pubEmpty");
 
+  const items = Array.from(document.querySelectorAll("#pubList .pub-item"));
+
+  function norm(s){ return (s || "").toString().toLowerCase().trim(); }
+
+  function apply() {
+    const qq = norm(q.value);
+    const yy = norm(y.value);
+    const tt = norm(t.value);
+    const gg = norm(g.value);
+
+    let visibleCount = 0;
+
+    items.forEach(el => {
+      const ey = norm(el.dataset.year);
+      const et = norm(el.dataset.type);
+      const eg = norm(el.dataset.tags);
+      const es = norm(el.dataset.search);
+
+      const okQ = !qq || es.includes(qq);
+      const okY = !yy || ey === yy;
+      const okT = !tt || et === tt;
+      const okG = !gg || eg.split(/\s+/).includes(gg);
+
+      const ok = okQ && okY && okT && okG;
+      el.style.display = ok ? "" : "none";
+      if (ok) visibleCount++;
+    });
+
+    shown.textContent = visibleCount.toString();
+    empty.style.display = visibleCount === 0 ? "" : "none";
+  }
+
+  [q, y, t, g].forEach(el => el.addEventListener("input", apply));
+  [y, t, g].forEach(el => el.addEventListener("change", apply));
+
+  clearBtn.addEventListener("click", () => {
+    q.value = ""; y.value = ""; t.value = ""; g.value = "";
+    apply();
+  });
+
+  apply();
+})();
+</script>
