@@ -25,7 +25,7 @@ author:
   avatar           : "new_profile_new2.JPG"
   name             : "Dr. Ricardo Vilela de Godoy"
   pronouns         : # example: "she/her"  
-  bio              : "I am a postdoctoral researcher at the Mobile Robotics Group at the University of São Paulo, Brazil. I've been working with four-legged robots with robotic arms and grippers for intuitive teleoperation and dexterous manipulation."
+  bio              : "I am a postdoctoral researcher at the University of São Paulo (Brazil) working on manipulation and loco-manipulation for inspection and field robotics. My background includes human-in-the-loop control (teleoperation/shared control) using wearable sensing (e.g., EMG/LMG) and external perception (motion capture/vision) to deploy systems that run in real-time for real-world applications."
   location         : "Brazil"
   employer         : "University of São Paulo"
   uri              : # URL
