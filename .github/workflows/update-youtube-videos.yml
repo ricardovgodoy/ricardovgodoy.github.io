@@ -3,7 +3,7 @@ name: Update YouTube videos list
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 9 * * *" # daily at 09:00 UTC (06:00 Sao Paulo)
+    - cron: "0 9 * * *" # daily 09:00 UTC
 
 concurrency:
   group: yt-videos-${{ github.ref_name }}
@@ -28,56 +28,61 @@ jobs:
           python - << 'PY'
           import os, re, urllib.request, xml.etree.ElementTree as ET
 
-          channel_url = os.environ["CHANNEL_URL"].strip()
+          channel_url = os.environ["CHANNEL_URL"].rstrip("/")
+          about_url = channel_url + "/about"
 
-          # 1) Fetch channel page HTML (to extract channel id)
-          req = urllib.request.Request(
-              channel_url,
-              headers={
-                  "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36",
-                  "Accept-Language": "en-US,en;q=0.9",
-              },
-          )
-          html = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", errors="ignore")
+          def fetch(url: str) -> str:
+              req = urllib.request.Request(
+                  url,
+                  headers={
+                      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36",
+                      "Accept-Language": "en-US,en;q=0.9",
+                  },
+              )
+              return urllib.request.urlopen(req, timeout=30).read().decode("utf-8", errors="ignore")
 
-          # Common patterns:
-          # - <meta itemprop="channelId" content="UC....">
-          # - <link rel="canonical" href="https://www.youtube.com/channel/UC....">
-          m = re.search(r'<meta[^>]+itemprop="channelId"[^>]+content="(UC[^"]+)"', html)
-          if not m:
-              m = re.search(r'rel="canonical"\s+href="https://www\.youtube\.com/channel/(UC[^"?/]+)"', html)
+          html = fetch(about_url)
 
-          if not m:
+          # Try multiple patterns (YouTube changes markup frequently)
+          patterns = [
+              r'<meta[^>]+itemprop="identifier"[^>]+content="(UC[^"]+)"',  # common on /about
+              r'<meta[^>]+itemprop="channelId"[^>]+content="(UC[^"]+)"',
+              r'rel="canonical"\s+href="https://www\.youtube\.com/channel/(UC[^"?/]+)"',
+              r'"externalId"\s*:\s*"(UC[^"]+)"',
+          ]
+
+          channel_id = None
+          for p in patterns:
+              m = re.search(p, html)
+              if m:
+                  channel_id = m.group(1)
+                  break
+
+          if not channel_id:
               raise SystemExit(
-                  "Could not extract channel ID from channel HTML. "
-                  "Open the channel page source and search for 'channelId' or 'canonical'."
+                  "Could not extract channel ID from YouTube /about HTML. "
+                  "Open the Actions log for this step and we can adjust the parser."
               )
 
-          channel_id = m.group(1)
           print("Channel ID:", channel_id)
 
-          # 2) Fetch YouTube Atom feed
           feed_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
-          xml = urllib.request.urlopen(feed_url, timeout=30).read()
+          xml_bytes = urllib.request.urlopen(feed_url, timeout=30).read()
+          root = ET.fromstring(xml_bytes)
 
-          root = ET.fromstring(xml)
-          ns = {
-              "atom": "http://www.w3.org/2005/Atom",
-              "yt": "http://www.youtube.com/xml/schemas/2015",
-          }
+          ns = {"atom": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
 
           entries = []
           for e in root.findall("atom:entry", ns):
               vid = e.findtext("yt:videoId", default="", namespaces=ns)
               title = e.findtext("atom:title", default="", namespaces=ns)
-              published = e.findtext("atom:published", default="", namespaces=ns)  # ISO datetime
+              published = e.findtext("atom:published", default="", namespaces=ns)
               if not vid or not title or not published:
                   continue
-              # Use stable thumbnail host
               thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
               entries.append((published, title, vid, thumb))
 
-          entries.sort(reverse=True)  # newest first
+          entries.sort(reverse=True)
 
           os.makedirs("_data", exist_ok=True)
           out_path = "_data/videos.yml"
@@ -91,6 +96,14 @@ jobs:
 
           print(f"Wrote {len(entries)} videos to {out_path}")
           PY
+
+      - name: Show git status (debug)
+        run: |
+          ls -la _data || true
+          echo "----"
+          test -f _data/videos.yml && head -n 30 _data/videos.yml || echo "videos.yml not found"
+          echo "----"
+          git status --porcelain
 
       - name: Commit updates
         uses: stefanzweifel/git-auto-commit-action@v5
