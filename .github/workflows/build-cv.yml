@@ -1,0 +1,39 @@
+name: Build CV PDF
+
+on:
+  push:
+    paths:
+      - "cv-src/**"
+      - ".github/workflows/build-cv.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX (XeLaTeX, TeXLive 2021)
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: cv-src
+          root_file: cv.tex
+          latexmk_use_xelatex: true
+          texlive_version: 2021
+          # If you need shell-escape (minted, etc), uncomment:
+          # latexmk_shell_escape: true
+
+      - name: Copy PDF into site
+        run: |
+          mkdir -p files
+          cp cv-src/cv.pdf files/cv.pdf
+
+      - name: Commit updated PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update CV PDF [skip ci]"
+          file_pattern: "files/cv.pdf"
