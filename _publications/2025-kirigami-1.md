@@ -2,6 +2,9 @@
 title: "Multi-Layer, Sensorized Kirigami Grippers for Delicate Yet Robust Robot Grasping and Single-Grasp Object Identification"
 collection: publications
 category: manuscripts
+pubtype: journal
+tags: [grasping, manipulation]
+doi: 10.1109/ACCESS.2024.3446729
 permalink: /publication/2025-kirigami-1
 excerpt: 'In this paper, we explore this new class of soft robotic grippers by proposing new designs and investigating their post-contact reconfiguration behaviour in a series of experiments covering grasping experiments and grasping force exertion measurement experiments.'
 date: 2024-08-24
