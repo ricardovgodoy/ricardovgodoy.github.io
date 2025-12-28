@@ -19,9 +19,11 @@ author_profile: true
   .pub-meta { margin:.25rem 0 .35rem 0; opacity:.85; }
   .pub-excerpt { margin:.25rem 0 .35rem 0; opacity:.9; }
   .pub-links a { margin-right:.65rem; }
-  .pub-tags { font-size:.82rem; opacity:.75; margin-top:.25rem; display:none; }
 
+  /* Topics: hidden by default, shown only if toggled */
+  .pub-tags { font-size:.82rem; opacity:.75; margin-top:.25rem; display:none; }
   .pub-root.show-topics .pub-tags { display:block; }
+
   .pub-empty { padding: 1rem 0; opacity:.8; display:none; }
 </style>
 
@@ -86,94 +88,187 @@ author_profile: true
     <div class="pub-count"><span id="pubShown">0</span> / <span id="pubTotal">{{ pubs.size }}</span></div>
   </div>
 
-  <!-- Grouped output sections (Journals first, then Conferences, etc.) -->
+  {% comment %}
+    Helper include-like snippet (inlined) to render one pub item.
+    Type logic:
+      - prefer pubtype if present
+      - else use category (academicpages often uses "journals"/"conferences")
+      - normalize plurals
+  {% endcomment %}
+
   <section class="pub-section" id="sec-journal">
     <h2>Journal articles</h2>
-    <div id="group-journal"></div>
-  </section>
-
-  <section class="pub-section" id="sec-conference">
-    <h2>Conference papers</h2>
-    <div id="group-conference"></div>
-  </section>
-
-  <section class="pub-section" id="sec-workshop">
-    <h2>Workshop papers</h2>
-    <div id="group-workshop"></div>
-  </section>
-
-  <section class="pub-section" id="sec-preprint">
-    <h2>Preprints</h2>
-    <div id="group-preprint"></div>
-  </section>
-
-  <section class="pub-section" id="sec-thesis">
-    <h2>Theses</h2>
-    <div id="group-thesis"></div>
-  </section>
-
-  <section class="pub-section" id="sec-chapter">
-    <h2>Book chapters</h2>
-    <div id="group-chapter"></div>
-  </section>
-
-  <section class="pub-section" id="sec-other">
-    <h2>Other</h2>
-    <div id="group-other"></div>
-  </section>
-
-  <div id="pubEmpty" class="pub-empty">No publications match your filters.</div>
-
-  <!-- Source list rendered once, then JS groups + filters it -->
-  <div id="pubSource" style="display:none;">
     {% for p in pubs %}
-      {% assign year = p.date | date: "%Y" %}
-      {% comment %}
-        type logic:
-        - prefer pubtype if present
-        - fall back to category (many academicpages entries use "journals"/"conferences")
-        - normalize: journals->journal, conferences->conference
-      {% endcomment %}
       {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
       {% assign ptype = rawtype %}
       {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
       {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
 
-      {% assign tags_join = "" %}
-      {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
-
-      {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
-
-      <div class="pub-item"
-           data-year="{{year}}"
-           data-type="{{ptype}}"
-           data-tags="{{tags_join | downcase}}"
-           data-search="{{searchblob | downcase | escape}}">
-        <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
-
-        <div class="pub-meta">
-          <span>{{ year }}</span>
-          {% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
+      {% if ptype == "journal" %}
+        {% assign year = p.date | date: "%Y" %}
+        {% assign tags_join = "" %}
+        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
+        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
+        <div class="pub-item"
+             data-year="{{year}}"
+             data-type="{{ptype}}"
+             data-tags="{{tags_join | downcase}}"
+             data-search="{{searchblob | downcase | escape}}">
+          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+          <div class="pub-meta">
+            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
+          </div>
+          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
+          <div class="pub-links">
+            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+          </div>
+          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
         </div>
-
-        {% if p.excerpt %}
-          <div class="pub-excerpt">{{ p.excerpt }}</div>
-        {% endif %}
-
-        <div class="pub-links">
-          {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
-          {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-          {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-          {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
-        </div>
-
-        {% if p.tags %}
-          <div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>
-        {% endif %}
-      </div>
+      {% endif %}
     {% endfor %}
-  </div>
+  </section>
 
+  <section class="pub-section" id="sec-conference">
+    <h2>Conference papers</h2>
+    {% for p in pubs %}
+      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
+      {% assign ptype = rawtype %}
+      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
+      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
+
+      {% if ptype == "conference" %}
+        {% assign year = p.date | date: "%Y" %}
+        {% assign tags_join = "" %}
+        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
+        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
+        <div class="pub-item"
+             data-year="{{year}}"
+             data-type="{{ptype}}"
+             data-tags="{{tags_join | downcase}}"
+             data-search="{{searchblob | downcase | escape}}">
+          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+          <div class="pub-meta">
+            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
+          </div>
+          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
+          <div class="pub-links">
+            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+          </div>
+          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  <section class="pub-section" id="sec-workshop">
+    <h2>Workshop papers</h2>
+    {% for p in pubs %}
+      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
+      {% assign ptype = rawtype %}
+      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
+      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
+      {% if ptype == "workshop" %}
+        {% assign year = p.date | date: "%Y" %}
+        {% assign tags_join = "" %}
+        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
+        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
+        <div class="pub-item"
+             data-year="{{year}}"
+             data-type="{{ptype}}"
+             data-tags="{{tags_join | downcase}}"
+             data-search="{{searchblob | downcase | escape}}">
+          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+          <div class="pub-meta">
+            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
+          </div>
+          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
+          <div class="pub-links">
+            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+          </div>
+          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  <section class="pub-section" id="sec-preprint">
+    <h2>Preprints</h2>
+    {% for p in pubs %}
+      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
+      {% assign ptype = rawtype %}
+      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
+      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
+      {% if ptype == "preprint" %}
+        {% assign year = p.date | date: "%Y" %}
+        {% assign tags_join = "" %}
+        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
+        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
+        <div class="pub-item"
+             data-year="{{year}}"
+             data-type="{{ptype}}"
+             data-tags="{{tags_join | downcase}}"
+             data-search="{{searchblob | downcase | escape}}">
+          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+          <div class="pub-meta">
+            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
+          </div>
+          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
+          <div class="pub-links">
+            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+          </div>
+          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  <section class="pub-section" id="sec-other">
+    <h2>Other</h2>
+    {% for p in pubs %}
+      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
+      {% assign ptype = rawtype %}
+      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
+      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
+      {% unless ptype == "journal" or ptype == "conference" or ptype == "workshop" or ptype == "preprint" %}
+        {% assign year = p.date | date: "%Y" %}
+        {% assign tags_join = "" %}
+        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
+        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
+        <div class="pub-item"
+             data-year="{{year}}"
+             data-type="{{ptype}}"
+             data-tags="{{tags_join | downcase}}"
+             data-search="{{searchblob | downcase | escape}}">
+          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
+          <div class="pub-meta">
+            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
+          </div>
+          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
+          <div class="pub-links">
+            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+          </div>
+          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </section>
+
+  <div id="pubEmpty" class="pub-empty">No publications match your filters.</div>
 </div>
 
 <script>
@@ -188,36 +283,10 @@ author_profile: true
   const shown = document.getElementById("pubShown");
   const empty = document.getElementById("pubEmpty");
 
-  const source = document.getElementById("pubSource");
-  const items = Array.from(source.querySelectorAll(".pub-item"));
-
-  const order = ["journal","conference","workshop","preprint","thesis","chapter","other"];
-  const group = {
-    journal: document.getElementById("group-journal"),
-    conference: document.getElementById("group-conference"),
-    workshop: document.getElementById("group-workshop"),
-    preprint: document.getElementById("group-preprint"),
-    thesis: document.getElementById("group-thesis"),
-    chapter: document.getElementById("group-chapter"),
-    other: document.getElementById("group-other"),
-  };
-  const sec = {
-    journal: document.getElementById("sec-journal"),
-    conference: document.getElementById("sec-conference"),
-    workshop: document.getElementById("sec-workshop"),
-    preprint: document.getElementById("sec-preprint"),
-    thesis: document.getElementById("sec-thesis"),
-    chapter: document.getElementById("sec-chapter"),
-    other: document.getElementById("sec-other"),
-  };
+  const items = Array.from(document.querySelectorAll(".pub-item"));
+  const sections = Array.from(document.querySelectorAll(".pub-section"));
 
   function norm(s){ return (s || "").toString().toLowerCase().trim(); }
-
-  // Move items into the grouped sections (preserving date order from Liquid)
-  items.forEach(el => {
-    const ty = norm(el.dataset.type);
-    (group[ty] || group.other).appendChild(el);
-  });
 
   function apply() {
     const qq = norm(q.value);
@@ -227,7 +296,6 @@ author_profile: true
 
     let visibleCount = 0;
 
-    // filter items
     items.forEach(el => {
       const ey = norm(el.dataset.year);
       const et = norm(el.dataset.type);
@@ -244,18 +312,15 @@ author_profile: true
       if (ok) visibleCount++;
     });
 
-    // hide sections with no visible items
-    order.forEach(ty => {
-      const container = group[ty];
-      const hasVisible = Array.from(container.children).some(ch => ch.style.display !== "none");
-      sec[ty].style.display = hasVisible ? "" : "none";
+    sections.forEach(sec => {
+      const hasVisible = Array.from(sec.querySelectorAll(".pub-item")).some(it => it.style.display !== "none");
+      sec.style.display = hasVisible ? "" : "none";
     });
 
     shown.textContent = visibleCount.toString();
     empty.style.display = visibleCount === 0 ? "" : "none";
   }
 
-  // show/hide topics
   showTopics.addEventListener("change", () => {
     root.classList.toggle("show-topics", showTopics.checked);
   });
