@@ -2,6 +2,9 @@
 title: "On EMG Based Dexterous Robotic Telemanipulation: Assessing Machine Learning Techniques, Feature Extraction Methods, and Shared Control Schemes"
 collection: publications
 category: manuscripts
+pubtype: journal
+tags: [teleoperation, biosignal, control, grasping, manipulation, dexterous-manipulation, wearable-sensing]
+doi: 10.1109/ACCESS.2022.3206436        # optional
 permalink: /publication/2022-emg-access-1
 excerpt: 'In this work, we compare various machine learning and feature extraction methods for the creation of EMG based control frameworks for dexterous robotic telemanipulation.'
 date: 2022-09-14
