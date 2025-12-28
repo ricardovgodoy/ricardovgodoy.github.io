@@ -2,6 +2,9 @@
 title: "Electromyography-Based, Robust Hand Motion Classification Employing Temporal Multi-Channel Vision Transformers"
 collection: publications
 category: manuscripts
+pubtype: conference
+tags: [biosignal, grasping, manipulation, control, wearable-sensing]
+doi: 10.1109/LRA.2022.319262
 permalink: /publication/2022-emg-ral-1
 excerpt: 'In this work, we propose Temporal Multi-Channel Vision Transformers as a deep learning technique that has the potential to achieve dexterous control of robots and bionic hands. The performance of this method is evaluated and compared with other well-known methods, employing the open-access Ninapro dataset.'
 date: 2022-07-20
