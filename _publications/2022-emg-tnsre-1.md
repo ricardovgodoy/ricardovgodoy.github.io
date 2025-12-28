@@ -2,6 +2,9 @@
 title: "Electromyography Based Decoding of Dexterous, In-Hand Manipulation Motions With Temporal Multichannel Vision Transformers"
 collection: publications
 category: manuscripts
+pubtype: journal
+tags: [control, biosignal, manipulation, grasping, dexterous-manipulation, wearable-sensing]
+doi: 10.1109/TNSRE.2022.3196622
 permalink: /publication/2022-emg-tnsre-1
 excerpt: 'In this work, we propose EMG based frameworks for the decoding of object motions in the execution of dexterous, in-hand manipulation tasks using raw EMG signals input and two novel deep learning (DL) techniques called Temporal Multi-Channel Transformers and Vision Transformers.'
 date: 2022-08-05
