@@ -5,6 +5,8 @@ on:
     paths:
       - "cv-src/**"
       - ".github/workflows/build-cv.yml"
+    paths-ignore:
+      - "files/cv.pdf"
   workflow_dispatch:
 
 permissions:
@@ -17,15 +19,22 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Compile LaTeX (XeLaTeX, TeXLive 2021)
+      - name: Clean old LaTeX artifacts (in case any got committed before)
+        run: |
+          rm -f cv-src/*.aux cv-src/*.bbl cv-src/*.bcf cv-src/*.blg cv-src/*.fdb_latexmk cv-src/*.fls \
+                cv-src/*.log cv-src/*.out cv-src/*.run.xml cv-src/*.toc cv-src/*.xdv cv-src/*.synctex.gz || true
+
+      - name: Compile CV (XeLaTeX, TeXLive 2021, Debian)
         uses: xu-cheng/latex-action@v4
         with:
           working_directory: cv-src
           root_file: cv.tex
           latexmk_use_xelatex: true
           texlive_version: 2021
-          # If you need shell-escape (minted, etc), uncomment:
-          # latexmk_shell_escape: true
+          os: debian
+          extra_fonts: |
+            ./cv-src/fonts/*.ttf
+            ./cv-src/fonts/*.otf
 
       - name: Copy PDF into site
         run: |
