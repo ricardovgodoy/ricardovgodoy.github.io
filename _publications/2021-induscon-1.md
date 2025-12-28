@@ -2,6 +2,9 @@
 title: "Redundant Robot Kinematics Error Analysis for Neurosurgical Procedures"
 collection: publications
 category: conferences
+pubtype: conference
+tags: [teleoperation, control]
+doi: 10.1109/INDUSCON51756.2021.9529675
 permalink: /publication/2021-induscon-1
 excerpt: 'This paper explores the kinematic relation between the robot configuration in joint space and both the robot tool center point (TCP) position resolution and the robot end-effector orientation resolution with the purpose of reducing error.'
 date: 2021-08-15
