@@ -1,0 +1,136 @@
+---
+permalink: /research/
+title: "Research"
+author_profile: true
+---
+
+<style>
+  .research-wrap { margin-top: 1rem; }
+  .research-intro { margin: 0 0 1rem 0; opacity: 0.95; }
+
+  details.research-item {
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 12px;
+    padding: 0.2rem 0.9rem;
+    margin: 0.75rem 0;
+    background: rgba(0,0,0,.02);
+  }
+
+  details.research-item[open] { background: rgba(0,0,0,.03); }
+
+  details.research-item > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.75rem 0;
+    font-weight: 650;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    outline: none;
+  }
+
+  details.research-item > summary::-webkit-details-marker { display: none; }
+
+  details.research-item > summary::after {
+    content: "+";
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0.75;
+    flex: 0 0 auto;
+  }
+
+  details.research-item[open] > summary::after { content: "−"; }
+
+  .research-body { padding: 0 0 0.9rem 0; opacity: 0.95; }
+  .research-body p { margin: 0.35rem 0; }
+
+  @media (prefers-color-scheme: dark) {
+    details.research-item {
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.03);
+    }
+    details.research-item[open] { background: rgba(255,255,255,.04); }
+    details.research-item > summary::after { opacity: 0.85; }
+  }
+</style>
+
+<div class="research-wrap">
+  <p class="research-intro">
+    My research focuses on building <strong>Physical AI</strong>: robot systems that integrate embodiment, sensing, and control, enabling them to operate in real-world environments, labs, industry, and everyday settings.
+  </p>
+
+  <details class="research-item">
+    <summary>Physical AI for real-world inspection and automation</summary>
+    <div class="research-body">
+      <p>
+        I develop end-to-end robotics systems that bridge the gap between AI capabilities and deployment, encompassing perception, task specification, control, and evaluation under real-world constraints (including latency, safety, partial observability, and imperfect calibration).
+      </p>
+    </div>
+  </details>
+
+  <details class="research-item">
+    <summary>Dexterous manipulation in clutter</summary>
+    <div class="research-body">
+      <p>
+        My focus is on robust grasping and manipulation of unknown objects in clutter by combining vision with proprioceptive feedback and practical sensing, aiming for performance that does not rely on fragile assumptions.
+      </p>
+    </div>
+  </details>
+
+  <details class="research-item">
+    <summary>Human–robot interaction for close-proximity tasks</summary>
+    <div class="research-body">
+      <p>
+        I study interaction where humans and robots share space, timing, and intent. This includes designing interfaces and behaviors that are predictable, safe, and efficient for users—especially in tasks that require continuous adjustment rather than pre-scripted motions.
+      </p>
+    </div>
+  </details>
+
+  <details class="research-item">
+    <summary>Teleoperation and shared control</summary>
+    <div class="research-body">
+      <p>
+        I design teleoperation pipelines that enable a human operator to provide intent, while the robot handles timing, collision avoidance, and local motion generation. The goal is reliable task execution, not just demonstrations.
+      </p>
+    </div>
+  </details>
+
+  <details class="research-item">
+    <summary>Wearable sensing and biosignal-driven intent (EMG and beyond)</summary>
+    <div class="research-body">
+      <p>
+        I use wearable sensing—especially EMG—to infer user intent for robot control and assistance. This includes signal processing, intent decoding, and control interfaces that remain usable under day-to-day variability (electrode placement, fatigue, motion artifacts).
+      </p>
+    </div>
+  </details>
+
+  <details class="research-item">
+    <summary>Multimodal perception for manipulation</summary>
+    <div class="research-body">
+      <p>
+        I integrate multiple sensing streams (vision, motion capture when available, robot proprioception, and task context) to support manipulation pipelines that are resilient to occlusion, clutter, and changing lighting.
+      </p>
+    </div>
+  </details>
+
+  <details class="research-item">
+    <summary>Locomanipulation on mobile platforms</summary>
+    <div class="research-body">
+      <p>
+        I extend manipulation to mobile platforms (e.g., legged robots) where navigation and manipulation must be solved in the same loop. This requires whole-body planning and control, as well as interfaces that maintain system stability while interacting with the environment.
+      </p>
+    </div>
+  </details>
+
+  <details class="research-item">
+    <summary>Robot self-learning in the real world</summary>
+    <div class="research-body">
+      <p>
+        In the long term, I want robots that improve through their own experience, collecting data from interactions, detecting failure modes, and adapting to new environments with minimal human feedback The emphasis is on safety, repeatability, and measurable gains over time.
+      </p>
+    </div>
+  </details>
+
+</div>
