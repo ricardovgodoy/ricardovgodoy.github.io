@@ -234,6 +234,7 @@ author_profile: true
       {% assign ptype = rawtype %}
       {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
       {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
+
       {% if ptype == "workshop" %}
         {% assign year = p.date | date: "%Y" %}
         {% assign tags_join = "" %}
@@ -268,6 +269,7 @@ author_profile: true
       {% assign ptype = rawtype %}
       {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
       {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
+
       {% if ptype == "preprint" %}
         {% assign year = p.date | date: "%Y" %}
         {% assign tags_join = "" %}
@@ -302,6 +304,7 @@ author_profile: true
       {% assign ptype = rawtype %}
       {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
       {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
+
       {% unless ptype == "journal" or ptype == "conference" or ptype == "workshop" or ptype == "preprint" %}
         {% assign year = p.date | date: "%Y" %}
         {% assign tags_join = "" %}
@@ -333,7 +336,7 @@ author_profile: true
 </div>
 
 <script>
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
   const root = document.getElementById("pubRoot");
   const q = document.getElementById("pubSearch");
   const y = document.getElementById("pubYear");
@@ -343,6 +346,8 @@ author_profile: true
   const showTopics = document.getElementById("pubShowTopics");
   const shown = document.getElementById("pubShown");
   const empty = document.getElementById("pubEmpty");
+
+  if (!root || !q || !y || !t || !g || !clearBtn || !shown || !empty) return;
 
   const items = Array.from(document.querySelectorAll(".pub-item"));
   const sections = Array.from(document.querySelectorAll(".pub-section"));
@@ -366,7 +371,9 @@ author_profile: true
       const okQ = !qq || es.includes(qq);
       const okY = !yy || ey === yy;
       const okT = !tt || et === tt;
-      const okG = !gg || eg.split(/\s+/).includes(gg);
+
+      const tagTokens = eg ? eg.split(/\s+/).filter(Boolean) : [];
+      const okG = !gg || tagTokens.includes(gg);
 
       const ok = okQ && okY && okT && okG;
       el.style.display = ok ? "" : "none";
@@ -379,15 +386,16 @@ author_profile: true
       sec.style.display = hasVisible ? "" : "none";
     });
 
-    shown.textContent = visibleCount.toString();
+    shown.textContent = String(visibleCount);
     empty.style.display = visibleCount === 0 ? "" : "none";
   }
 
-  showTopics.addEventListener("change", () => {
-    root.classList.toggle("show-topics", showTopics.checked);
-  });
+  if (showTopics) {
+    showTopics.addEventListener("change", () => {
+      root.classList.toggle("show-topics", showTopics.checked);
+    });
+  }
 
-  // IMPORTANT: input for typing, change for selects (covers Chromium/Vivaldi well)
   q.addEventListener("input", apply);
   y.addEventListener("change", apply);
   t.addEventListener("change", apply);
@@ -399,5 +407,5 @@ author_profile: true
   });
 
   apply();
-})();
+});
 </script>
