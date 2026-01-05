@@ -15,7 +15,7 @@ My work sits at the interface of:
 - **Robot autonomy on real tasks** (perception-to-action pipelines that works robustly and reliable)
 
 ### Current focus
-- **Dexterous manipulation under uncertainty:** robust grasping and manipulation of unknown objects in clutter using **vision + proprioception**, without relying on expensive tactile skins or brittle assumptions.
+- **Dexterous manipulation under uncertainty:** robust grasping and manipulation of unknown objects in clutter using **vision + proprioception**.
 - **Intuitive robot control:** wearable sensing (e.g., **EMG/LMG**) + motion capture/vision to map human intent to robot actions, with shared-control layers for safety and task completion.
 - **Mobile robotics:** mobile manipulation for inspection and maintenance tasks, where navigation and manipulation must run in the same loop.
 
