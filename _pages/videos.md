@@ -19,7 +19,8 @@ author_profile: true
     <div class="yt-embed">
       <iframe
         loading="lazy"
-        src="https://www.youtube.com/embed/{{ v.id }}"
+        referrerpolicy="strict-origin-when-cross-origin"
+        src="https://www.youtube-nocookie.com/embed/{{ v.id | strip }}?rel=0"
         title="{{ v.title | escape }}"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -41,7 +42,8 @@ author_profile: true
         <div class="yt-embed">
           <iframe
             loading="lazy"
-            src="https://www.youtube.com/embed/{{ p.id }}"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://www.youtube-nocookie.com/embed/{{ p.id | strip }}?rel=0"
             title="{{ p.title | escape }}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
