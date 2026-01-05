@@ -2,7 +2,7 @@
 title: "Electromyography-Based, Robust Hand Motion Classification Employing Temporal Multi-Channel Vision Transformers"
 collection: publications
 category: manuscripts
-pubtype: conference
+pubtype: journal
 tags: [biosignal, grasping, manipulation, control, wearable-sensing]
 doi: 10.1109/LRA.2022.319262
 permalink: /publication/2022-emg-ral-1
