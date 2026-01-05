@@ -13,6 +13,7 @@ author_profile: true
 
 <div class="yt-grid">
 {% assign selected_ids = site.data.videos | map: "id" %}
+{% assign site_origin = site.url | default: "https://www.ricardovgodoy.com" %}
 
 {% for v in site.data.videos %}
   <div class="yt-card">
@@ -20,7 +21,7 @@ author_profile: true
       <iframe
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
-        src="https://www.youtube-nocookie.com/embed/{{ v.id | strip }}?rel=0"
+        src="https://www.youtube.com/embed/{{ v.id }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
         title="{{ v.title | escape }}"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -43,7 +44,7 @@ author_profile: true
           <iframe
             loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin"
-            src="https://www.youtube-nocookie.com/embed/{{ p.id | strip }}?rel=0"
+            src="https://www.youtube.com/embed/{{ p.id }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
             title="{{ p.title | escape }}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
