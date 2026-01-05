@@ -12,16 +12,27 @@ author_profile: true
 </div>
 
 <div class="yt-grid">
-{% assign selected_ids = site.data.videos | map: "id" %}
+{% assign selected_ids = site.data.videos | map: "youtube_id" %}
 {% assign site_origin = site.url | default: "https://www.ricardovgodoy.com" %}
 
 {% for v in site.data.videos %}
+  {%- assign vid = v.youtube_id | strip -%}
+  {%- if vid contains "watch?v=" -%}
+    {%- assign vid = vid | split: "v=" | last | split: "&" | first | strip -%}
+  {%- endif -%}
+  {%- if vid contains "youtu.be/" -%}
+    {%- assign vid = vid | split: "youtu.be/" | last | split: "?" | first | strip -%}
+  {%- endif -%}
+  {%- if vid contains "/embed/" -%}
+    {%- assign vid = vid | split: "/embed/" | last | split: "?" | first | strip -%}
+  {%- endif -%}
+
   <div class="yt-card">
     <div class="yt-embed">
       <iframe
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
-        src="https://www.youtube.com/embed/{{ v.id }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
+        src="https://www.youtube.com/embed/{{ vid }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
         title="{{ v.title | escape }}"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -39,12 +50,23 @@ author_profile: true
 {% if site.data.playlist_videos %}
   {% for p in site.data.playlist_videos %}
     {% unless selected_ids contains p.id %}
+      {%- assign pid = p.id | strip -%}
+      {%- if pid contains "watch?v=" -%}
+        {%- assign pid = pid | split: "v=" | last | split: "&" | first | strip -%}
+      {%- endif -%}
+      {%- if pid contains "youtu.be/" -%}
+        {%- assign pid = pid | split: "youtu.be/" | last | split: "?" | first | strip -%}
+      {%- endif -%}
+      {%- if pid contains "/embed/" -%}
+        {%- assign pid = pid | split: "/embed/" | last | split: "?" | first | strip -%}
+      {%- endif -%}
+
       <div class="yt-card">
         <div class="yt-embed">
           <iframe
             loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin"
-            src="https://www.youtube.com/embed/{{ p.id }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
+            src="https://www.youtube.com/embed/{{ pid }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
             title="{{ p.title | escape }}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
