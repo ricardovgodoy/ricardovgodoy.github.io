@@ -5,6 +5,7 @@ category: manuscripts
 pubtype: journal
 tags: []
 doi: 10.1109/ACCESS.2025.3635541      # optional
+code: https://github.com/joaomh/article-impact-feature-scaling-classification
 permalink: /publication/2025-scaling-1
 excerpt: 'This paper addresses the critical lack of comprehensive studies on feature scaling by systematically evaluating 12 scaling techniques, including several less common transformations, across 14 different Machine Learning algorithms and 16 datasets for classification and regression tasks.'
 date: 2025-11-20
