@@ -16,7 +16,7 @@ I supervise and co-supervise students across robotics, physical AI, and human–
 
 {% if sup and sup.primary %}
   {% for d in degree_order %}
-    {% assign group = sup.primary | where: "degree", d | sort: "year" | reverse %}
+    {% assign group = sup.primary | where: "degree", d | sort: "start" | reverse %}
     {% if group and group.size > 0 %}
 ### {% if d == "phd" %}PhD{% elsif d == "msc" %}MSc{% else %}Undergraduate{% endif %}
 
@@ -54,7 +54,7 @@ I supervise and co-supervise students across robotics, physical AI, and human–
 
 {% if sup and sup.co %}
   {% for d in degree_order %}
-    {% assign group = sup.co | where: "degree", d | sort: "year" | reverse %}
+    {% assign group = sup.co | where: "degree", d | sort: "start" | reverse %}
     {% if group and group.size > 0 %}
 ### {% if d == "phd" %}PhD{% elsif d == "msc" %}MSc{% else %}Undergraduate{% endif %}
 
