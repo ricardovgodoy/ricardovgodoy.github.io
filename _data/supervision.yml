@@ -1,26 +1,7 @@
 # _data/supervision.yml
 
 primary:
-  # --- PhD (primary) ---
-  # - name: "Student Name"
-  #   degree: phd
-  #   topic: "Short research topic (1 line)."
-  #   affiliation: "University / Lab / Company"
-  #   year: 2026
-
-  # --- MSc (primary) ---
-  # - name: "Student Name"
-  #   degree: msc
-  #   topic: "Short research topic."
-  #   affiliation: "University / Lab / Company"
-  #   year: 2025
-
-  # --- Undergrad (primary) ---
-  # - name: "Student Name"
-  #   degree: ug
-  #   topic: "Short research topic."
-  #   affiliation: "University / Lab / Company"
-  #   year: 2025
+  # Add your primary-supervised students here (same fields as below)
 
 co:
   # --- PhD (co-supervision) ---
@@ -40,36 +21,36 @@ co:
   # --- Undergrad (co-supervision) ---
   - name: "Murilo Vinicius"
     degree: ug
-    topic: "Deployment of Shared-Control schemes for robust locomaniplation"
+    topic: "Deployment of shared-control schemes for robust locomanipulation"
     affiliation: "University of São Paulo"
     year: 2025
 
   - name: "Matheus Hipólito"
     degree: ug
-    topic: "Deployment of Shared-Control schemes for robust locomaniplation"
+    topic: "Deployment of shared-control schemes for robust locomanipulation"
     affiliation: "University of São Paulo"
     year: 2025
 
   - name: "Enzo Ferreira"
     degree: ug
-    topic: "Design and integration of modular, accessible, affordable manipulation objects and board test for evaluating the grasping and manipulation capabilities of robotic grippers and algorithms"
+    topic: "Design and integration of modular, accessible, affordable manipulation objects and test boards for evaluating grasping and manipulation capabilities of robotic grippers and algorithms"
     affiliation: "University of São Paulo"
     year: 2025
 
   - name: "Ana Luiza"
     degree: ug
-    topic: "Development frameworks for the control of robotic arms"
+    topic: "Development of frameworks for the control of robotic arms"
     affiliation: "Universidade Federal de Uberlândia"
     year: 2025
 
-    - name: "Guilherme Lazzarini"
+  - name: "Guilherme Lazzarini"
     degree: ug
-    topic: "Development frameworks for the control of robotic arms"
+    topic: "Development of frameworks for the control of robotic arms"
     affiliation: "Universidade Federal de Uberlândia"
     year: 2025
 
-    - name: "Dilermando Alexandre"
+  - name: "Dilermando Alexandre"
     degree: ug
-    topic: "Development frameworks for the control of robotic arms"
+    topic: "Development of frameworks for the control of robotic arms"
     affiliation: "Universidade Federal de Uberlândia"
     year: 2025
