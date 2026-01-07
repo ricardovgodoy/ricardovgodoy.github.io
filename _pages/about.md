@@ -32,7 +32,7 @@ Linkedin: [https://www.linkedin.com/in/ricardo-vilela-de-godoy/](https://www.lin
 ### Contact
 📫 For collaboration inquiries, feel free to contact me at [ricardo.godoy@alumni.usp.br](mailto:ricardo.godoy@alumni.usp.br).
 
-<p><em>Last updated: {{ site.time | date: "%B %d, %Y" }}</em></p>
+<!-- <p><em>Last updated: {{ site.time | date: "%B %d, %Y" }}</em></p> -->
 
 
 
