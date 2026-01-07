@@ -41,17 +41,35 @@ co:
   - name: "Murilo Vinicius"
     degree: ug
     topic: "Deployment of Shared-Control schemes for robust locomaniplation"
-    affiliation: "University / Lab / Company"
+    affiliation: "University of São Paulo"
     year: 2025
 
   - name: "Matheus Hipólito"
     degree: ug
     topic: "Deployment of Shared-Control schemes for robust locomaniplation"
-    affiliation: "University / Lab / Company"
+    affiliation: "University of São Paulo"
     year: 2025
 
   - name: "Enzo Ferreira"
     degree: ug
     topic: "Design and integration of modular, accessible, affordable manipulation objects and board test for evaluating the grasping and manipulation capabilities of robotic grippers and algorithms"
-    affiliation: "University / Lab / Company"
+    affiliation: "University of São Paulo"
+    year: 2025
+
+  - name: "Ana Luiza"
+    degree: ug
+    topic: "Development frameworks for the control of robotic arms"
+    affiliation: "Universidade Federal de Uberlândia"
+    year: 2025
+
+    - name: "Guilherme Lazzarini"
+    degree: ug
+    topic: "Development frameworks for the control of robotic arms"
+    affiliation: "Universidade Federal de Uberlândia"
+    year: 2025
+
+    - name: "Dilermando Alexandre"
+    degree: ug
+    topic: "Development frameworks for the control of robotic arms"
+    affiliation: "Universidade Federal de Uberlândia"
     year: 2025
