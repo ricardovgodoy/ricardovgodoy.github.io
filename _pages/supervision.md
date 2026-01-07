@@ -1,15 +1,14 @@
 ---
-layout: page
+layout: single
 title: "Supervision"
 permalink: /supervision/
 author_profile: true
 ---
 
-I supervise and co-supervise students across robotics, physical AI, and human–robot interaction.
-
 {% assign sup = site.data.supervision %}
-
 {% assign degree_order = "phd|msc|ug" | split: "|" %}
+
+I supervise and co-supervise students across robotics, physical AI, and human–robot interaction.
 
 ## Primary supervision
 
