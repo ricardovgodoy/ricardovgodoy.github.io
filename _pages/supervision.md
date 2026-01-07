@@ -9,6 +9,7 @@ author_profile: true
 {% assign degree_order = "phd|msc|ug" | split: "|" %}
 
 I am currently the Technical Leader of a team of 30-50 members in an industry-funded project at the University of São Paulo.
+
 I supervise and co-supervise students across robotics, physical AI, and human–robot interaction.
 
 ## Primary supervision
