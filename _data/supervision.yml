@@ -9,48 +9,56 @@ co:
     degree: phd
     topic: "Development of learning-based approaches for robust locomanipulation tasks"
     affiliation: "University of São Paulo"
-    year: 2025
+    start: 2025
+    year: "2025-2026"
 
   # --- MSc (co-supervision) ---
   - name: "Victor Van Halst"
     degree: msc
     topic: "Towards dexterous manipulation using quadruped robots: from data collection to real-time deployment"
     affiliation: "University of São Paulo"
-    year: 2026
+    start: 2026
+    year: "2026"
 
   # --- Undergrad (co-supervision) ---
   - name: "Murilo Vinicius"
     degree: ug
     topic: "Deployment of shared-control schemes for robust locomanipulation"
     affiliation: "University of São Paulo"
-    year: 2024
+    start: 2024
+    year: "2024-2026"
 
   - name: "Matheus Hipólito"
     degree: ug
     topic: "Deployment of shared-control schemes for robust locomanipulation"
     affiliation: "University of São Paulo"
-    year: 2024
+    start: 2024
+    year: "2024-2026"
 
   - name: "Enzo Ferreira"
     degree: ug
     topic: "Design and integration of modular, accessible, affordable manipulation objects and test boards for evaluating grasping and manipulation capabilities of robotic grippers and algorithms"
     affiliation: "University of São Paulo"
-    year: 2025
+    start: 2025
+    year: "2025-2026"
 
   - name: "Ana Luiza"
     degree: ug
     topic: "Development of frameworks for the control of robotic arms"
     affiliation: "Universidade Federal de Uberlândia"
-    year: 2025
+    start: 2025
+    year: "2025-2026"
 
   - name: "Guilherme Lazzarini"
     degree: ug
     topic: "Development of grasping algorithms and sim-to-real approaches for locomanipulation tasks"
     affiliation: "Universidade Federal de Uberlândia"
-    year: 2025
+    start: 2025
+    year: "2025-2026"
 
   - name: "Dilermando Alexandre"
     degree: ug
     topic: "Development of grasping algorithms and sim-to-real approaches for locomanipulation tasks"
     affiliation: "Universidade Federal de Uberlândia"
-    year: 2025
+    start: 2025
+    year: "2025-2026"
