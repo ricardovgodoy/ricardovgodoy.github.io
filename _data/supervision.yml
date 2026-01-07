@@ -1,0 +1,57 @@
+# _data/supervision.yml
+
+primary:
+  # --- PhD (primary) ---
+  # - name: "Student Name"
+  #   degree: phd
+  #   topic: "Short research topic (1 line)."
+  #   affiliation: "University / Lab / Company"
+  #   year: 2026
+
+  # --- MSc (primary) ---
+  # - name: "Student Name"
+  #   degree: msc
+  #   topic: "Short research topic."
+  #   affiliation: "University / Lab / Company"
+  #   year: 2025
+
+  # --- Undergrad (primary) ---
+  # - name: "Student Name"
+  #   degree: ug
+  #   topic: "Short research topic."
+  #   affiliation: "University / Lab / Company"
+  #   year: 2025
+
+co:
+  # --- PhD (co-supervision) ---
+  - name: "Juliano Negri"
+    degree: phd
+    topic: "Development of learning-based approaches for robust locomanipulation tasks"
+    affiliation: "University of São Paulo"
+    year: 2025
+
+  # --- MSc (co-supervision) ---
+  - name: "Victor Van Halst"
+    degree: msc
+    topic: "Towards dexterous manipulation using quadruped robots: from data collection to real-time deployment"
+    affiliation: "University of São Paulo"
+    year: 2026
+
+  # --- Undergrad (co-supervision) ---
+  - name: "Murilo Vinicius"
+    degree: ug
+    topic: "Deployment of Shared-Control schemes for robust locomaniplation"
+    affiliation: "University / Lab / Company"
+    year: 2025
+
+  - name: "Matheus Hipólito"
+    degree: ug
+    topic: "Deployment of Shared-Control schemes for robust locomaniplation"
+    affiliation: "University / Lab / Company"
+    year: 2025
+
+  - name: "Enzo Ferreira"
+    degree: ug
+    topic: "Design and integration of modular, accessible, affordable manipulation objects and board test for evaluating the grasping and manipulation capabilities of robotic grippers and algorithms"
+    affiliation: "University / Lab / Company"
+    year: 2025
