@@ -20,6 +20,8 @@ main:
   - title: "Research"
     url: /research/
 
+- title: "Supervision"
+  url: /supervision/
     
   #- title: "Portfolio"
   #  url: /portfolio/
