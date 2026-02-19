@@ -9,7 +9,7 @@ redirect_from:
 
 I build **Physical AI** systems for real robots, focusing on **manipulation** and **locomanipulation** in cluttered environments, where sensing is imperfect, and control must be deployed in real-time, addressing real-world problems.
 
-My work sits at the interface of:
+My main research topics are:
 - **Robot embodiment & manipulation** (arms, grippers, mobile platforms)
 - **Human-in-the-loop control** (teleoperation, shared control, wearable sensing)
 - **Robot autonomy on real tasks** (perception-to-action pipelines that works robustly and reliable)
