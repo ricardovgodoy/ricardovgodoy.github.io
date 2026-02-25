@@ -6,7 +6,7 @@ pubtype: preprint
 tags: [human-robot-interaction]
 doi: 
 code: 
-permalink: 
+permalink: /publication/2026-leader-follower
 excerpt: 'In this paper, we present the first benchmark of SLMs for leader–follower communication, introducing a novel dataset derived from a published database and augmented with synthetic samples to capture interaction-specific dynamics.'
 date: 2026-02-24
 venue: 'Paper submitted to BioRob 2026 - The preprint version will be made available soon.'
