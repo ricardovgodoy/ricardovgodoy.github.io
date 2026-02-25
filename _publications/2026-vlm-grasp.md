@@ -1,5 +1,5 @@
 ---
-title: "Watch Your Step: A Capability-Aware Traversability Navigation Model for Unstructured Environments"
+title: "Viewpoint-Agnostic Grasp Pipeline using VLM and Partial Observations"
 collection: publications
 category: preprints
 pubtype: preprint
