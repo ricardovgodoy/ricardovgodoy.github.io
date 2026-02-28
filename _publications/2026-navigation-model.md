@@ -1,5 +1,5 @@
 ---
-title: "Watch Your Step: A Capability-Aware Traversability Navigation Model for Unstructured Environments"
+title: "CAT: Towards Capability-Aware Traversability Navigation for Unstructured Environments"
 collection: publications
 category: preprints
 pubtype: preprint
