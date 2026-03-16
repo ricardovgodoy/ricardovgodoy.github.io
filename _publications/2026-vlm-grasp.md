@@ -10,7 +10,7 @@ permalink: /publication/2026-vlm-grasp
 excerpt: 'We present an end-to-end pipeline for language-guided grasping that bridges open-vocabulary target selection to safe grasp execution on a real robot'
 date: 2026-02-24
 venue: 'Paper submitted to IROS 2026 - Preprint version available. Please click Download Paper below.'
-paperurl: 'http://ricardovgodoy.github.io/files/2026_IROS_VLM_Grasping.pdf'
+paperurl: 'https://arxiv.org/abs/2603.07866'
 bibtexurl: ''
 citation: ''
 ---
