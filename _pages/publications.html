@@ -1,411 +1,199 @@
 ---
-permalink: /publications/
+layout: default
 title: "Publications"
-author_profile: true
+description: "Full list of publications."
+permalink: /publications/
 ---
 
-<style>
-  .pub-controls { display:flex; gap:.75rem; flex-wrap:wrap; margin: 1rem 0 1.25rem 0; align-items:center; }
-  .pub-controls input, .pub-controls select { padding:.45rem .6rem; border:1px solid #ddd; border-radius:.4rem; }
-  .pub-controls button { padding:.45rem .7rem; border:1px solid #ddd; border-radius:.4rem; background:#fff; cursor:pointer; }
-  .pub-controls label { display:flex; align-items:center; gap:.4rem; opacity:.9; }
-  .pub-count { opacity:.8; margin-left:auto; }
+<section class="page-header">
+  <div class="container">
+    <div class="section-label">Research Output</div>
+    <h1 class="page-header__title">Publications</h1>
+    <p class="page-header__desc">{{ site.publications | size }} papers across RA-L, TNSRE, ICRA, IROS, Scientific Reports, and more.</p>
+  </div>
+</section>
 
-  .pub-section { margin: 1.5rem 0; }
-  .pub-section h2 { margin: 0 0 .5rem 0; }
+<section class="page-section" style="padding-top: 0;">
+  <div class="container">
 
-  .pub-item { padding: .9rem 0; border-bottom: 1px solid rgba(0,0,0,.08); }
-  .pub-title { margin:0; font-weight: 600; }
-  .pub-meta { margin:.25rem 0 .35rem 0; opacity:.85; }
-  .pub-excerpt { margin:.25rem 0 .35rem 0; opacity:.9; }
-  .pub-links a { margin-right:.65rem; }
-
-  /* Topics: hidden by default, shown only if toggled */
-  .pub-tags { font-size:.82rem; opacity:.75; margin-top:.25rem; display:none; }
-  .pub-root.show-topics .pub-tags { display:block; }
-
-  .pub-empty { padding: 1rem 0; opacity:.8; display:none; }
-
-  /* ---- Dark mode readability for filters (Vivaldi/Chromium + common toggles) ---- */
-  .pub-root { color-scheme: light dark; }
-
-  .pub-controls input,
-  .pub-controls select,
-  .pub-controls button {
-    background: #ffffff;
-    color: #111111;
-    border-color: rgba(0,0,0,.18);
-  }
-
-  .pub-controls input::placeholder { color: rgba(0,0,0,.55); }
-
-  @media (prefers-color-scheme: dark) {
-    .pub-controls input,
-    .pub-controls select,
-    .pub-controls button {
-      background: #1b1b1b;
-      color: #eaeaea;
-      border-color: rgba(255,255,255,.22);
-    }
-
-    .pub-controls input::placeholder { color: rgba(234,234,234,.60); }
-
-    .pub-controls select option {
-      background: #1b1b1b;
-      color: #eaeaea;
-    }
-  }
-
-  html[data-theme="dark"] .pub-controls input,
-  html[data-theme="dark"] .pub-controls select,
-  html[data-theme="dark"] .pub-controls button,
-  html.dark .pub-controls input,
-  html.dark .pub-controls select,
-  html.dark .pub-controls button,
-  body.dark .pub-controls input,
-  body.dark .pub-controls select,
-  body.dark .pub-controls button,
-  body.theme-dark .pub-controls input,
-  body.theme-dark .pub-controls select,
-  body.theme-dark .pub-controls button {
-    background: #1b1b1b;
-    color: #eaeaea;
-    border-color: rgba(255,255,255,.22);
-  }
-
-  html[data-theme="dark"] .pub-controls input::placeholder,
-  html.dark .pub-controls input::placeholder,
-  body.dark .pub-controls input::placeholder,
-  body.theme-dark .pub-controls input::placeholder {
-    color: rgba(234,234,234,.60);
-  }
-
-  html[data-theme="dark"] .pub-controls select option,
-  html.dark .pub-controls select option,
-  body.dark .pub-controls select option,
-  body.theme-dark .pub-controls select option {
-    background: #1b1b1b;
-    color: #eaeaea;
-  }
-</style>
-
-{% assign pubs = site.publications | sort: "date" | reverse %}
-
-<div class="pub-root" id="pubRoot">
-
-  <div class="pub-controls">
-    <input id="pubSearch" type="text" placeholder="Search title, authors, venue…" autocomplete="off" />
-
-    <select id="pubYear">
-      <option value="">All years</option>
-      {% assign years = "" | split: "" %}
-      {% for p in pubs %}
-        {% assign y = p.date | date: "%Y" %}
-        {% unless years contains y %}
-          {% assign years = years | push: y %}
-        {% endunless %}
-      {% endfor %}
-      {% assign years = years | sort | reverse %}
-      {% for y in years %}
-        <option value="{{y}}">{{y}}</option>
-      {% endfor %}
-    </select>
-
-    <select id="pubType">
-      <option value="">All types</option>
-      <option value="journal">Journal</option>
-      <option value="conference">Conference</option>
-      <option value="workshop">Workshop</option>
-      <option value="preprint">Preprint</option>
-      <option value="thesis">Thesis</option>
-      <option value="chapter">Chapter</option>
-      <option value="other">Other</option>
-    </select>
-
-    <select id="pubTag">
-      <option value="">All topics</option>
-      {% assign alltags = "" | split: "" %}
-      {% for p in pubs %}
-        {% if p.tags %}
-          {% for t in p.tags %}
-            {% assign td = t | downcase %}
-            {% unless alltags contains td %}
-              {% assign alltags = alltags | push: td %}
+    <div class="pub-filters">
+      <div class="pub-filter-group">
+        <label for="filter-year">Year</label>
+        <select id="filter-year" class="pub-filter-select" onchange="filterPubs()">
+          <option value="all">All years</option>
+          {% assign years = site.publications | map: "date" | sort | reverse %}
+          {% assign seen_years = "" %}
+          {% for d in years %}
+            {% assign y = d | date: "%Y" %}
+            {% unless seen_years contains y %}
+              <option value="{{ y }}">{{ y }}</option>
+              {% assign seen_years = seen_years | append: y | append: "," %}
             {% endunless %}
           {% endfor %}
+        </select>
+      </div>
+      <div class="pub-filter-group">
+        <label for="filter-type">Type</label>
+        <select id="filter-type" class="pub-filter-select" onchange="filterPubs()">
+          <option value="all">All types</option>
+          <option value="journal">Journal</option>
+          <option value="conference">Conference</option>
+          <option value="preprint">Preprint</option>
+          <option value="workshop">Workshop</option>
+        </select>
+      </div>
+      <input type="text" id="pub-search" class="pub-search" placeholder="Search titles, venues, tags..." oninput="filterPubs()">
+      <button class="pub-filter-btn" onclick="toggleTopics()" id="toggle-topics-btn">Show tags</button>
+      <button class="pub-filter-btn" onclick="clearFilters()">Clear</button>
+    </div>
+
+    <div class="pub-topic-tags" id="topic-tags" style="display:none;">
+      {% assign all_tags = site.publications | map: "tags" | join: "," | split: "," | uniq | sort %}
+      {% for tag in all_tags %}
+        {% assign t = tag | strip %}
+        {% if t != "" %}
+          <button class="pub-filter-btn topic-btn" data-topic="{{ t }}" onclick="toggleTopic(this)">{{ t }}</button>
         {% endif %}
       {% endfor %}
-      {% assign alltags = alltags | sort %}
-      {% for t in alltags %}
-        <option value="{{t}}">{{t}}</option>
-      {% endfor %}
-    </select>
+    </div>
 
-    <label>
-      <input id="pubShowTopics" type="checkbox" />
-      Show topics
-    </label>
+    <div class="pub-count" id="pub-count"></div>
 
-    <button id="pubClear" type="button">Clear</button>
-    <div class="pub-count"><span id="pubShown">0</span> / <span id="pubTotal">{{ pubs.size }}</span></div>
+    <!-- Journal articles -->
+    <h2 class="pub-section-title" data-section="journal">Journal articles</h2>
+    {% assign journals = site.publications | where: "pubtype", "journal" | sort: "date" | reverse %}
+    {% for pub in journals %}
+    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="journal" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
+      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
+      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
+      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
+      <div class="pub-entry__links">
+        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
+        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
+        {% if pub.code %}<a href="{{ pub.code }}" target="_blank">Code</a>{% endif %}
+        {% if pub.bibtex %}<a href="{{ pub.bibtex }}" target="_blank">BibTeX</a>{% endif %}
+      </div>
+      {% if pub.tags %}
+      <div class="pub-entry__topics">
+        {% for tag in pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <!-- Conference papers -->
+    <h2 class="pub-section-title" data-section="conference">Conference papers</h2>
+    {% assign confs = site.publications | where: "pubtype", "conference" | sort: "date" | reverse %}
+    {% for pub in confs %}
+    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="conference" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
+      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
+      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
+      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
+      <div class="pub-entry__links">
+        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
+        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
+        {% if pub.code %}<a href="{{ pub.code }}" target="_blank">Code</a>{% endif %}
+        {% if pub.bibtex %}<a href="{{ pub.bibtex }}" target="_blank">BibTeX</a>{% endif %}
+      </div>
+      {% if pub.tags %}
+      <div class="pub-entry__topics">
+        {% for tag in pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <!-- Preprints -->
+    <h2 class="pub-section-title" data-section="preprint">Preprints</h2>
+    {% assign preprints = site.publications | where: "pubtype", "preprint" | sort: "date" | reverse %}
+    {% for pub in preprints %}
+    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="preprint" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
+      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
+      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
+      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
+      <div class="pub-entry__links">
+        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
+        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
+        {% if pub.code %}<a href="{{ pub.code }}" target="_blank">Code</a>{% endif %}
+        {% if pub.bibtex %}<a href="{{ pub.bibtex }}" target="_blank">BibTeX</a>{% endif %}
+      </div>
+      {% if pub.tags %}
+      <div class="pub-entry__topics">
+        {% for tag in pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <!-- Workshop -->
+    <h2 class="pub-section-title" data-section="workshop">Workshop papers</h2>
+    {% assign workshops = site.publications | where: "pubtype", "workshop" | sort: "date" | reverse %}
+    {% for pub in workshops %}
+    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="workshop" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
+      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
+      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
+      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
+      <div class="pub-entry__links">
+        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
+        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
   </div>
-
-  {% comment %}
-    Type logic:
-      - prefer pubtype if present
-      - else use category (academicpages often uses "journals"/"conferences")
-      - normalize plurals
-  {% endcomment %}
-
-  <section class="pub-section" id="sec-journal">
-    <h2>Journal articles</h2>
-    {% for p in pubs %}
-      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
-      {% assign ptype = rawtype %}
-      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
-      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
-
-      {% if ptype == "journal" %}
-        {% assign year = p.date | date: "%Y" %}
-        {% assign tags_join = "" %}
-        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
-        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
-        <div class="pub-item"
-             data-year="{{year}}"
-             data-type="{{ptype}}"
-             data-tags="{{tags_join | downcase}}"
-             data-search="{{searchblob | downcase | escape}}">
-          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
-          <div class="pub-meta">
-            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
-          </div>
-          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
-          <div class="pub-links">
-            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
-            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
-          </div>
-          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
-
-  <section class="pub-section" id="sec-conference">
-    <h2>Conference papers</h2>
-    {% for p in pubs %}
-      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
-      {% assign ptype = rawtype %}
-      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
-      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
-
-      {% if ptype == "conference" %}
-        {% assign year = p.date | date: "%Y" %}
-        {% assign tags_join = "" %}
-        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
-        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
-        <div class="pub-item"
-             data-year="{{year}}"
-             data-type="{{ptype}}"
-             data-tags="{{tags_join | downcase}}"
-             data-search="{{searchblob | downcase | escape}}">
-          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
-          <div class="pub-meta">
-            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
-          </div>
-          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
-          <div class="pub-links">
-            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
-            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
-          </div>
-          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
-
-  <section class="pub-section" id="sec-workshop">
-    <h2>Workshop papers</h2>
-    {% for p in pubs %}
-      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
-      {% assign ptype = rawtype %}
-      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
-      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
-
-      {% if ptype == "workshop" %}
-        {% assign year = p.date | date: "%Y" %}
-        {% assign tags_join = "" %}
-        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
-        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
-        <div class="pub-item"
-             data-year="{{year}}"
-             data-type="{{ptype}}"
-             data-tags="{{tags_join | downcase}}"
-             data-search="{{searchblob | downcase | escape}}">
-          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
-          <div class="pub-meta">
-            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
-          </div>
-          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
-          <div class="pub-links">
-            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
-            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
-          </div>
-          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
-
-  <section class="pub-section" id="sec-preprint">
-    <h2>Preprints</h2>
-    {% for p in pubs %}
-      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
-      {% assign ptype = rawtype %}
-      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
-      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
-
-      {% if ptype == "preprint" %}
-        {% assign year = p.date | date: "%Y" %}
-        {% assign tags_join = "" %}
-        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
-        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
-        <div class="pub-item"
-             data-year="{{year}}"
-             data-type="{{ptype}}"
-             data-tags="{{tags_join | downcase}}"
-             data-search="{{searchblob | downcase | escape}}">
-          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
-          <div class="pub-meta">
-            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
-          </div>
-          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
-          <div class="pub-links">
-            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
-            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
-          </div>
-          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
-
-  <section class="pub-section" id="sec-other">
-    <h2>Other</h2>
-    {% for p in pubs %}
-      {% assign rawtype = p.pubtype | default: p.category | default: "other" | downcase %}
-      {% assign ptype = rawtype %}
-      {% if rawtype == "journals" %}{% assign ptype = "journal" %}{% endif %}
-      {% if rawtype == "conferences" %}{% assign ptype = "conference" %}{% endif %}
-
-      {% unless ptype == "journal" or ptype == "conference" or ptype == "workshop" or ptype == "preprint" %}
-        {% assign year = p.date | date: "%Y" %}
-        {% assign tags_join = "" %}
-        {% if p.tags %}{% assign tags_join = p.tags | join: " " %}{% endif %}
-        {% assign searchblob = p.title | append: " " | append: p.citation | append: " " | append: p.venue | append: " " | append: tags_join %}
-        <div class="pub-item"
-             data-year="{{year}}"
-             data-type="{{ptype}}"
-             data-tags="{{tags_join | downcase}}"
-             data-search="{{searchblob | downcase | escape}}">
-          <p class="pub-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></p>
-          <div class="pub-meta">
-            <span>{{ year }}</span>{% if p.venue %} • <span>{{ p.venue }}</span>{% endif %}
-          </div>
-          {% if p.excerpt %}<div class="pub-excerpt">{{ p.excerpt }}</div>{% endif %}
-          <div class="pub-links">
-            {% if p.paperurl %}<a href="{{ p.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
-            {% if p.doi %}<a href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
-            {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-            {% if p.bibtexurl %}<a href="{{ p.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
-          </div>
-          {% if p.tags %}<div class="pub-tags">Topics: {{ p.tags | join: " · " }}</div>{% endif %}
-        </div>
-      {% endunless %}
-    {% endfor %}
-  </section>
-
-  <div id="pubEmpty" class="pub-empty">No publications match your filters.</div>
-</div>
+</section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const root = document.getElementById("pubRoot");
-  const q = document.getElementById("pubSearch");
-  const y = document.getElementById("pubYear");
-  const t = document.getElementById("pubType");
-  const g = document.getElementById("pubTag");
-  const clearBtn = document.getElementById("pubClear");
-  const showTopics = document.getElementById("pubShowTopics");
-  const shown = document.getElementById("pubShown");
-  const empty = document.getElementById("pubEmpty");
-
-  if (!root || !q || !y || !t || !g || !clearBtn || !shown || !empty) return;
-
-  const items = Array.from(document.querySelectorAll(".pub-item"));
-  const sections = Array.from(document.querySelectorAll(".pub-section"));
-
-  function norm(s){ return (s || "").toString().toLowerCase().trim(); }
-
-  function apply() {
-    const qq = norm(q.value);
-    const yy = norm(y.value);
-    const tt = norm(t.value);
-    const gg = norm(g.value);
-
-    let visibleCount = 0;
-
-    items.forEach(el => {
-      const ey = norm(el.dataset.year);
-      const et = norm(el.dataset.type);
-      const eg = norm(el.dataset.tags);
-      const es = norm(el.dataset.search);
-
-      const okQ = !qq || es.includes(qq);
-      const okY = !yy || ey === yy;
-      const okT = !tt || et === tt;
-
-      const tagTokens = eg ? eg.split(/\s+/).filter(Boolean) : [];
-      const okG = !gg || tagTokens.includes(gg);
-
-      const ok = okQ && okY && okT && okG;
-      el.style.display = ok ? "" : "none";
-      if (ok) visibleCount++;
-    });
-
-    sections.forEach(sec => {
-      const hasVisible = Array.from(sec.querySelectorAll(".pub-item"))
-        .some(it => it.style.display !== "none");
-      sec.style.display = hasVisible ? "" : "none";
-    });
-
-    shown.textContent = String(visibleCount);
-    empty.style.display = visibleCount === 0 ? "" : "none";
-  }
-
-  if (showTopics) {
-    showTopics.addEventListener("change", () => {
-      root.classList.toggle("show-topics", showTopics.checked);
-    });
-  }
-
-  q.addEventListener("input", apply);
-  y.addEventListener("change", apply);
-  t.addEventListener("change", apply);
-  g.addEventListener("change", apply);
-
-  clearBtn.addEventListener("click", () => {
-    q.value = ""; y.value = ""; t.value = ""; g.value = "";
-    apply();
+var activeTopics = [];
+function filterPubs() {
+  var year = document.getElementById('filter-year').value;
+  var type = document.getElementById('filter-type').value;
+  var search = document.getElementById('pub-search').value.toLowerCase().trim();
+  var entries = document.querySelectorAll('.pub-entry');
+  var count = 0;
+  entries.forEach(function(el) {
+    var show = true;
+    if (year !== 'all' && el.dataset.year !== year) show = false;
+    if (type !== 'all' && el.dataset.type !== type) show = false;
+    if (search && el.dataset.search.indexOf(search) === -1) show = false;
+    if (activeTopics.length > 0) {
+      var tags = (el.dataset.tags || '').split(',');
+      if (!activeTopics.some(function(t) { return tags.indexOf(t) !== -1; })) show = false;
+    }
+    el.style.display = show ? '' : 'none';
+    if (show) count++;
   });
-
-  apply();
-});
+  document.getElementById('pub-count').textContent = count + ' / ' + entries.length;
+  document.querySelectorAll('.pub-section-title').forEach(function(title) {
+    var next = title.nextElementSibling;
+    var vis = false;
+    while (next && !next.classList.contains('pub-section-title')) {
+      if (next.classList.contains('pub-entry') && next.style.display !== 'none') { vis = true; break; }
+      next = next.nextElementSibling;
+    }
+    title.style.display = vis ? '' : 'none';
+  });
+}
+function toggleTopics() {
+  var el = document.getElementById('topic-tags');
+  var btn = document.getElementById('toggle-topics-btn');
+  if (el.style.display === 'none') { el.style.display = 'flex'; btn.classList.add('active'); btn.textContent = 'Hide tags'; }
+  else { el.style.display = 'none'; btn.classList.remove('active'); btn.textContent = 'Show tags'; }
+}
+function toggleTopic(btn) {
+  var t = btn.dataset.topic;
+  var i = activeTopics.indexOf(t);
+  if (i === -1) { activeTopics.push(t); btn.classList.add('active'); }
+  else { activeTopics.splice(i, 1); btn.classList.remove('active'); }
+  filterPubs();
+}
+function clearFilters() {
+  document.getElementById('filter-year').value = 'all';
+  document.getElementById('filter-type').value = 'all';
+  document.getElementById('pub-search').value = '';
+  activeTopics = [];
+  document.querySelectorAll('.topic-btn').forEach(function(b) { b.classList.remove('active'); });
+  filterPubs();
+}
+document.addEventListener('DOMContentLoaded', filterPubs);
 </script>

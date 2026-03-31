@@ -1,16 +1,88 @@
 ---
-layout: archive
-title: "Talks and presentations"
+layout: default
+title: "Talks and Presentations"
+description: "Workshops, tutorials, and invited talks."
 permalink: /talks/
-author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
+<section class="page-header">
+  <div class="container">
+    <div class="section-label">Presentations</div>
+    <h1 class="page-header__title">Talks and Presentations</h1>
+    <p class="page-header__desc">{{ page.description }}</p>
+  </div>
+</section>
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
+<section class="page-section" style="padding-top: 0;">
+  <div class="container container--narrow">
+    {% assign sorted_talks = site.talks | sort: "date" | reverse %}
+    {% for talk in sorted_talks %}
+    <div class="talk-item">
+      <div class="talk-item__date">{{ talk.date | date: "%B %d, %Y" }}</div>
+      <div class="talk-item__title">
+        {% if talk.type == "Tutorial" or talk.type == "tutorial" %}
+          <span class="talk-item__type talk-item__type--tutorial">Tutorial</span>
+        {% elsif talk.type == "Talk" or talk.type == "talk" %}
+          <span class="talk-item__type talk-item__type--talk">Invited Talk</span>
+        {% else %}
+          <span class="talk-item__type talk-item__type--exhibit">{{ talk.type | default: "Talk" }}</span>
+        {% endif %}
+        <a href="{{ talk.url | relative_url }}">{{ talk.title }}</a>
+      </div>
+      <div class="talk-item__venue">{{ talk.venue }}</div>
+    </div>
+    {% endfor %}
 
-{% endif %}
-
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+    {% if site.talks.size == 0 %}
+    <!-- Fallback: hardcoded from your current site if collection isn't set up -->
+    <div class="talk-item">
+      <div class="talk-item__date">October 2, 2025</div>
+      <div class="talk-item__title">
+        <span class="talk-item__type talk-item__type--tutorial">Workshop</span>
+        <a href="#">Robotic Fault-Detection Strategies for Complex Industrial Contexts</a>
+      </div>
+      <div class="talk-item__venue">22nd International Conference on Advanced Robotics (ICAR 2025), San Juan, Argentina</div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-item__date">June 1, 2025</div>
+      <div class="talk-item__title">
+        <span class="talk-item__type talk-item__type--talk">Invited Talk</span>
+        <a href="#">Development of Human-Machine Interfaces for the Teleoperation Control of Robotic Manipulators</a>
+      </div>
+      <div class="talk-item__venue">University of São Paulo, Center for Robotics, São Carlos, Brazil</div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-item__date">August 1, 2024</div>
+      <div class="talk-item__title">
+        <span class="talk-item__type talk-item__type--talk">Invited Talk</span>
+        <a href="#">Human-Machine Interfaces: Applications of Biological Signals in Robotics</a>
+      </div>
+      <div class="talk-item__venue">Hospital Albert Einstein, São Paulo, Brazil</div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-item__date">April 1, 2024</div>
+      <div class="talk-item__title">
+        <span class="talk-item__type talk-item__type--exhibit">Exhibit</span>
+        <a href="#">Specialist Exhibitor at the 2023 MOTAT STEM Fair</a>
+      </div>
+      <div class="talk-item__venue">Museum of Transport and Technology Auckland (MOTAT), Auckland, New Zealand</div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-item__date">January 1, 2024</div>
+      <div class="talk-item__title">
+        <span class="talk-item__type talk-item__type--talk">Invited Talk</span>
+        <a href="#">Analysis and Development of Human-Machine Interfaces for the Control of Robotic and Bionic Devices</a>
+      </div>
+      <div class="talk-item__venue">University of Waikato, Hamilton, New Zealand</div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-item__date">August 26, 2023</div>
+      <div class="talk-item__title">
+        <span class="talk-item__type talk-item__type--tutorial">Tutorial</span>
+        <a href="#">Biosignal-Based Design Approaches for the Development of Human-Machine Interfaces for Shared Control</a>
+      </div>
+      <div class="talk-item__venue">IEEE International Conference on Automation Science and Engineering (CASE), Auckland, New Zealand</div>
+    </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,153 @@
+---
+layout: default
+title: "Videos"
+description: "Experiment videos and research demonstrations."
+permalink: /videos/
+---
+
+<section class="page-header">
+  <div class="container">
+    <div class="section-label">Demos</div>
+    <h1 class="page-header__title">Videos</h1>
+    <p class="page-header__desc">{{ page.description }}</p>
+    <div style="margin-top: 16px;">
+      <a href="https://www.youtube.com/@RicardoVGodoy" target="_blank" rel="noopener" class="btn btn--outline btn--small">
+        Visit YouTube Channel →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" style="padding-top: 0;">
+  <div class="container">
+
+    {% assign selected_ids = site.data.videos | map: "youtube_id" %}
+    {% assign site_origin = site.url | default: "https://www.ricardovgodoy.com" %}
+
+    <!-- ═══ Channel videos from _data/videos.yml (auto-updated by GitHub Action) ═══ -->
+    <div class="yt-grid">
+    {% for v in site.data.videos %}
+      {%- assign vid = v.youtube_id | strip -%}
+      {%- if vid contains "watch?v=" -%}
+        {%- assign vid = vid | split: "v=" | last | split: "&" | first | strip -%}
+      {%- endif -%}
+      {%- if vid contains "youtu.be/" -%}
+        {%- assign vid = vid | split: "youtu.be/" | last | split: "?" | first | strip -%}
+      {%- endif -%}
+      {%- if vid contains "/embed/" -%}
+        {%- assign vid = vid | split: "/embed/" | last | split: "?" | first | strip -%}
+      {%- endif -%}
+
+      <div class="yt-card">
+        <div class="yt-embed">
+          <iframe
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://www.youtube.com/embed/{{ vid }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
+            title="{{ v.title | escape }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="yt-meta">
+          <div class="yt-title">{{ v.title }}</div>
+          {% if v.date %}<div class="yt-sub">{{ v.date }}</div>{% endif %}
+          {% if v.description %}<div class="yt-desc">{{ v.description }}</div>{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+
+    <!-- ═══ Playlist / external videos from _data/playlist_videos.json ═══ -->
+    {% if site.data.playlist_videos %}
+      {% for p in site.data.playlist_videos %}
+        {% unless selected_ids contains p.id %}
+          {%- assign pid = p.id | strip -%}
+          {%- if pid contains "watch?v=" -%}
+            {%- assign pid = pid | split: "v=" | last | split: "&" | first | strip -%}
+          {%- endif -%}
+          {%- if pid contains "youtu.be/" -%}
+            {%- assign pid = pid | split: "youtu.be/" | last | split: "?" | first | strip -%}
+          {%- endif -%}
+          {%- if pid contains "/embed/" -%}
+            {%- assign pid = pid | split: "/embed/" | last | split: "?" | first | strip -%}
+          {%- endif -%}
+
+          <div class="yt-card">
+            <div class="yt-embed">
+              <iframe
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                src="https://www.youtube.com/embed/{{ pid }}?rel=0&modestbranding=1&playsinline=1&origin={{ site_origin | uri_escape }}"
+                title="{{ p.title | escape }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="yt-meta">
+              <div class="yt-title">{{ p.title }}</div>
+              {% if p.date %}<div class="yt-sub">{{ p.date }}</div>{% endif %}
+            </div>
+          </div>
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.yt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+.yt-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: var(--transition);
+}
+.yt-card:hover {
+  border-color: var(--border-hover);
+}
+.yt-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.yt-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.yt-meta {
+  padding: 14px 16px;
+}
+.yt-title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--white);
+}
+.yt-sub {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+.yt-desc {
+  margin-top: 8px;
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.5;
+}
+@media (max-width: 480px) {
+  .yt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

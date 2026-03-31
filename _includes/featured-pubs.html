@@ -1,0 +1,28 @@
+<section class="page-section" id="publications">
+  <div class="container container--narrow">
+    <div class="section-header fade-in">
+      <div class="section-label">Selected Work</div>
+      <h2>Featured Publications</h2>
+      <p>{{ site.publications | size }}+ papers in top robotics venues. Showing selected recent work.</p>
+    </div>
+
+    {% assign sorted_pubs = site.publications | sort: "date" | reverse %}
+    {% for pub in sorted_pubs limit:6 %}
+    <a href="{{ pub.url | relative_url }}" class="pub-featured-item fade-in">
+      <div class="pub-featured-item__year">{{ pub.date | date: "%Y" }}</div>
+      <div class="pub-featured-item__info">
+        <h4 class="pub-featured-item__title">{{ pub.title }}</h4>
+        <div class="pub-featured-item__meta">
+          <span class="pub-featured-item__venue">{{ pub.venue | default: pub.category }}</span>
+          <span class="pub-featured-item__type">{{ pub.pubtype | default: "paper" }}</span>
+        </div>
+      </div>
+      <span class="pub-featured-item__arrow">→</span>
+    </a>
+    {% endfor %}
+
+    <div style="text-align: center; margin-top: 36px;" class="fade-in">
+      <a href="{{ '/publications/' | relative_url }}" class="btn btn--outline">View all {{ site.publications | size }} publications →</a>
+    </div>
+  </div>
+</section>

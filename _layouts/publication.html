@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<section class="page-header">
+  <div class="container container--narrow">
+    <div class="section-label">{{ page.type | default: "Publication" }}</div>
+    <h1 class="page-header__title" style="font-size: clamp(24px, 3vw, 36px);">{{ page.title }}</h1>
+    <p style="color: var(--accent); font-size: 15px; margin-top: 8px;">{{ page.year }} · {{ page.venue }}</p>
+  </div>
+</section>
+
+<section class="page-section" style="padding-top: 0;">
+  <div class="container container--narrow page-body">
+
+    {% if page.description %}
+    <p>{{ page.description }}</p>
+    {% endif %}
+
+    <!-- Links -->
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0;">
+      {% if page.paperurl %}
+        <a href="{{ page.paperurl }}" class="btn btn--primary btn--small" target="_blank">PDF</a>
+      {% endif %}
+      {% if page.doi %}
+        <a href="{{ page.doi }}" class="btn btn--outline btn--small" target="_blank">DOI</a>
+      {% endif %}
+      {% if page.code %}
+        <a href="{{ page.code }}" class="btn btn--outline btn--small" target="_blank">Code</a>
+      {% endif %}
+      {% if page.bibtex %}
+        <a href="{{ page.bibtex }}" class="btn btn--outline btn--small" target="_blank">BibTeX</a>
+      {% endif %}
+    </div>
+
+    {% if page.topics %}
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px;">
+      {% for topic in page.topics %}
+        <span class="tag">{{ topic }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {{ content }}
+
+  </div>
+</section>

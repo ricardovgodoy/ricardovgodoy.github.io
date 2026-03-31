@@ -1,0 +1,18 @@
+.site-footer { border-top: 1px solid var(--border); padding: 48px clamp(20px, 4vw, 48px); }
+.footer-inner {
+  max-width: var(--content-max); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 32px;
+}
+.footer-info__name { font-family: var(--font-display); font-size: 18px; color: var(--white); margin-bottom: 6px; }
+.footer-info__role { font-size: 13px; color: var(--text-dim); margin-bottom: 4px; }
+.footer-info__email a { font-size: 13px; color: var(--accent); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
+.footer-links a { font-size: 13px; color: var(--text-dim); transition: var(--transition); }
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: var(--content-max); margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-muted);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}

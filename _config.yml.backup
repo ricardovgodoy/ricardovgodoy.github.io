@@ -241,8 +241,8 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: "post"
-      author_profile: false
+      layout: single
+      author_profile: true
       read_time: true
       comments: true
       share: true
@@ -253,14 +253,14 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: false
+      author_profile: true
   # _teaching
   - scope:
       path: ""
       type: teaching
     values:
-      layout: "single"
-      author_profile: false
+      layout: single
+      author_profile: true
       share: true
       comments: true
   # _publications
@@ -268,8 +268,8 @@ defaults:
       path: ""
       type: publications
     values:
-      layout: "publication"
-      author_profile: false
+      layout: single
+      author_profile: true
       share: true
       comments: true
   # _portfolio
@@ -277,8 +277,8 @@ defaults:
       path: ""
       type: portfolio
     values:
-      layout: "single"
-      author_profile: false
+      layout: single
+      author_profile: true
       share: true
       comment: true
   # _talks
@@ -286,8 +286,8 @@ defaults:
       path: ""
       type: talks
     values:
-      layout: "talk"
-      author_profile: false
+      layout: talk
+      author_profile: true
       share: true
 
 

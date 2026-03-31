@@ -1,0 +1,24 @@
+---
+layout: default
+title: "News"
+permalink: /year-archive/
+---
+
+<section class="page-header">
+  <div class="container">
+    <div class="section-label">Updates</div>
+    <h1 class="page-header__title">News</h1>
+  </div>
+</section>
+
+<section class="page-section" style="padding-top: 0;">
+  <div class="container container--narrow">
+    {% for post in site.posts %}
+    <div style="padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+      <div style="font-size: 13px; color: #55556a; margin-bottom: 4px;">{{ post.date | date: "%B %d, %Y" }}</div>
+      <div style="font-size: 16px; font-weight: 500; margin-bottom: 6px;"><a href="{{ post.url | relative_url }}" style="color: #fff;">{{ post.title }}</a></div>
+      <div style="font-size: 14px; color: #8888a0; line-height: 1.6;">{{ post.excerpt | strip_html | truncatewords: 40 }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

@@ -1,31 +1,62 @@
----
-layout: compress
----
-
-{% include base_path %}
-
-<!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
-
-  <body>
-
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
-
-    {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
-
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name | default: "Dr. Ricardo Vilela de Godoy" }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | default: 'Robotics researcher focused on Physical AI, manipulation, and shared control.' }}">
+  <meta name="author" content="Ricardo Vilela de Godoy">
+  <meta property="og:title" content="{{ page.title | default: site.name }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:image" content="{{ site.url }}/images/new_profile_new2.JPG">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.name }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}/images/new_profile_new2.JPG">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ricardo Vilela de Godoy",
+    "url": "{{ site.url }}",
+    "jobTitle": "Postdoctoral Researcher",
+    "affiliation": { "@type": "Organization", "name": "University of São Paulo" },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=vVXZEB8AAAAJ",
+      "https://orcid.org/0000-0002-5323-9299",
+      "https://github.com/ricardovgodoy",
+      "https://www.linkedin.com/in/ricardo-vilela-de-godoy"
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | relative_url }}">
+  {% if page.head_extra %}{{ page.head_extra }}{% endif %}
+  {% feed_meta %}
+</head>
+<body>
+  <div class="site-wrapper">
+    {% include nav.html %}
+    <main class="site-content">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+    });
+  </script>
+  {% if page.scripts %}{{ page.scripts }}{% endif %}
+</body>
 </html>

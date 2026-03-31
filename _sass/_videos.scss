@@ -1,0 +1,38 @@
+.video-card {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border); background: var(--bg-card);
+  transition: var(--transition); cursor: pointer; text-decoration: none; color: inherit;
+}
+.video-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+
+.video-card__thumb {
+  position: relative; aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg)); overflow: hidden;
+}
+.video-card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+.video-card:hover .video-card__thumb img { transform: scale(1.03); }
+
+.video-card__play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(78,205,196,0.25); display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 18px; backdrop-filter: blur(4px); transition: var(--transition);
+}
+.video-card:hover .video-card__play { background: rgba(78,205,196,0.4); transform: translate(-50%,-50%) scale(1.1); }
+.video-card__year-badge {
+  position: absolute; top: 10px; right: 10px;
+  padding: 2px 8px; border-radius: 4px;
+  background: rgba(10,10,15,0.8); color: var(--text-dim); font-size: 11px; font-weight: 500;
+}
+.video-card__body { padding: 14px 16px; }
+.video-card__title {
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  color: var(--white); margin: 0 0 6px; line-height: 1.4;
+}
+.video-card__desc { font-size: 12px; color: var(--text-dim); line-height: 1.4; margin: 0; }
+
+.video-embed {
+  position: relative; padding-bottom: 56.25%; height: 0;
+  overflow: hidden; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border);
+}
+.video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }

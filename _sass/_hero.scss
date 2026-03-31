@@ -1,0 +1,69 @@
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px clamp(20px, 4vw, 48px) 80px;
+  position: relative; overflow: hidden;
+}
+
+.hero__glow {
+  position: absolute; top: 15%; right: -8%;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  filter: blur(80px); pointer-events: none;
+}
+.hero__glow--secondary {
+  top: auto; bottom: 10%; right: auto; left: -5%;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(255,107,107,0.06), transparent 70%);
+}
+
+.hero__content {
+  position: relative; z-index: 1;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.hero__status {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 20px;
+  border: 1px solid var(--accent-dim);
+  font-size: 13px; color: var(--accent); margin-bottom: 28px;
+}
+
+.hero__photo-row {
+  display: flex; align-items: center; gap: 28px; margin-bottom: 28px;
+}
+.hero__photo {
+  width: 100px; height: 100px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--accent-dim); flex-shrink: 0;
+}
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.1; color: var(--white); margin: 0;
+}
+
+.hero__tagline {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--text-dim); line-height: 1.5; margin-top: 20px;
+}
+.hero__tagline em {
+  color: var(--accent); font-style: italic; font-family: var(--font-display);
+}
+.hero__tagline strong { color: var(--white); font-weight: 400; }
+
+.hero__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.hero__actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+
+.hero__social { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.hero__social a {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-dim);
+  padding: 6px 12px; border-radius: 6px;
+  border: 1px solid var(--border); transition: var(--transition);
+}
+.hero__social a:hover {
+  color: var(--accent); border-color: var(--accent-dim); background: var(--accent-glow);
+}
+.hero__social svg { width: 16px; height: 16px; fill: currentColor; }

@@ -1,18 +1,56 @@
 ---
-layout: archive
+layout: default
 title: "Teaching"
+description: "Courses and teaching experience."
 permalink: /teaching/
-author_profile: true
 ---
 
-I teach engineering with a focus on building systems that work: sensing, estimation, control, and integration on real hardware.
+<section class="page-header">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h1 class="page-header__title">Teaching</h1>
+    <p class="page-header__desc">{{ page.description }}</p>
+  </div>
+</section>
 
-I routinely use active learning (problem-based sessions, short group discussions around real-world cases, and structured lab work), while still employing expository lectures when a topic benefits from a clear derivation or a careful conceptual setup.
+<section class="page-section" style="padding-top: 0;">
+  <div class="container container--narrow">
 
-Below are the courses I have taught and supported.
+    <h2 style="font-size: 24px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border);">Faculty of Health Sciences, Albert Einstein Hospital</h2>
 
-{% include base_path %}
+    <div class="teaching-entry">
+      <div class="teaching-entry__role">Specialization</div>
+      <div class="teaching-entry__title">Postgraduate Degree in Bioengineering Applied to Health</div>
+      <div class="teaching-entry__org">Faculty of Health Sciences, Albert Einstein Hospital · São Paulo, Brazil</div>
+      <div class="teaching-entry__date">2025</div>
+      <div class="teaching-entry__desc">Emphasized a multidisciplinary, technology-driven approach to tackling complex healthcare challenges. Focus on development of machine learning-based projects, applied electrical circuits and electronics, and signal processing.</div>
+    </div>
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+    <div class="teaching-entry">
+      <div class="teaching-entry__role">Course Instructor</div>
+      <div class="teaching-entry__title">Processing of Medical Signals and Images</div>
+      <div class="teaching-entry__org">Biomedical Engineering Bachelor's Program · São Paulo, Brazil</div>
+      <div class="teaching-entry__date">2025</div>
+      <div class="teaching-entry__desc">Biosignal physiology and signal/image processing for medicine and robotics applications. Reinforced concepts with hands-on Python labs using core scientific libraries.</div>
+    </div>
+
+    <h2 style="font-size: 24px; margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border);">The University of Auckland</h2>
+
+    <div class="teaching-entry">
+      <div class="teaching-entry__role">Graduate Teaching Assistant</div>
+      <div class="teaching-entry__title">MECHENG 730/736: Biomechatronics Systems</div>
+      <div class="teaching-entry__org">The University of Auckland · Auckland, New Zealand</div>
+      <div class="teaching-entry__date">2022–2024</div>
+      <div class="teaching-entry__desc">Explore mechatronic principles and techniques for measuring and manipulating biological systems. Design of biomechatronics systems, human biomechanics, and motion control.</div>
+    </div>
+
+    <div class="teaching-entry">
+      <div class="teaching-entry__role">Graduate Teaching Assistant</div>
+      <div class="teaching-entry__title">MECHENG 700: Part IV (Final Year) Research Project</div>
+      <div class="teaching-entry__org">The University of Auckland · Auckland, New Zealand</div>
+      <div class="teaching-entry__date">2022–2024</div>
+      <div class="teaching-entry__desc">Development of research projects on a topic of interest for Mechanical and Mechatronics Engineers.</div>
+    </div>
+
+  </div>
+</section>

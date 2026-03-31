@@ -3,9 +3,8 @@ layout: default
 ---
 <section class="page-header">
   <div class="container container--narrow">
-    {% if page.type %}<div class="section-label">{{ page.type }}</div>{% endif %}
+    <div class="section-label">{{ page.date | date: "%B %d, %Y" }}</div>
     <h1 class="page-header__title" style="font-size: clamp(24px, 3vw, 36px);">{{ page.title }}</h1>
-    <p style="color: var(--text-dim); font-size: 15px; margin-top: 8px;">{{ page.date | date: "%B %d, %Y" }}{% if page.venue %} · {{ page.venue }}{% endif %}</p>
   </div>
 </section>
 

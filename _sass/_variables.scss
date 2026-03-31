@@ -1,0 +1,25 @@
+:root {
+  --bg:             #0a0a0f;
+  --bg-card:        #12121a;
+  --bg-card-hover:  #1a1a28;
+  --bg-elevated:    #1e1e2e;
+  --accent:         #4ecdc4;
+  --accent-dim:     rgba(78, 205, 196, 0.2);
+  --accent-glow:    rgba(78, 205, 196, 0.12);
+  --warm:           #ff6b6b;
+  --gold:           #ffd93d;
+  --text:           #e8e8ec;
+  --text-dim:       #8888a0;
+  --text-muted:     #55556a;
+  --white:          #ffffff;
+  --border:         rgba(255, 255, 255, 0.06);
+  --border-hover:   rgba(255, 255, 255, 0.12);
+  --font-display:   'DM Serif Display', Georgia, serif;
+  --font-body:      'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+  --section-pad:    clamp(60px, 8vw, 100px);
+  --content-max:    1100px;
+  --content-narrow: 800px;
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --transition:     all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
