@@ -1,19 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#0a0a0f"/>
   <g fill="none" stroke="#4ecdc4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Base -->
     <rect x="20" y="52" width="24" height="6" rx="2" fill="#4ecdc4" stroke="none" opacity="0.3"/>
-    <!-- Lower arm -->
     <line x1="32" y1="52" x2="32" y2="38"/>
-    <!-- Joint -->
     <circle cx="32" cy="38" r="3" fill="#4ecdc4"/>
-    <!-- Upper arm -->
     <line x1="32" y1="38" x2="18" y2="22"/>
-    <!-- Shoulder joint -->
     <circle cx="18" cy="22" r="3" fill="#4ecdc4"/>
-    <!-- Forearm -->
     <line x1="18" y1="22" x2="36" y2="10"/>
-    <!-- Gripper -->
     <circle cx="36" cy="10" r="2.5" fill="#4ecdc4"/>
     <line x1="38" y1="8" x2="44" y2="4"/>
     <line x1="38" y1="12" x2="44" y2="16"/>
