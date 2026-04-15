@@ -10,7 +10,7 @@ permalink: /publication/2026-leaf-dataset-1
 excerpt: 'In this paper, we collected 640 high-resolution images from a commercial farm spanning multiple growth stages, weed pressures, and lighting variations.'
 date: 2026-03-17
 venue: 'Nature Scientific Data'
-paperurl: 'https://www.nature.com/articles/s41597-026-07092-85'
+paperurl: 'https://www.nature.com/articles/s41597-026-07092-8'
 bibtexurl: 'http://ricardovgodoy.github.io/files/2025-arxiv-1.bib'
 citation: 'Segreto, Thiago H., Juliano Negri, Paulo H. Polegato, João Manoel Herrera Pinheiro, Ricardo Godoy, and Marcelo Becker. "A Leaf-Level Dataset for Soybean-Cotton Detection and Segmentation." Scientific Data (2026).'
 ---
