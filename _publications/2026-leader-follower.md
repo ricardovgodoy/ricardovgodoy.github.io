@@ -1,15 +1,15 @@
 ---
 title: "Evaluating Zero‑Shot and One‑Shot Adaptation of Small Language Models in Leader‑Follower Interaction"
 collection: publications
-category: preprints
-pubtype: preprint
+category: conferences
+pubtype: conference
 tags: [human-robot-interaction]
 doi: 
 code: https://github.com/bme-research/biorob2026_slm_leader_follower
 permalink: /publication/2026-leader-follower
 excerpt: 'In this paper, we present the first benchmark of SLMs for leader–follower communication, introducing a novel dataset derived from a published database and augmented with synthetic samples to capture interaction-specific dynamics.'
-date: 2026-02-24
-venue: 'Paper submitted to BioRob 2026 - arxiv preprint available.'
+date: 2026-04-15
+venue: 'IEEE RAS/EMBS 11th International Conference on Biomedical Robotics and Biomechatronics (BioRob) 2026'
 paperurl: 'https://arxiv.org/abs/2602.23312'
 bibtexurl: ''
 citation: ''
