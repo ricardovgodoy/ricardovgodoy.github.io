@@ -10,7 +10,7 @@ permalink: /publication/2026-descriptor
 excerpt: 'To address the scarcity of robust digital resources for these key groups, we present a curated image dataset designed to advance automated identification systems.'
 date: 2026-04-09
 venue: 'IEEE Data Descriptions'
-paperurl: 'https://arxiv.org/abs/2602.20028'
+paperurl: 'https://ieeexplore.ieee.org/document/11483097'
 bibtexurl: ''
 citation: ''
 ---
