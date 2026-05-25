@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direction mockup — Ricardo V. Godoy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf7; --ink:#1b1a18; --muted:#6e6a62; --faint:#9a958b;
+    --rule:#e7e2d8; --accent:#176a62;
+    --serif:'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --wrap:760px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--serif); font-size:19px; line-height:1.65;
+    font-weight:400;
+  }
+  .wrap{max-width:var(--wrap); margin:0 auto; padding:0 28px;}
+
+  /* eyebrows, nav, section labels — the only sans, used small */
+  .label{
+    font-family:var(--sans); font-size:12px; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
+  }
+
+  /* top bar */
+  .topbar{
+    border-bottom:1px solid var(--rule);
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:16px; padding:20px 0;
+  }
+  .wordmark{font-family:var(--serif); font-size:18px; letter-spacing:.01em; color:var(--ink); text-decoration:none;}
+  .nav{display:flex; gap:22px; flex-wrap:wrap;}
+  .nav a{font-family:var(--sans); font-size:13px; letter-spacing:.04em; color:var(--muted); text-decoration:none;}
+  .nav a:hover{color:var(--ink);}
+
+  /* intro */
+  .intro{display:flex; gap:30px; align-items:flex-start; padding:64px 0 40px;}
+  .intro__photo{
+    width:104px; height:104px; border-radius:50%; object-fit:cover;
+    flex-shrink:0; filter:grayscale(100%); opacity:.96;
+  }
+  .intro__eyebrow{margin:0 0 10px;}
+  h1{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(40px,6.4vw,62px); line-height:1.02;
+    letter-spacing:-.015em; margin:0 0 18px;
+  }
+  .lede{font-size:21px; line-height:1.55; margin:0 0 22px; max-width:60ch; color:#2b2925;}
+  .lede em{font-style:italic; color:var(--accent);}
+  .links{font-size:0; margin:0;}
+  .links a{
+    font-family:var(--sans); font-size:14px; color:var(--ink);
+    text-decoration:none; border-bottom:1px solid var(--rule);
+    padding-bottom:1px; margin-right:18px; line-height:2.2;
+  }
+  .links a:hover{border-color:var(--accent); color:var(--accent);}
+
+  hr{border:0; border-top:1px solid var(--rule); margin:0;}
+
+  /* two columns: research + news */
+  .cols{display:grid; grid-template-columns:1.55fr 1fr; gap:54px; padding:48px 0;}
+  h2{font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.16em;
+     text-transform:uppercase; color:var(--faint); margin:0 0 18px;}
+  .research p{margin:0 0 18px; color:var(--muted); font-size:18px;}
+  .areas{list-style:none; margin:0; padding:0;}
+  .areas li{padding:9px 0; border-bottom:1px solid var(--rule); font-size:18px;}
+  .areas li:last-child{border-bottom:0;}
+
+  .news ul{list-style:none; margin:0; padding:0;}
+  .news li{display:flex; gap:14px; padding:9px 0; font-size:16px; line-height:1.4;}
+  .news .date{font-family:var(--sans); font-size:12px; color:var(--accent);
+    letter-spacing:.04em; flex-shrink:0; width:34px; padding-top:3px;}
+
+  /* publications */
+  .pubs{padding:44px 0 8px;}
+  .pubs .note{font-family:var(--sans); font-size:11px; letter-spacing:.04em;
+    text-transform:none; color:var(--faint); font-weight:400; margin-left:8px;}
+  .pubs ol{list-style:none; margin:0; padding:0; counter-reset:p;}
+  .pub{padding:16px 0; border-bottom:1px solid var(--rule); display:flex; gap:18px;}
+  .pub:last-child{border-bottom:0;}
+  .pub__num{counter-increment:p; font-family:var(--sans); font-size:13px;
+    color:var(--faint); width:24px; flex-shrink:0; padding-top:4px;}
+  .pub__num::before{content:counter(p);}
+  .pub__title{font-size:18px; line-height:1.4; margin:0 0 4px;}
+  .pub__meta{font-family:var(--sans); font-size:13px; color:var(--muted);}
+  .pub__venue{color:var(--accent);}
+
+  footer{border-top:1px solid var(--rule); margin-top:40px; padding:26px 0 60px;}
+  footer .label{color:var(--faint);}
+
+  @media (max-width:680px){
+    .cols{grid-template-columns:1fr; gap:36px;}
+    .intro{flex-direction:column; gap:22px; padding:44px 0 32px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="topbar">
+    <a class="wordmark" href="#">Ricardo&nbsp;V.&nbsp;Godoy</a>
+    <nav class="nav">
+      <a href="#">Research</a>
+      <a href="#">Publications</a>
+      <a href="#">Videos</a>
+      <a href="#">CV</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <img class="intro__photo" src="../images/new_profile_new2.JPG" alt="Ricardo V. Godoy">
+    <div>
+      <p class="label intro__eyebrow">Postdoctoral Researcher · University of São Paulo</p>
+      <h1>Ricardo V. Godoy</h1>
+      <p class="lede">I build <em>Physical AI</em> — robots that are intuitive to control,
+      safe around people, and that improve through experience. My work joins human intent,
+      shared-control safety, and learning into systems that hold up under real-world constraints.</p>
+      <p class="links">
+        <a href="#">Google Scholar</a>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">ORCID</a>
+        <a href="#">CV (PDF)</a>
+        <a href="#">Email</a>
+      </p>
+    </div>
+  </section>
+
+  <hr>
+
+  <div class="cols">
+    <section class="research">
+      <h2>Research</h2>
+      <p>I work end-to-end — perception, intent, control, and evaluation — so that capable
+      AI actually reaches deployment on real robots. Current threads:</p>
+      <ul class="areas">
+        <li>Dexterous manipulation in clutter</li>
+        <li>Teleoperation and shared control</li>
+        <li>Wearable sensing &amp; biosignal-driven intent (EMG)</li>
+        <li>Vision–language models for locomanipulation</li>
+        <li>Assistive human–robot interaction</li>
+        <li>Locomanipulation on mobile platforms</li>
+        <li>Robot self-learning in the real world</li>
+      </ul>
+    </section>
+
+    <aside class="news">
+      <h2>News</h2>
+      <ul>
+        <li><span class="date">2025</span><span>Best Paper Award, IEEE LARS.</span></li>
+        <li><span class="date">2025</span><span>Appointed Assistant Professor, Albert Einstein Hospital.</span></li>
+        <li><span class="date">2025</span><span>Technical lead on a Petrobras R&amp;D project (team of 30–50 researchers).</span></li>
+        <li><span class="date">—</span><span>Ongoing collaborations with Boston Dynamics, ANYbotics, and ETH Zurich.</span></li>
+      </ul>
+    </aside>
+  </div>
+
+  <hr>
+
+  <section class="pubs">
+    <h2>Selected Publications <span class="note">sample entries — layout only, not real citations</span></h2>
+    <ol>
+      <li class="pub">
+        <div class="pub__num"></div>
+        <div>
+          <p class="pub__title">EMG-driven shared control for close-proximity manipulation</p>
+          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">IEEE RA-L</span>, 2025</p>
+        </div>
+      </li>
+      <li class="pub">
+        <div class="pub__num"></div>
+        <div>
+          <p class="pub__title">Vision–language grounding for locomanipulation on legged robots</p>
+          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">ICRA</span>, 2025</p>
+        </div>
+      </li>
+      <li class="pub">
+        <div class="pub__num"></div>
+        <div>
+          <p class="pub__title">Real-time collision avoidance via potential fields for assistive manipulation</p>
+          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">IROS</span>, 2024</p>
+        </div>
+      </li>
+      <li class="pub">
+        <div class="pub__num"></div>
+        <div>
+          <p class="pub__title">Decoding hand intent from wearable EMG under day-to-day variability</p>
+          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">IEEE TNSRE</span>, 2024</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer>
+    <span class="label">© 2026 Ricardo Vilela de Godoy · For collaboration inquiries: ricardo.godoy@alumni.usp.br</span>
+  </footer>
+</div>
+
+</body>
+</html>
