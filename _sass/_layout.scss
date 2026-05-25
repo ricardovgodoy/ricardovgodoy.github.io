@@ -12,15 +12,6 @@ section, .page-section {
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 
-.bg-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(78,205,196,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(78,205,196,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-}
-
 .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
 table { width: 100%; border-collapse: collapse; font-size: 14px; }

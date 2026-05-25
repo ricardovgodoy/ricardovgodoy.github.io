@@ -8,13 +8,8 @@
 .hero__glow {
   position: absolute; top: 15%; right: -8%;
   width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  background: radial-gradient(circle, rgba(78,205,196,0.05), transparent 70%);
   filter: blur(80px); pointer-events: none;
-}
-.hero__glow--secondary {
-  top: auto; bottom: 10%; right: auto; left: -5%;
-  width: 350px; height: 350px;
-  background: radial-gradient(circle, rgba(255,107,107,0.06), transparent 70%);
 }
 
 .hero__content {

@@ -4,7 +4,7 @@
   position: relative; overflow: hidden; transition: var(--transition);
 }
 .pillar-card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); }
-.pillar-card:hover .pillar-card__glow { opacity: 1; }
+.pillar-card:hover .pillar-card__glow { opacity: 0.35; }
 .pillar-card__glow {
   position: absolute; top: -40px; right: -40px;
   width: 120px; height: 120px; border-radius: 50%;
@@ -13,7 +13,8 @@
 .pillar-card--accent .pillar-card__glow { background: rgba(78,205,196,0.15); }
 .pillar-card--warm .pillar-card__glow { background: rgba(255,107,107,0.15); }
 .pillar-card--gold .pillar-card__glow { background: rgba(255,217,61,0.15); }
-.pillar-card__icon { font-size: 36px; margin-bottom: 12px; }
+.pillar-card__icon { margin-bottom: 16px; color: var(--accent); }
+.pillar-card__icon svg { width: 26px; height: 26px; display: block; }
 .pillar-card__label {
   font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
   text-transform: uppercase; margin-bottom: 6px;
@@ -38,7 +39,8 @@
   background: var(--bg-card); border: 1px solid var(--border); transition: var(--transition);
 }
 .highlight-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
-.highlight-card__emoji { font-size: 22px; flex-shrink: 0; }
+.highlight-card__icon { flex-shrink: 0; display: inline-flex; color: var(--accent); }
+.highlight-card__icon svg { width: 20px; height: 20px; display: block; }
 .highlight-card__text { font-size: 14px; color: var(--text); line-height: 1.4; }
 
 .content-card {
