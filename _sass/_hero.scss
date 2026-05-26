@@ -1,38 +1,46 @@
-.intro {
-  padding: 122px clamp(20px, 4vw, 48px) 64px;
-}
-.intro__inner {
+/* Homepage: two-column profile + content */
+.home {
   max-width: var(--content-max);
   margin: 0 auto;
+  padding: 116px clamp(20px, 4vw, 48px) 80px;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 38px;
+  grid-template-columns: 300px 1fr;
+  gap: 64px;
   align-items: start;
 }
-.intro__photo {
-  width: 116px; height: 116px; border-radius: 50%;
-  object-fit: cover; filter: grayscale(100%) contrast(1.02);
-  border: 1px solid var(--border); flex-shrink: 0;
+.home__aside { position: sticky; top: 96px; }
+.home__main { min-width: 0; }
+.home__main section { padding: 0; }
+.home__main .container,
+.home__main .container--narrow { max-width: none; margin: 0; padding: 0; width: 100%; }
+.home__main > section + section { margin-top: 66px; }
+
+/* Sidebar profile */
+.profile__photo {
+  width: 132px; height: 132px; border-radius: 50%;
+  object-fit: cover; border: 1px solid var(--border); margin-bottom: 22px;
 }
-.intro__eyebrow {
-  font-family: var(--font-body); font-size: 12px; font-weight: 600;
-  letter-spacing: 1.4px; text-transform: uppercase; color: var(--text-muted);
-  margin: 0 0 14px;
-}
-.intro__name {
+.profile__name {
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(40px, 6vw, 64px); line-height: 1.02;
-  letter-spacing: -0.02em; color: var(--white); margin: 0 0 22px;
+  font-size: 30px; line-height: 1.1; letter-spacing: -0.01em;
+  color: var(--white); margin: 0 0 10px;
 }
-.intro__lede {
-  font-size: 19px; line-height: 1.6; color: var(--text);
-  max-width: 62ch; margin: 0 0 26px;
+.profile__role {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.55;
+  color: var(--text-dim); margin: 0 0 22px;
 }
-.intro__lede em { font-style: italic; color: var(--accent); }
-.intro__links { display: flex; flex-wrap: wrap; gap: 9px 22px; margin: 0; }
-.intro__links a {
+.profile__links { list-style: none; margin: 0; padding: 0; }
+.profile__links li { margin-bottom: 10px; }
+.profile__links a {
   font-family: var(--font-body); font-size: 14px; color: var(--text);
-  text-decoration: none; padding-bottom: 2px;
-  border-bottom: 1px solid var(--border-hover); transition: var(--transition);
+  text-decoration: none; border-bottom: 1px solid var(--border-hover);
+  padding-bottom: 1px; transition: var(--transition);
 }
-.intro__links a:hover { color: var(--accent); border-color: var(--accent); }
+.profile__links a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Main column lead / about */
+.home-about__lede {
+  font-size: 20px; line-height: 1.6; color: var(--text);
+  margin: 0; max-width: 64ch;
+}
+.home-about__lede em { font-style: italic; color: var(--accent); }

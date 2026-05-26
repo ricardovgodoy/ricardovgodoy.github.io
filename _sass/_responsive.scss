@@ -2,9 +2,10 @@
   .nav-links { display: none; }
   .nav-toggle { display: block; }
 
-  .intro { padding-top: 92px; padding-bottom: 48px; }
-  .intro__inner { grid-template-columns: 1fr; gap: 22px; }
-  .intro__photo { width: 84px; height: 84px; }
+  .home { grid-template-columns: 1fr; gap: 36px; padding-top: 96px; }
+  .home__aside { position: static; }
+  .profile__photo { width: 104px; height: 104px; }
+  .home__main > section + section { margin-top: 48px; }
 
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
@@ -20,6 +21,5 @@
 }
 
 @media (max-width: 480px) {
-  .intro__links { gap: 8px 16px; }
-  .news-list li { grid-template-columns: 44px 1fr; gap: 12px; }
+  .home-about__lede { font-size: 18px; }
 }
