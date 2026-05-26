@@ -15,7 +15,7 @@
         <h4 class="pub-featured-item__title">{{ pub.title }}</h4>
         <div class="pub-featured-item__meta">
           <span class="pub-featured-item__venue{% if pub.award %} pub-featured-item__venue--award{% endif %}">{{ pub.venue | default: pub.category }}</span>
-          {% if pub.award %}<span class="pub-featured-item__type">{{ pub.award }}</span>{% else %}<span class="pub-featured-item__type">{{ pub.pubtype | default: "paper" }}</span>{% endif %}
+          {% if pub.award %}<span class="pub-featured-item__type">{{ pub.award }}</span>{% else %}<span class="pub-featured-item__type">{{ pub.pubtype | default: "paper" | capitalize }}</span>{% endif %}
         </div>
       </div>
       <span class="pub-featured-item__arrow">→</span>
