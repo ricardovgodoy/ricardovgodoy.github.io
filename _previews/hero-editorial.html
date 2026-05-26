@@ -1,105 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-font="newsreader" data-accent="teal">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Direction mockup — Ricardo V. Godoy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#fbfaf7; --ink:#1b1a18; --muted:#6e6a62; --faint:#9a958b;
-    --rule:#e7e2d8; --accent:#176a62;
-    --serif:'Newsreader', Georgia, 'Times New Roman', serif;
-    --sans:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --wrap:760px;
+    --bg:#fbfaf7; --ink:#1c1b18; --muted:#6e6a61; --faint:#9c978c;
+    --rule:#e7e2d7; --rule-strong:#d8d2c5;
+    --accent:#176a62;
+    --display:'Newsreader', Georgia, serif;
+    --body:'Newsreader', Georgia, serif;
+    --label:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --measure:64ch; --wrap:780px;
   }
+  /* ---- font themes (swapped by the preview control) ---- */
+  html[data-font="fraunces"]{ --display:'Fraunces', Georgia, serif;
+    --body:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  html[data-font="source"]{ --display:'Source Serif 4', Georgia, serif; --body:'Source Serif 4', Georgia, serif; }
+  /* ---- accent themes ---- */
+  html[data-accent="teal"]{ --accent:#176a62; }
+  html[data-accent="oxblood"]{ --accent:#7c2f2f; }
+  html[data-accent="navy"]{ --accent:#264c75; }
+  html[data-accent="graphite"]{ --accent:#3a382f; }
+
   *{box-sizing:border-box;}
   html{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:var(--serif); font-size:19px; line-height:1.65;
-    font-weight:400;
-  }
-  .wrap{max-width:var(--wrap); margin:0 auto; padding:0 28px;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--body); font-size:18.5px; line-height:1.7; font-weight:400;}
+  .wrap{max-width:var(--wrap); margin:0 auto; padding:0 32px;}
 
-  /* eyebrows, nav, section labels — the only sans, used small */
-  .label{
-    font-family:var(--sans); font-size:12px; font-weight:500;
-    letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
-  }
+  .label{font-family:var(--label); font-size:11.5px; font-weight:500;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--faint);}
 
   /* top bar */
-  .topbar{
-    border-bottom:1px solid var(--rule);
-    display:flex; align-items:baseline; justify-content:space-between;
-    gap:16px; padding:20px 0;
-  }
-  .wordmark{font-family:var(--serif); font-size:18px; letter-spacing:.01em; color:var(--ink); text-decoration:none;}
-  .nav{display:flex; gap:22px; flex-wrap:wrap;}
-  .nav a{font-family:var(--sans); font-size:13px; letter-spacing:.04em; color:var(--muted); text-decoration:none;}
-  .nav a:hover{color:var(--ink);}
+  .topbar{display:flex; align-items:baseline; justify-content:space-between;
+    gap:20px; padding:22px 0; border-bottom:1px solid var(--rule);}
+  .wordmark{font-family:var(--display); font-size:19px; letter-spacing:.01em;
+    text-decoration:none; color:var(--ink);}
+  .nav{display:flex; gap:26px; flex-wrap:wrap;}
+  .nav a{font-family:var(--label); font-size:12.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .15s;}
+  .nav a:hover{color:var(--accent);}
 
   /* intro */
-  .intro{display:flex; gap:30px; align-items:flex-start; padding:64px 0 40px;}
-  .intro__photo{
-    width:104px; height:104px; border-radius:50%; object-fit:cover;
-    flex-shrink:0; filter:grayscale(100%); opacity:.96;
-  }
-  .intro__eyebrow{margin:0 0 10px;}
-  h1{
-    font-family:var(--serif); font-weight:400;
-    font-size:clamp(40px,6.4vw,62px); line-height:1.02;
-    letter-spacing:-.015em; margin:0 0 18px;
-  }
-  .lede{font-size:21px; line-height:1.55; margin:0 0 22px; max-width:60ch; color:#2b2925;}
+  .intro{display:grid; grid-template-columns:auto 1fr; gap:34px; align-items:start; padding:74px 0 54px;}
+  .intro__photo{width:112px; height:112px; border-radius:50%; object-fit:cover;
+    filter:grayscale(100%) contrast(1.03);}
+  .eyebrow{margin:0 0 14px;}
+  h1{font-family:var(--display); font-weight:400; font-size:clamp(42px,6.6vw,66px);
+    line-height:1.03; letter-spacing:-.018em; margin:0 0 20px;}
+  .lede{font-size:21px; line-height:1.55; max-width:var(--measure); margin:0 0 26px; color:#2b2925;}
   .lede em{font-style:italic; color:var(--accent);}
-  .links{font-size:0; margin:0;}
-  .links a{
-    font-family:var(--sans); font-size:14px; color:var(--ink);
-    text-decoration:none; border-bottom:1px solid var(--rule);
-    padding-bottom:1px; margin-right:18px; line-height:2.2;
-  }
-  .links a:hover{border-color:var(--accent); color:var(--accent);}
+  .links{display:flex; flex-wrap:wrap; gap:0 22px;}
+  .links a{font-family:var(--label); font-size:13px; color:var(--ink); text-decoration:none;
+    padding:3px 0; border-bottom:1px solid var(--rule-strong); transition:border-color .15s,color .15s;}
+  .links a:hover{color:var(--accent); border-color:var(--accent);}
 
   hr{border:0; border-top:1px solid var(--rule); margin:0;}
 
-  /* two columns: research + news */
-  .cols{display:grid; grid-template-columns:1.55fr 1fr; gap:54px; padding:48px 0;}
-  h2{font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.16em;
-     text-transform:uppercase; color:var(--faint); margin:0 0 18px;}
-  .research p{margin:0 0 18px; color:var(--muted); font-size:18px;}
-  .areas{list-style:none; margin:0; padding:0;}
-  .areas li{padding:9px 0; border-bottom:1px solid var(--rule); font-size:18px;}
-  .areas li:last-child{border-bottom:0;}
+  /* section heading: small accent tick + label */
+  .sec__head{display:flex; align-items:center; gap:12px; margin:0 0 22px;}
+  .tick{width:22px; height:1px; background:var(--accent); flex-shrink:0;}
 
+  /* research + news */
+  .cols{display:grid; grid-template-columns:1.6fr 1fr; gap:56px; padding:52px 0;}
+  .intro-line{margin:0 0 20px; color:var(--muted); font-size:18px; max-width:48ch;}
+  .areas{list-style:none; margin:0; padding:0;}
+  .areas li{padding:11px 0; border-bottom:1px solid var(--rule); font-size:18px; transition:color .15s;}
+  .areas li:last-child{border-bottom:0;}
+  .areas li:hover{color:var(--accent);}
   .news ul{list-style:none; margin:0; padding:0;}
-  .news li{display:flex; gap:14px; padding:9px 0; font-size:16px; line-height:1.4;}
-  .news .date{font-family:var(--sans); font-size:12px; color:var(--accent);
-    letter-spacing:.04em; flex-shrink:0; width:34px; padding-top:3px;}
+  .news li{display:grid; grid-template-columns:38px 1fr; gap:12px; padding:11px 0;
+    font-size:15.5px; line-height:1.45; border-bottom:1px solid var(--rule);}
+  .news li:last-child{border-bottom:0;}
+  .news .yr{font-family:var(--label); font-size:12px; color:var(--accent); letter-spacing:.03em; padding-top:3px;}
 
   /* publications */
-  .pubs{padding:44px 0 8px;}
-  .pubs .note{font-family:var(--sans); font-size:11px; letter-spacing:.04em;
-    text-transform:none; color:var(--faint); font-weight:400; margin-left:8px;}
-  .pubs ol{list-style:none; margin:0; padding:0; counter-reset:p;}
-  .pub{padding:16px 0; border-bottom:1px solid var(--rule); display:flex; gap:18px;}
+  .pubs{padding:8px 0 4px;}
+  .note{font-family:var(--label); font-size:11px; letter-spacing:.02em;
+    text-transform:none; color:var(--faint); font-weight:400;}
+  .pub{display:grid; grid-template-columns:26px 1fr auto; gap:18px;
+    padding:16px 0; border-bottom:1px solid var(--rule); align-items:baseline;}
   .pub:last-child{border-bottom:0;}
-  .pub__num{counter-increment:p; font-family:var(--sans); font-size:13px;
-    color:var(--faint); width:24px; flex-shrink:0; padding-top:4px;}
-  .pub__num::before{content:counter(p);}
-  .pub__title{font-size:18px; line-height:1.4; margin:0 0 4px;}
-  .pub__meta{font-family:var(--sans); font-size:13px; color:var(--muted);}
-  .pub__venue{color:var(--accent);}
+  .pub__n{font-family:var(--label); font-size:12.5px; color:var(--faint);}
+  .pub__t{font-size:18px; line-height:1.42;}
+  .pub__a{font-family:var(--label); font-size:13px; color:var(--muted); margin-top:4px;}
+  .pub__yr{font-family:var(--label); font-size:13px; color:var(--accent); white-space:nowrap;}
 
-  footer{border-top:1px solid var(--rule); margin-top:40px; padding:26px 0 60px;}
-  footer .label{color:var(--faint);}
+  footer{border-top:1px solid var(--rule); margin-top:48px; padding:28px 0 110px;}
 
-  @media (max-width:680px){
-    .cols{grid-template-columns:1fr; gap:36px;}
-    .intro{flex-direction:column; gap:22px; padding:44px 0 32px;}
+  @media (max-width:720px){
+    .intro{grid-template-columns:1fr; gap:24px; padding:48px 0 36px;}
+    .cols{grid-template-columns:1fr; gap:40px;}
+    .pub{grid-template-columns:22px 1fr;}
+    .pub__yr{grid-column:2; color:var(--muted);}
   }
+
+  /* ---- preview control panel (NOT part of the design) ---- */
+  .cc{position:fixed; right:18px; bottom:18px; z-index:50; background:#fff;
+    border:1px solid var(--rule-strong); border-radius:12px; box-shadow:0 8px 28px rgba(0,0,0,.12);
+    padding:12px 14px; font-family:var(--label); max-width:min(92vw,380px);}
+  .cc__row{display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+  .cc__row+.cc__row{margin-top:9px;}
+  .cc__lbl{width:48px; text-transform:uppercase; letter-spacing:.1em; font-size:10px; color:var(--faint);}
+  .cc button{font-family:var(--label); font-size:12px; cursor:pointer; border:1px solid var(--rule-strong);
+    background:#fff; color:var(--ink); border-radius:7px; padding:5px 10px; line-height:1.1;}
+  .cc button.is-on{border-color:var(--ink); background:var(--ink); color:#fff;}
+  .cc .sw{width:22px; height:22px; border-radius:50%; padding:0; border:1px solid rgba(0,0,0,.18);}
+  .cc .sw.is-on{outline:2px solid var(--ink); outline-offset:2px;}
+  .cc__note{margin-top:11px; font-size:10px; color:var(--faint); line-height:1.45;}
 </style>
 </head>
 <body>
@@ -119,7 +132,7 @@
   <section class="intro">
     <img class="intro__photo" src="../images/new_profile_new2.JPG" alt="Ricardo V. Godoy">
     <div>
-      <p class="label intro__eyebrow">Postdoctoral Researcher · University of São Paulo</p>
+      <p class="label eyebrow">Postdoctoral Researcher · University of São Paulo</p>
       <h1>Ricardo V. Godoy</h1>
       <p class="lede">I build <em>Physical AI</em> — robots that are intuitive to control,
       safe around people, and that improve through experience. My work joins human intent,
@@ -129,6 +142,7 @@
         <a href="#">GitHub</a>
         <a href="#">LinkedIn</a>
         <a href="#">ORCID</a>
+        <a href="#">YouTube</a>
         <a href="#">CV (PDF)</a>
         <a href="#">Email</a>
       </p>
@@ -139,9 +153,9 @@
 
   <div class="cols">
     <section class="research">
-      <h2>Research</h2>
-      <p>I work end-to-end — perception, intent, control, and evaluation — so that capable
-      AI actually reaches deployment on real robots. Current threads:</p>
+      <div class="sec__head"><span class="tick"></span><span class="label">Research</span></div>
+      <p class="intro-line">I work end-to-end — perception, intent, control, and evaluation —
+      so that capable AI actually reaches deployment on real robots. Current threads:</p>
       <ul class="areas">
         <li>Dexterous manipulation in clutter</li>
         <li>Teleoperation and shared control</li>
@@ -154,56 +168,93 @@
     </section>
 
     <aside class="news">
-      <h2>News</h2>
+      <div class="sec__head"><span class="tick"></span><span class="label">News</span></div>
       <ul>
-        <li><span class="date">2025</span><span>Best Paper Award, IEEE LARS.</span></li>
-        <li><span class="date">2025</span><span>Appointed Assistant Professor, Albert Einstein Hospital.</span></li>
-        <li><span class="date">2025</span><span>Technical lead on a Petrobras R&amp;D project (team of 30–50 researchers).</span></li>
-        <li><span class="date">—</span><span>Ongoing collaborations with Boston Dynamics, ANYbotics, and ETH Zurich.</span></li>
+        <li><span class="yr">2025</span><span>Best Paper Award, IEEE LARS.</span></li>
+        <li><span class="yr">2025</span><span>Appointed Assistant Professor, Albert Einstein Hospital.</span></li>
+        <li><span class="yr">2025</span><span>Technical lead on a Petrobras R&amp;D project (team of 30–50 researchers).</span></li>
+        <li><span class="yr">—</span><span>Ongoing collaborations with Boston Dynamics, ANYbotics, and ETH Zurich.</span></li>
       </ul>
     </aside>
   </div>
 
   <hr>
 
-  <section class="pubs">
-    <h2>Selected Publications <span class="note">sample entries — layout only, not real citations</span></h2>
-    <ol>
-      <li class="pub">
-        <div class="pub__num"></div>
+  <section class="pubs" style="padding-top:52px;">
+    <div class="sec__head"><span class="tick"></span><span class="label">Selected Publications</span>
+      <span class="note">— sample entries, layout only</span></div>
+    <div>
+      <div class="pub">
+        <span class="pub__n">1</span>
         <div>
-          <p class="pub__title">EMG-driven shared control for close-proximity manipulation</p>
-          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">IEEE RA-L</span>, 2025</p>
+          <div class="pub__t">EMG-driven shared control for close-proximity manipulation</div>
+          <div class="pub__a">R. V. Godoy, et al.</div>
         </div>
-      </li>
-      <li class="pub">
-        <div class="pub__num"></div>
+        <span class="pub__yr">RA-L · 2025</span>
+      </div>
+      <div class="pub">
+        <span class="pub__n">2</span>
         <div>
-          <p class="pub__title">Vision–language grounding for locomanipulation on legged robots</p>
-          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">ICRA</span>, 2025</p>
+          <div class="pub__t">Vision–language grounding for locomanipulation on legged robots</div>
+          <div class="pub__a">R. V. Godoy, et al.</div>
         </div>
-      </li>
-      <li class="pub">
-        <div class="pub__num"></div>
+        <span class="pub__yr">ICRA · 2025</span>
+      </div>
+      <div class="pub">
+        <span class="pub__n">3</span>
         <div>
-          <p class="pub__title">Real-time collision avoidance via potential fields for assistive manipulation</p>
-          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">IROS</span>, 2024</p>
+          <div class="pub__t">Real-time collision avoidance via potential fields for assistive manipulation</div>
+          <div class="pub__a">R. V. Godoy, et al.</div>
         </div>
-      </li>
-      <li class="pub">
-        <div class="pub__num"></div>
+        <span class="pub__yr">IROS · 2024</span>
+      </div>
+      <div class="pub">
+        <span class="pub__n">4</span>
         <div>
-          <p class="pub__title">Decoding hand intent from wearable EMG under day-to-day variability</p>
-          <p class="pub__meta">R. V. Godoy, et al. · <span class="pub__venue">IEEE TNSRE</span>, 2024</p>
+          <div class="pub__t">Decoding hand intent from wearable EMG under day-to-day variability</div>
+          <div class="pub__a">R. V. Godoy, et al.</div>
         </div>
-      </li>
-    </ol>
+        <span class="pub__yr">TNSRE · 2024</span>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <span class="label">© 2026 Ricardo Vilela de Godoy · For collaboration inquiries: ricardo.godoy@alumni.usp.br</span>
+    <span class="label" style="color:var(--faint);">© 2026 Ricardo Vilela de Godoy · ricardo.godoy@alumni.usp.br</span>
   </footer>
 </div>
+
+<!-- preview-only control panel -->
+<div class="cc">
+  <div class="cc__row">
+    <span class="cc__lbl">Type</span>
+    <button data-set="font:newsreader" class="is-on">Newsreader</button>
+    <button data-set="font:fraunces">Fraunces</button>
+    <button data-set="font:source">Source Serif</button>
+  </div>
+  <div class="cc__row">
+    <span class="cc__lbl">Accent</span>
+    <button class="sw is-on" data-set="accent:teal" style="background:#176a62" title="Teal"></button>
+    <button class="sw" data-set="accent:oxblood" style="background:#7c2f2f" title="Oxblood"></button>
+    <button class="sw" data-set="accent:navy" style="background:#264c75" title="Ink navy"></button>
+    <button class="sw" data-set="accent:graphite" style="background:#3a382f" title="Graphite (near-mono)"></button>
+  </div>
+  <div class="cc__note">Preview controls — not part of the page. Toggle to compare; tell me the combo you like.</div>
+</div>
+
+<script>
+  var root = document.documentElement;
+  document.querySelectorAll('[data-set]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var parts = btn.getAttribute('data-set').split(':');
+      var key = parts[0], val = parts[1];
+      root.setAttribute('data-' + key, val);
+      document.querySelectorAll('[data-set^="' + key + ':"]').forEach(function(x){
+        x.classList.toggle('is-on', x === btn);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
