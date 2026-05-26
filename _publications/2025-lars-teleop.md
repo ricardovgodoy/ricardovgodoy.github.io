@@ -3,6 +3,8 @@ title: "A Vision-Based Shared-Control Teleoperation Scheme for Controlling the R
 collection: publications
 category: conferences
 pubtype: conference
+featured: true
+award: "Best Paper, IEEE LARS 2025"
 tags: [teleoperation, shared-control, control, vision, perception, manipulation, grasping, mobile-manipulation, legged-robots]
 doi: 10.1109/LARS69345.2025.11272961       # optional
 code: https://github.com/EESC-LabRoM/MoveitServoing/blob/spot_teleop/

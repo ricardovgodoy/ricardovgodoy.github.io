@@ -3,6 +3,8 @@ title: "From Perception to Assistance: VLM-Driven Potential Fields for Shared-Co
 collection: publications
 category: preprints
 pubtype: preprint
+featured: true
+venue: 'Preprint'
 tags: [control, manipulation, teleoperation, locomanipulation, shared-control]
 doi: 
 code: 

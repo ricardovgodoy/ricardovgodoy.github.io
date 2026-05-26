@@ -12,6 +12,11 @@
 }
 
 .page-body { padding-bottom: var(--section-pad); }
+.page-body a:not(.btn) {
+  color: var(--accent); text-decoration: underline; text-underline-offset: 2px;
+  text-decoration-thickness: 1px; text-decoration-color: rgba(40,36,28,0.35);
+}
+.page-body a:not(.btn):hover { text-decoration-color: var(--accent); }
 
 /* Markdown content */
 .page-body h2 { font-size: clamp(22px, 2.5vw, 30px); margin: 48px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
@@ -59,8 +64,8 @@
   font-size: 11px; font-weight: 500; margin-right: 8px;
 }
 .talk-item__type--tutorial { background: var(--accent-dim); color: var(--accent); }
-.talk-item__type--talk { background: rgba(255,217,61,0.12); color: var(--gold); }
-.talk-item__type--exhibit { background: rgba(255,107,107,0.12); color: var(--warm); }
+.talk-item__type--talk { background: rgba(138,106,44,0.12); color: var(--gold); }
+.talk-item__type--exhibit { background: rgba(156,74,60,0.10); color: var(--warm); }
 
 /* Teaching */
 .teaching-entry {

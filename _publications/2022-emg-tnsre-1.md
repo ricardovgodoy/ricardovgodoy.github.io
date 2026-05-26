@@ -3,6 +3,7 @@ title: "Electromyography Based Decoding of Dexterous, In-Hand Manipulation Motio
 collection: publications
 category: manuscripts
 pubtype: journal
+featured: true
 tags: [control, biosignal, manipulation, grasping, dexterous-manipulation, wearable-sensing]
 doi: 10.1109/TNSRE.2022.3196622
 permalink: /publication/2022-emg-tnsre-1

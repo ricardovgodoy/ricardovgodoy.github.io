@@ -1,20 +1,21 @@
 <section class="page-section" id="publications">
   <div class="container container--narrow">
     <div class="section-header fade-in">
-      <div class="section-label">Selected Work</div>
-      <h2>Featured Publications</h2>
-      <p>{{ site.publications | size }}+ papers in top robotics venues. Showing selected recent work.</p>
+      <div class="section-label">Publications</div>
+      <h2>Selected publications</h2>
+      <p>A few selected papers. The full list is on the publications page.</p>
     </div>
 
-    {% assign sorted_pubs = site.publications | sort: "date" | reverse %}
-    {% for pub in sorted_pubs limit:6 %}
+    {% assign featured_pubs = site.publications | where: "featured", true | sort: "date" | reverse %}
+    {% if featured_pubs.size == 0 %}{% assign featured_pubs = site.publications | sort: "date" | reverse %}{% endif %}
+    {% for pub in featured_pubs limit:6 %}
     <a href="{{ pub.url | relative_url }}" class="pub-featured-item fade-in">
       <div class="pub-featured-item__year">{{ pub.date | date: "%Y" }}</div>
       <div class="pub-featured-item__info">
         <h4 class="pub-featured-item__title">{{ pub.title }}</h4>
         <div class="pub-featured-item__meta">
-          <span class="pub-featured-item__venue">{{ pub.venue | default: pub.category }}</span>
-          <span class="pub-featured-item__type">{{ pub.pubtype | default: "paper" }}</span>
+          <span class="pub-featured-item__venue{% if pub.award %} pub-featured-item__venue--award{% endif %}">{{ pub.venue | default: pub.category }}</span>
+          {% if pub.award %}<span class="pub-featured-item__type">{{ pub.award }}</span>{% else %}<span class="pub-featured-item__type">{{ pub.pubtype | default: "paper" | capitalize }}</span>{% endif %}
         </div>
       </div>
       <span class="pub-featured-item__arrow">→</span>
