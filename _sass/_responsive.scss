@@ -20,6 +20,10 @@
   .pub-filters { flex-direction: column; align-items: stretch; }
 }
 
+@media (max-width: 600px) {
+  .research-list { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 480px) {
   .home-about__lede { font-size: 18px; }
 }

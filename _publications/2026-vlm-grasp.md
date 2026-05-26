@@ -3,6 +3,8 @@ title: "Viewpoint-Agnostic Grasp Pipeline using VLM and Partial Observations"
 collection: publications
 category: preprints
 pubtype: preprint
+featured: true
+venue: 'Preprint'
 tags: [control,grasping,vision,manipulation,mobile-manipulation,perception]
 doi: 
 code: 
