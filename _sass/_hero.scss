@@ -30,13 +30,14 @@
   color: var(--text-dim); margin: 0 0 22px;
 }
 .profile__links { list-style: none; margin: 0; padding: 0; }
-.profile__links li { margin-bottom: 10px; }
+.profile__links li { margin-bottom: 11px; }
 .profile__links a {
+  display: inline-flex; align-items: center; gap: 11px;
   font-family: var(--font-body); font-size: 14px; color: var(--text);
-  text-decoration: none; border-bottom: 1px solid var(--border-hover);
-  padding-bottom: 1px; transition: var(--transition);
+  text-decoration: none; transition: var(--transition);
 }
-.profile__links a:hover { color: var(--accent); border-color: var(--accent); }
+.profile__links a:hover { color: var(--accent); }
+.profile__links svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
 
 /* Main column lead / about */
 .home-about__lede {
