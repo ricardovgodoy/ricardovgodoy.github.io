@@ -22,6 +22,8 @@
 
 @media (max-width: 600px) {
   .research-list { grid-template-columns: 1fr; }
+  .infra__row { grid-template-columns: 1fr; gap: 5px; }
+  .infra__row dt { padding-top: 0; }
 }
 
 @media (max-width: 480px) {

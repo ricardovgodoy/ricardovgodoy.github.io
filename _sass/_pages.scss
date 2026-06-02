@@ -41,6 +41,28 @@
 }
 .research-topic__desc { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
 
+/* Research infrastructure */
+.infra { margin-top: 48px; }
+.infra__heading {
+  font-family: var(--font-display); font-size: clamp(22px, 2.5vw, 28px);
+  color: var(--white); margin-bottom: 14px;
+}
+.infra__intro {
+  font-size: 15px; color: var(--text-dim); line-height: 1.75;
+  max-width: 64ch; margin-bottom: 22px;
+}
+.infra__grid { margin: 0; }
+.infra__row {
+  display: grid; grid-template-columns: 210px 1fr; gap: 24px;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.infra__row:first-child { border-top: 1px solid var(--border); }
+.infra__row dt {
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--accent); padding-top: 3px;
+}
+.infra__row dd { margin: 0; font-size: 15px; color: var(--text); line-height: 1.65; }
+
 /* CV page */
 .cv-download { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 32px; }
 .cv-embed {
