@@ -1,15 +1,15 @@
 ---
 title: "Towards Capability-Aware Traversability Navigation for Unstructured Environments"
 collection: publications
-category: preprints
-pubtype: preprint
+category: conferences
+pubtype: conference
 tags: [control]
 doi: 
 code: 
 permalink: /publication/2026-navigation-model
 excerpt: 'In this paper, we propose Capability-Aware Traversability (CAT), a unified framework that embeds physical limits directly into the spatial feature space.'
-date: 2026-02-24
-venue: 'Paper submitted to IROS 2026 - Preprint version available. Please click Download Paper below.'
+date: 2026-06-17
+venue: '2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
 paperurl: 'http://ricardovgodoy.github.io/files/IROS___Conditioned_Traversability.pdf'
 bibtexurl: ''
 citation: ''
