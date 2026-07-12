@@ -8,8 +8,12 @@
 .footer-info__role { font-size: 13px; color: var(--text-dim); margin-bottom: 4px; }
 .footer-info__email a { font-size: 13px; color: var(--accent); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
-.footer-links a { font-size: 13px; color: var(--text-dim); transition: var(--transition); }
-.footer-links a:hover { color: var(--accent); }
+.footer-links a {
+  font-size: 13px; color: var(--text-dim); transition: var(--transition);
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-thickness: 1px; text-decoration-color: var(--border-hover);
+}
+.footer-links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .footer-bottom {
   max-width: var(--content-max); margin: 32px auto 0;
   padding-top: 20px; border-top: 1px solid var(--border);

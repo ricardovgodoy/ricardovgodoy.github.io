@@ -1,6 +1,6 @@
 /* Page header (used by all inner pages) */
 .page-header {
-  padding-top: 100px; padding-bottom: 40px;
+  padding-top: 48px; padding-bottom: 40px;
   padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px);
 }
 .page-header__title {
@@ -17,6 +17,10 @@
   text-decoration-thickness: 1px; text-decoration-color: rgba(40,36,28,0.35);
 }
 .page-body a:not(.btn):hover { text-decoration-color: var(--accent); }
+.page-body iframe[src*="youtube"] {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+  border: 1px solid var(--border); border-radius: var(--radius); margin: 20px 0;
+}
 
 /* Markdown content */
 .page-body h2 { font-size: clamp(22px, 2.5vw, 30px); margin: 48px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
@@ -58,7 +62,7 @@
 }
 .infra__row:first-child { border-top: 1px solid var(--border); }
 .infra__row dt {
-  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 600;
   letter-spacing: 1px; text-transform: uppercase; color: var(--accent); padding-top: 3px;
 }
 .infra__row dd { margin: 0; font-size: 15px; color: var(--text); line-height: 1.65; }
@@ -67,7 +71,7 @@
 .cv-download { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 32px; }
 .cv-embed {
   width: 100%; height: 80vh;
-  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
 }
 .cv-embed iframe, .cv-embed object, .cv-embed embed { width: 100%; height: 100%; border: 0; }
 
@@ -75,15 +79,15 @@
 .talk-item {
   padding: 20px 0; border-bottom: 1px solid var(--border); transition: var(--transition);
 }
-.talk-item:hover { background: var(--bg-card); margin: 0 -16px; padding: 20px 16px; border-radius: 8px; }
-.talk-item__date { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
+.talk-item:hover { background: var(--bg-card); margin: 0 -16px; padding: 20px 16px; border-radius: var(--radius); }
+.talk-item__date { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
 .talk-item__title { font-size: 16px; font-weight: 500; color: var(--white); margin-bottom: 6px; line-height: 1.4; }
 .talk-item__title a { color: var(--white); }
 .talk-item__title a:hover { color: var(--accent); }
 .talk-item__venue { font-size: 13px; color: var(--text-dim); }
 .talk-item__type {
-  display: inline-block; padding: 2px 8px; border-radius: 4px;
-  font-size: 11px; font-weight: 500; margin-right: 8px;
+  display: inline-block; padding: 2px 8px; border-radius: 2px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500; margin-right: 8px;
 }
 .talk-item__type--tutorial { background: var(--accent-dim); color: var(--accent); }
 .talk-item__type--talk { background: rgba(138,106,44,0.12); color: var(--gold); }
@@ -92,13 +96,13 @@
 /* Teaching */
 .teaching-entry {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 24px; margin-bottom: 16px; transition: var(--transition);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 16px; transition: var(--transition);
 }
 .teaching-entry:hover { border-color: var(--border-hover); }
 .teaching-entry__role { font-size: 12px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
 .teaching-entry__title { font-family: var(--font-body); font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
 .teaching-entry__org { font-size: 14px; color: var(--text-dim); margin-bottom: 8px; }
-.teaching-entry__date { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+.teaching-entry__date { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
 .teaching-entry__desc { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
 
 /* Supervision */
@@ -110,7 +114,7 @@
 
 /* News / year-archive */
 .news-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
-.news-item__date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.news-item__date { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
 .news-item__title a { font-size: 16px; font-weight: 500; color: var(--white); line-height: 1.4; }
 .news-item__title a:hover { color: var(--accent); }
 .news-item__excerpt { font-size: 14px; color: var(--text-dim); margin-top: 4px; line-height: 1.6; }

@@ -1,5 +1,5 @@
 .video-card {
-  border-radius: 12px; overflow: hidden;
+  border-radius: var(--radius); overflow: hidden;
   border: 1px solid var(--border); background: var(--bg-card);
   transition: var(--transition); cursor: pointer; text-decoration: none; color: inherit;
 }
@@ -21,8 +21,9 @@
 .video-card:hover .video-card__play { background: rgba(27,26,23,0.75); transform: translate(-50%,-50%) scale(1.1); }
 .video-card__year-badge {
   position: absolute; top: 10px; right: 10px;
-  padding: 2px 8px; border-radius: 4px;
-  background: rgba(250,248,243,0.9); color: var(--text); font-size: 11px; font-weight: 500;
+  padding: 2px 8px; border-radius: 2px;
+  background: rgba(250,248,243,0.9); color: var(--text);
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
 }
 .video-card__body { padding: 14px 16px; }
 .video-card__title {
@@ -33,6 +34,6 @@
 
 .video-embed {
   position: relative; padding-bottom: 56.25%; height: 0;
-  overflow: hidden; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border);
+  overflow: hidden; border-radius: var(--radius); margin-bottom: 16px; border: 1px solid var(--border);
 }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }

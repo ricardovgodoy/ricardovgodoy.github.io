@@ -2,7 +2,7 @@
   .nav-links { display: none; }
   .nav-toggle { display: block; }
 
-  .home { grid-template-columns: 1fr; gap: 36px; padding-top: 96px; }
+  .home { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; }
   .home__aside { position: static; }
   .profile__photo { width: 104px; height: 104px; }
   .home__main > section + section { margin-top: 48px; }
@@ -11,7 +11,7 @@
   .grid-2 { grid-template-columns: 1fr; }
 
   .pub-featured-item { gap: 14px; }
-  .pub-featured-item__year { width: 44px; height: 44px; font-size: 15px; }
+  .pub-featured-item__year { width: 40px; }
 
   .footer-inner { flex-direction: column; gap: 24px; }
   .footer-bottom { flex-direction: column; }

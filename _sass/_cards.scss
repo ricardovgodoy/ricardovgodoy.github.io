@@ -15,17 +15,19 @@
 .research-more { margin: 30px 0 0; }
 .research-more a {
   font-family: var(--font-body); font-size: 14px; color: var(--accent);
-  border-bottom: 1px solid var(--border-hover); padding-bottom: 2px; transition: var(--transition);
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-thickness: 1px; text-decoration-color: var(--border-hover);
+  transition: var(--transition);
 }
-.research-more a:hover { border-color: var(--accent); }
+.research-more a:hover { text-decoration-color: var(--accent); }
 
 /* Generic content card (news / archive) */
 .content-card {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 24px; transition: var(--transition);
+  border-radius: var(--radius); padding: 24px; transition: var(--transition);
 }
 .content-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
-.content-card__date { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px; }
+.content-card__date { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px; }
 .content-card__title {
   font-family: var(--font-body); font-size: 16px; font-weight: 500;
   color: var(--white); margin-bottom: 8px; line-height: 1.4;
