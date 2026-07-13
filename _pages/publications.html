@@ -1,25 +1,24 @@
 ---
 layout: default
 title: "Publications"
-description: "Full list of publications."
+description: "Journal articles, conference papers, workshops, and preprints."
 permalink: /publications/
 ---
 
 <section class="page-header">
   <div class="container">
-    <div class="section-label">Research Output</div>
+    <div class="section-label">Research output</div>
     <h1 class="page-header__title">Publications</h1>
-    <p class="page-header__desc">{{ site.publications | size }} papers across RA-L, TNSRE, ICRA, IROS, Scientific Reports, and more.</p>
+    <p class="page-header__desc">{{ site.publications | size }} papers across robotics, human–robot interaction, wearable sensing, and machine learning.</p>
   </div>
 </section>
 
-<section class="page-section" style="padding-top: 0;">
+<section class="page-section publications-page" style="padding-top: 0;">
   <div class="container">
-
-    <div class="pub-filters">
+    <div class="pub-filters" role="search" aria-label="Filter publications">
       <div class="pub-filter-group">
         <label for="filter-year">Year</label>
-        <select id="filter-year" class="pub-filter-select" onchange="filterPubs()">
+        <select id="filter-year" class="pub-filter-select">
           <option value="all">All years</option>
           {% assign years = site.publications | map: "date" | sort | reverse %}
           {% assign seen_years = "" %}
@@ -34,7 +33,7 @@ permalink: /publications/
       </div>
       <div class="pub-filter-group">
         <label for="filter-type">Type</label>
-        <select id="filter-type" class="pub-filter-select" onchange="filterPubs()">
+        <select id="filter-type" class="pub-filter-select">
           <option value="all">All types</option>
           <option value="journal">Journal</option>
           <option value="conference">Conference</option>
@@ -42,158 +41,96 @@ permalink: /publications/
           <option value="workshop">Workshop</option>
         </select>
       </div>
-      <input type="text" id="pub-search" class="pub-search" placeholder="Search titles, venues, tags..." oninput="filterPubs()">
-      <button class="pub-filter-btn" onclick="toggleTopics()" id="toggle-topics-btn">Show tags</button>
-      <button class="pub-filter-btn" onclick="clearFilters()">Clear</button>
+      <label class="visually-hidden" for="pub-search">Search publications</label>
+      <input type="search" id="pub-search" class="pub-search" placeholder="Search titles, venues, authors, or tags">
+      <button type="button" class="pub-filter-btn" id="toggle-topics-btn" aria-expanded="false" aria-controls="topic-tags">Show tags</button>
+      <button type="button" class="pub-filter-btn" id="clear-filters">Clear</button>
     </div>
 
-    <div class="pub-topic-tags" id="topic-tags" style="display:none;">
+    <div class="pub-topic-tags" id="topic-tags" hidden>
       {% assign all_tags = site.publications | map: "tags" | join: "," | split: "," | uniq | sort %}
       {% for tag in all_tags %}
         {% assign t = tag | strip %}
-        {% if t != "" %}
-          <button class="pub-filter-btn topic-btn" data-topic="{{ t }}" onclick="toggleTopic(this)">{{ t }}</button>
-        {% endif %}
+        {% if t != "" %}<button type="button" class="pub-filter-btn topic-btn" data-topic="{{ t }}">{{ t }}</button>{% endif %}
       {% endfor %}
     </div>
 
-    <div class="pub-count" id="pub-count"></div>
+    <div class="pub-count" id="pub-count" aria-live="polite"></div>
 
-    <!-- Journal articles -->
     <h2 class="pub-section-title" data-section="journal">Journal articles</h2>
     {% assign journals = site.publications | where: "pubtype", "journal" | sort: "date" | reverse %}
-    {% for pub in journals %}
-    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="journal" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
-      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
-      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
-      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
-      <div class="pub-entry__links">
-        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
-        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
-        {% if pub.code %}<a href="{{ pub.code }}" target="_blank">Code</a>{% endif %}
-        {% if pub.bibtex %}<a href="{{ pub.bibtex }}" target="_blank">BibTeX</a>{% endif %}
-      </div>
-      {% if pub.tags %}
-      <div class="pub-entry__topics">
-        {% for tag in pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-      </div>
-      {% endif %}
-    </div>
-    {% endfor %}
+    {% for pub in journals %}{% include publication-entry.html pub=pub type="journal" %}{% endfor %}
 
-    <!-- Conference papers -->
     <h2 class="pub-section-title" data-section="conference">Conference papers</h2>
-    {% assign confs = site.publications | where: "pubtype", "conference" | sort: "date" | reverse %}
-    {% for pub in confs %}
-    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="conference" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
-      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
-      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
-      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
-      <div class="pub-entry__links">
-        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
-        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
-        {% if pub.code %}<a href="{{ pub.code }}" target="_blank">Code</a>{% endif %}
-        {% if pub.bibtex %}<a href="{{ pub.bibtex }}" target="_blank">BibTeX</a>{% endif %}
-      </div>
-      {% if pub.tags %}
-      <div class="pub-entry__topics">
-        {% for tag in pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-      </div>
-      {% endif %}
-    </div>
-    {% endfor %}
+    {% assign conferences = site.publications | where: "pubtype", "conference" | sort: "date" | reverse %}
+    {% for pub in conferences %}{% include publication-entry.html pub=pub type="conference" %}{% endfor %}
 
-    <!-- Preprints -->
     <h2 class="pub-section-title" data-section="preprint">Preprints</h2>
     {% assign preprints = site.publications | where: "pubtype", "preprint" | sort: "date" | reverse %}
-    {% for pub in preprints %}
-    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="preprint" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
-      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
-      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
-      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
-      <div class="pub-entry__links">
-        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
-        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
-        {% if pub.code %}<a href="{{ pub.code }}" target="_blank">Code</a>{% endif %}
-        {% if pub.bibtex %}<a href="{{ pub.bibtex }}" target="_blank">BibTeX</a>{% endif %}
-      </div>
-      {% if pub.tags %}
-      <div class="pub-entry__topics">
-        {% for tag in pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
-      </div>
-      {% endif %}
-    </div>
-    {% endfor %}
+    {% for pub in preprints %}{% include publication-entry.html pub=pub type="preprint" %}{% endfor %}
 
-    <!-- Workshop -->
     <h2 class="pub-section-title" data-section="workshop">Workshop papers</h2>
     {% assign workshops = site.publications | where: "pubtype", "workshop" | sort: "date" | reverse %}
-    {% for pub in workshops %}
-    <div class="pub-entry" data-year="{{ pub.date | date: '%Y' }}" data-type="workshop" data-tags="{{ pub.tags | join: ',' }}" data-search="{{ pub.title | downcase }} {{ pub.venue | downcase }} {{ pub.tags | join: ' ' | downcase }}">
-      <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></div>
-      <div class="pub-entry__venue">{{ pub.date | date: "%Y" }} · {{ pub.venue }}</div>
-      {% if pub.excerpt %}<div class="pub-entry__desc">{{ pub.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
-      <div class="pub-entry__links">
-        {% if pub.paperurl %}<a href="{{ pub.paperurl }}" target="_blank">PDF</a>{% endif %}
-        {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank">DOI</a>{% endif %}
-      </div>
-    </div>
-    {% endfor %}
-
+    {% for pub in workshops %}{% include publication-entry.html pub=pub type="workshop" %}{% endfor %}
   </div>
 </section>
 
 <script>
-var activeTopics = [];
-function filterPubs() {
-  var year = document.getElementById('filter-year').value;
-  var type = document.getElementById('filter-type').value;
-  var search = document.getElementById('pub-search').value.toLowerCase().trim();
-  var entries = document.querySelectorAll('.pub-entry');
-  var count = 0;
-  entries.forEach(function(el) {
-    var show = true;
-    if (year !== 'all' && el.dataset.year !== year) show = false;
-    if (type !== 'all' && el.dataset.type !== type) show = false;
-    if (search && el.dataset.search.indexOf(search) === -1) show = false;
-    if (activeTopics.length > 0) {
-      var tags = (el.dataset.tags || '').split(',');
-      if (!activeTopics.some(function(t) { return tags.indexOf(t) !== -1; })) show = false;
-    }
-    el.style.display = show ? '' : 'none';
-    if (show) count++;
+document.addEventListener('DOMContentLoaded', function() {
+  var activeTopics = [];
+  var year = document.getElementById('filter-year');
+  var type = document.getElementById('filter-type');
+  var search = document.getElementById('pub-search');
+  var topicPanel = document.getElementById('topic-tags');
+  var topicToggle = document.getElementById('toggle-topics-btn');
+
+  function filterPubs() {
+    var query = search.value.toLowerCase().trim();
+    var entries = document.querySelectorAll('.pub-entry');
+    var count = 0;
+    entries.forEach(function(entry) {
+      var show = (year.value === 'all' || entry.dataset.year === year.value) &&
+                 (type.value === 'all' || entry.dataset.type === type.value) &&
+                 (!query || entry.dataset.search.indexOf(query) !== -1);
+      if (show && activeTopics.length) {
+        var tags = (entry.dataset.tags || '').split(',');
+        show = activeTopics.some(function(topic) { return tags.indexOf(topic) !== -1; });
+      }
+      entry.hidden = !show;
+      if (show) count += 1;
+    });
+    document.getElementById('pub-count').textContent = 'Showing ' + count + ' of ' + entries.length + ' publications';
+    document.querySelectorAll('.pub-section-title').forEach(function(heading) {
+      heading.hidden = !document.querySelector('.pub-entry[data-type="' + heading.dataset.section + '"]:not([hidden])');
+    });
+  }
+
+  year.addEventListener('change', filterPubs);
+  type.addEventListener('change', filterPubs);
+  search.addEventListener('input', filterPubs);
+  topicToggle.addEventListener('click', function() {
+    var opening = topicPanel.hidden;
+    topicPanel.hidden = !opening;
+    topicToggle.setAttribute('aria-expanded', String(opening));
+    topicToggle.textContent = opening ? 'Hide tags' : 'Show tags';
   });
-  document.getElementById('pub-count').textContent = count + ' / ' + entries.length;
-  document.querySelectorAll('.pub-section-title').forEach(function(title) {
-    var next = title.nextElementSibling;
-    var vis = false;
-    while (next && !next.classList.contains('pub-section-title')) {
-      if (next.classList.contains('pub-entry') && next.style.display !== 'none') { vis = true; break; }
-      next = next.nextElementSibling;
-    }
-    title.style.display = vis ? '' : 'none';
+  document.querySelectorAll('.topic-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+      var topic = button.dataset.topic;
+      var index = activeTopics.indexOf(topic);
+      if (index === -1) { activeTopics.push(topic); button.classList.add('active'); }
+      else { activeTopics.splice(index, 1); button.classList.remove('active'); }
+      filterPubs();
+    });
   });
-}
-function toggleTopics() {
-  var el = document.getElementById('topic-tags');
-  var btn = document.getElementById('toggle-topics-btn');
-  if (el.style.display === 'none') { el.style.display = 'flex'; btn.classList.add('active'); btn.textContent = 'Hide tags'; }
-  else { el.style.display = 'none'; btn.classList.remove('active'); btn.textContent = 'Show tags'; }
-}
-function toggleTopic(btn) {
-  var t = btn.dataset.topic;
-  var i = activeTopics.indexOf(t);
-  if (i === -1) { activeTopics.push(t); btn.classList.add('active'); }
-  else { activeTopics.splice(i, 1); btn.classList.remove('active'); }
+  document.getElementById('clear-filters').addEventListener('click', function() {
+    year.value = 'all';
+    type.value = 'all';
+    search.value = '';
+    activeTopics = [];
+    document.querySelectorAll('.topic-btn').forEach(function(button) { button.classList.remove('active'); });
+    filterPubs();
+  });
   filterPubs();
-}
-function clearFilters() {
-  document.getElementById('filter-year').value = 'all';
-  document.getElementById('filter-type').value = 'all';
-  document.getElementById('pub-search').value = '';
-  activeTopics = [];
-  document.querySelectorAll('.topic-btn').forEach(function(b) { b.classList.remove('active'); });
-  filterPubs();
-}
-document.addEventListener('DOMContentLoaded', filterPubs);
+});
 </script>

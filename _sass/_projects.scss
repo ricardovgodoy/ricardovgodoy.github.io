@@ -1,0 +1,145 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg-card);
+  transition: transform 0.25s var(--ease-out), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+  box-shadow: 0 18px 40px rgba(16, 24, 32, 0.08);
+}
+.project-card__media {
+  position: relative;
+  display: block;
+  height: 190px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+.project-card:hover .project-card__media img { transform: scale(1.025); }
+.project-card__area {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: rgba(250, 248, 243, 0.92);
+  color: var(--accent-dark);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.project-card__body { padding: 20px; }
+.project-card__body h3 { margin-bottom: 9px; font-size: 18px; line-height: 1.3; }
+.project-card__body h3 a { color: var(--white); }
+.project-card__body h3 a:hover { color: var(--accent); }
+.project-card__body p { margin: 0; font-size: 14px; line-height: 1.7; }
+.project-card__evidence,
+.project-row__evidence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.project-card__evidence span,
+.project-row__evidence span {
+  padding: 5px 8px;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-glow);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.project-card__links a {
+  color: var(--text-dim);
+  font-size: 12px;
+  font-weight: 600;
+}
+.project-card__links a:hover { color: var(--accent); }
+.projects-more { margin-top: 34px; }
+
+.research-systems {
+  margin-top: clamp(42px, 6vw, 78px);
+  padding-top: clamp(50px, 7vw, 86px);
+  border-top: 1px solid var(--border);
+}
+.research-systems > .section-header { margin-bottom: 30px; }
+.project-row {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(38px, 5vw, 62px) 0;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 90px;
+}
+.project-row__media {
+  height: clamp(220px, 25vw, 300px);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-elevated);
+}
+.project-row__media img { width: 100%; height: 100%; object-fit: cover; }
+.project-row__content h2 { margin: 0 0 14px; font-size: clamp(24px, 2.6vw, 34px); }
+.project-row__content > p { max-width: 58ch; font-size: 16px; line-height: 1.75; }
+.project-row__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.project-row__links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.project-row__architecture {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.project-row__architecture > span {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.project-row__architecture ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: system-step;
+}
+.project-row__architecture li {
+  counter-increment: system-step;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+.project-row__architecture li::before {
+  content: counter(system-step, decimal-leading-zero) " ";
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}

@@ -1,50 +1,179 @@
-/* Homepage: two-column profile + content */
-.home {
-  max-width: var(--content-max);
-  margin: 0 auto;
-  padding: 116px clamp(20px, 4vw, 48px) 80px;
+.hero {
+  padding-top: clamp(118px, 13vw, 160px);
+  padding-bottom: clamp(72px, 8vw, 108px);
+}
+.hero__grid {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 76px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 92px);
+}
+
+.hero__identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+.hero__identity img {
+  width: 88px;
+  height: 88px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  object-fit: cover;
+}
+.hero__identity span,
+.hero__identity strong { display: block; }
+.hero__identity strong { font-size: 16px; font-weight: 600; color: var(--text); }
+.hero__identity span { margin-top: 4px; font-size: 14px; color: var(--text-dim); }
+
+.hero__eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+.hero__title {
+  margin: 0 0 22px;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 78px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+.hero__statement {
+  max-width: 620px;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+.hero__summary {
+  max-width: 58ch;
+  margin: 20px 0 0;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.hero__current {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  max-width: 58ch;
+  margin: 18px 0 0;
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.hero__current .status-dot { flex: 0 0 auto; margin-top: 7px; }
+.hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+.hero__cv-link {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.hero__profiles {
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: start;
+  gap: 18px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
 }
-.home__aside { position: sticky; top: 96px; }
-.home__main { min-width: 0; }
-.home__main section { padding: 0; }
-.home__main .container,
-.home__main .container--narrow { max-width: none; margin: 0; padding: 0; width: 100%; }
-.home__main > section + section { margin-top: 66px; }
+.hero__profiles-label {
+  padding-top: 2px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.hero__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+.hero__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.hero__social i { width: 14px; color: var(--accent); font-size: 14px; text-align: center; }
+.hero__social a:hover { color: var(--accent); }
 
-/* Sidebar profile */
-.profile__photo {
-  width: 132px; height: 132px; border-radius: 50%;
-  object-fit: cover; border: 1px solid var(--border); margin-bottom: 22px;
+.hero__media {
+  position: relative;
+  width: min(100%, 460px);
+  height: 280px;
+  min-height: 0;
+  justify-self: end;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-elevated);
+  box-shadow: 0 24px 60px rgba(16, 24, 32, 0.12);
+  color: #fff;
 }
-.profile__name {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: 30px; line-height: 1.1; letter-spacing: -0.01em;
-  color: var(--white); margin: 0 0 10px;
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
 }
-.profile__role {
-  font-family: var(--font-body); font-size: 14px; line-height: 1.55;
-  color: var(--text-dim); margin: 0 0 22px;
+.hero__media:hover img { transform: scale(1.025); }
+.hero__media-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 17, 0.03) 38%, rgba(4, 12, 17, 0.84) 100%);
 }
-.profile__links { list-style: none; margin: 0; padding: 0; }
-.profile__links li { margin-bottom: 11px; }
-.profile__links a {
-  display: inline-flex; align-items: center; gap: 11px;
-  font-family: var(--font-body); font-size: 14px; color: var(--text);
-  text-decoration: none; transition: var(--transition);
+.hero__media-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  padding: 6px 9px;
+  border-radius: 4px;
+  background: rgba(250, 248, 243, 0.92);
+  color: var(--accent-dark);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
 }
-.profile__links a:hover { color: var(--accent); }
-.profile__links svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
-
-/* Main column lead / about */
-.home-about__lede {
-  font-size: 20px; line-height: 1.6; color: var(--text);
-  margin: 0; max-width: 64ch;
+.hero__media-caption {
+  position: absolute;
+  left: 24px;
+  right: 60px;
+  bottom: 24px;
 }
-.home-about__lede em { font-style: italic; color: var(--accent); }
-.home-about__note { margin: 20px 0 0; font-size: 15px; color: var(--text-dim); }
-.home-about__note a { color: var(--accent); border-bottom: 1px solid var(--border-hover); padding-bottom: 1px; }
-.home-about__note a:hover { border-color: var(--accent); }
+.hero__media-caption strong,
+.hero__media-caption span { display: block; }
+.hero__media-caption strong { color: #fff; font-size: 20px; line-height: 1.25; }
+.hero__media-caption span { margin-top: 5px; color: rgba(255,255,255,0.77); font-size: 13px; }
+.hero__media-arrow {
+  position: absolute;
+  right: 24px;
+  bottom: 26px;
+  color: #fff;
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+.hero__media:hover .hero__media-arrow { transform: translate(3px, -3px); }

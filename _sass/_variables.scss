@@ -1,28 +1,26 @@
 :root {
-  /* Light, warm-paper academic theme. NOTE: --white is repurposed as the
-     strongest "ink" color for headings/titles so the existing token usage
-     across components flips correctly without per-file edits. */
   --bg:             #faf8f3;
-  --bg-card:        #f1ede3;
-  --bg-card-hover:  #e9e3d6;
-  --bg-elevated:    #ece6da;
-  --accent:         #3a382f;
-  --accent-dim:     rgba(58, 56, 47, 0.10);
-  --accent-glow:    rgba(58, 56, 47, 0.04);
+  --bg-card:        #ffffff;
+  --bg-card-hover:  #f2f4f3;
+  --bg-elevated:    #edf1f1;
+  --accent:         #155e75;
+  --accent-dark:    #0c4558;
+  --accent-dim:     rgba(21, 94, 117, 0.10);
+  --accent-glow:    rgba(21, 94, 117, 0.05);
   --warm:           #9c4a3c;
-  --gold:           #8a6a2c;
-  --text:           #2b2925;
-  --text-dim:       #6b675e;
-  --text-muted:     #99948a;
-  --white:          #1b1a17;
-  --border:         rgba(40, 36, 28, 0.12);
-  --border-hover:   rgba(40, 36, 28, 0.24);
+  --gold:           #806421;
+  --text:           #20282e;
+  --text-dim:       #4f5a62;
+  --text-muted:     #626c73;
+  --white:          #101820;
+  --border:         rgba(16, 24, 32, 0.13);
+  --border-hover:   rgba(21, 94, 117, 0.38);
   --font-display:   'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body:      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
-  --section-pad:    clamp(60px, 8vw, 100px);
-  --content-max:    1240px;
-  --content-narrow: 760px;
+  --font-body:      'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:      'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  --section-pad:    clamp(64px, 8vw, 104px);
+  --content-max:    1260px;
+  --content-narrow: 780px;
   --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
-  --transition:     all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition:     all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }

@@ -8,6 +8,18 @@ section, .page-section {
 .container { max-width: var(--content-max); margin: 0 auto; }
 .container--narrow { max-width: var(--content-narrow); margin: 0 auto; }
 
+.section-rule { border-top: 1px solid var(--border); }
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.text-link::after { content: "→"; transition: transform 0.2s ease; }
+.text-link:hover::after { transform: translateX(4px); }
+
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }

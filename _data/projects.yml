@@ -1,0 +1,99 @@
+- slug: "shared-autonomy"
+  area: "Shared autonomy"
+  title: "Open-vocabulary shared autonomy for robotic manipulation"
+  summary: "The operator selects a target with a free-form prompt and controls Spot through arm motion and hand gestures. The robot tracks the target, avoids collisions, and assists the final approach."
+  image: "/images/projects/shared-autonomy-hero.jpg"
+  image_alt: "Camera-based operator interface and Spot manipulating an industrial valve panel"
+  evidence:
+    - "All shared-control trials succeeded"
+    - "18 cm minimum obstacle clearance"
+  components:
+    - "Calibration-free RGB-D teleoperation"
+    - "Qwen3-VL and SAM 2 target grounding"
+    - "nvblox volumetric collision mapping"
+    - "Potential-field assistance and cuRobo MPC"
+  tags: ["Shared autonomy", "Open vocabulary", "MPC"]
+  page_url: "/research/#shared-autonomy"
+  publication_url: "/publication/2026-shared-control-1"
+  paper_url: "/files/2026_RAL_Teleop_Potential_Fields.pdf"
+  video_url: "https://www.youtube.com/watch?v=UNAeSZh0kCU"
+
+- slug: "language-guided-manipulation"
+  area: "Mobile manipulation"
+  title: "Language-guided grasping under partial observation"
+  summary: "The operator names an object in the scene. The system segments it, completes the partial RGB-D geometry, selects a collision-free 6-DoF grasp, and executes it on Spot."
+  image: "/images/projects/language-guided-grasping.jpg"
+  image_alt: "Boston Dynamics Spot reaching toward a target object in a cluttered manipulation experiment"
+  evidence:
+    - "9/10 successful grasps"
+    - "Real-robot evaluation"
+  components:
+    - "Language request and open-vocabulary grounding"
+    - "Object-centric RGB-D reconstruction"
+    - "Execution-aware 6-DoF grasp selection"
+    - "Spot arm planning and execution"
+  tags: ["VLM", "6-DoF grasping", "Spot"]
+  page_url: "/research/#language-guided-manipulation"
+  publication_url: "/publication/2026-vlm-grasp"
+  paper_url: "https://arxiv.org/abs/2603.07866"
+  video_url: "https://www.youtube.com/watch?v=9Ca3zzUI8Ic"
+
+- slug: "legged-robot-teleoperation"
+  area: "Human-guided control"
+  title: "Vision-based teleoperation of a legged manipulator"
+  summary: "An RGB-D camera maps the operator's wrist motion to Spot's arm. Trajectory planning prevents collisions, and hand gestures trigger grasping."
+  image: "/images/projects/spot-teleoperation.jpg"
+  image_alt: "Experimental setup for vision-based teleoperation of a Boston Dynamics Spot robot"
+  evidence:
+    - "Best Paper · LARS 2025"
+    - "Real-time control"
+  components:
+    - "Camera-based wrist pose estimation"
+    - "Real-time end-effector command mapping"
+    - "Collision-aware trajectory planning"
+    - "Gesture-triggered autonomous grasping"
+  tags: ["Teleoperation", "Shared control", "Pose estimation"]
+  page_url: "/research/#legged-robot-teleoperation"
+  publication_url: "/publication/2025-lars-teleop"
+  paper_url: "https://arxiv.org/abs/2508.14994"
+  code_url: "https://github.com/EESC-LabRoM/MoveitServoing/blob/spot_teleop/"
+  video_url: "https://www.youtube.com/watch?v=klgpq57c8UM"
+
+- slug: "wearable-intent-decoding"
+  area: "Wearable sensing"
+  title: "Muscle–machine interfaces for intuitive robot control"
+  summary: "EMG and lightmyography armbands decode gestures, in-hand motion, and grasping force for robot and prosthesis control."
+  image: "/images/projects/lmg-armband-detail.jpg"
+  image_alt: "Lightmyography sensing module and wearable optical armband"
+  evidence:
+    - "Scientific Reports"
+    - "RA-L and TNSRE"
+  components:
+    - "Wearable EMG and optical sensing"
+    - "Gesture and force-intent decoding"
+    - "Real-time human-in-the-loop inference"
+    - "Robotic and prosthetic control"
+  tags: ["EMG", "Lightmyography", "Transformers"]
+  page_url: "/research/#wearable-intent-decoding"
+  publication_url: "/publication/2023-lmg-sr-1"
+  paper_url: "https://www.nature.com/articles/s41598-022-25982-w"
+
+- slug: "capability-aware-navigation"
+  area: "Field robotics"
+  title: "Capability-aware navigation across robot embodiments"
+  summary: "The traversability model uses the robot's physical capabilities as an input. The same scene produces different maps for legged and wheeled platforms."
+  image: "/images/projects/capability-aware-navigation.jpg"
+  image_alt: "Spot and a wheeled robot with capability-conditioned traversability overlays"
+  evidence:
+    - "Accepted at IROS 2026"
+    - "Legged and wheeled robots"
+  components:
+    - "Scene-level visual representation"
+    - "Robot capability conditioning"
+    - "Platform-specific traversability prediction"
+    - "Real-time local obstacle avoidance"
+  tags: ["Traversability", "Embodiment", "Navigation"]
+  page_url: "/research/#capability-aware-navigation"
+  publication_url: "/publication/2026-navigation-model"
+  paper_url: "/files/IROS___Conditioned_Traversability.pdf"
+  video_url: "https://www.youtube.com/watch?v=reXul8PdFEo"
