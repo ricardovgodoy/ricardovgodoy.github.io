@@ -1,22 +1,42 @@
 var addressPoints = [
   [
-    "Talk 2 on Relevant Topic in Your Field<br />London School of Testing; London, UK",
-    51.4893335,
-    -0.14405508452768728
+    "Invited talk: Development of Human-Machine Interfaces for the Teleoperation Control of Robotic Manipulators<br />University of S\u00e3o Paulo, Center for Robotics; S\u00e3o Carlos, Brazil",
+    -22.0180395,
+    -47.891154
   ],
   [
-    "Tutorial 1 on Relevant Topic in Your Field<br />UC-Berkeley Institute for Testing Science; Berkeley, CA, USA",
-    37.8708393,
-    -122.272863
+    "Specialist exhibitor at the 2023 MOTAT Stem Fair<br />Museum of Transport and Technology Auckland (MOTAT) Stem Fair 2023; Auckland, New Zealand",
+    -36.852095,
+    174.7631803
   ],
   [
-    "Conference Proceeding talk 3 on Relevant Topic in Your Field<br />Testing Institute of America 2014 Annual Conference; Los Angeles, CA, USA",
-    34.0536909,
-    -118.242766
+    "Workshop: Robotic Fault-Detection Strategies for Complex Industrial Contexts<br />22nd International Conference on Advanced Robotics (ICAR 2025); San Juan, Argentina",
+    -30.7054363,
+    -69.1988222
   ],
   [
-    "Talk 1 on Relevant Topic in Your Field<br />UC San Francisco, Department of Testing; San Francisco, CA, USA",
-    37.7792588,
-    -122.4193286
+    "Invited talk: Human-Machine Interfaces: Applications of Biological Signals in Robotics<br />Hospital Albert Einstein; S\u00e3o Paulo, Brazil",
+    -23.5506507,
+    -46.6333824
+  ],
+  [
+    "Tutorial: Biosignal-Based Design Approaches for the Development of Human-Machine Interfaces for Shared Control of Computer Applications and Robotic Devices<br />IEEE International Conference on Automation Science and Engineering (CASE); Auckland, New Zealand",
+    -36.852095,
+    174.7631803
+  ],
+  [
+    "Poster presentation in the Workshop on Manipulation Robustness: Towards Human-Level Robustness under Real-World Challenges<br />2026 IEEE International Conference on Robotics & Automation (ICRA 2026); Vienna, Austria",
+    48.2083537,
+    16.3725042
+  ],
+  [
+    "Invited talk: Analysis and Development of Human-Machine Interfaces for the Control of Robotic and Bionic Devices<br />University of Waikato; Hamilton, New Zealand",
+    -37.7878809,
+    175.281788
+  ],
+  [
+    "Talk: Toward Physical AI - Integrating Embodiment, Control, and Learning in Robotic Systems<br />XXII Sematron, University of S\u00e3o Paulo; S\u00e3o Carlos, Brazil",
+    -22.0180395,
+    -47.891154
   ]
 ];
