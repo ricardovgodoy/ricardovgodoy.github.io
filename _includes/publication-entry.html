@@ -1,0 +1,32 @@
+{% assign pub = include.pub %}
+<article class="pub-entry"
+  data-year="{{ pub.date | date: '%Y' }}"
+  data-type="{{ include.type }}"
+  data-tags="{{ pub.tags | join: ',' | escape }}"
+  data-search="{{ pub.title | downcase | escape }} {{ pub.venue | downcase | escape }} {{ pub.authors | downcase | escape }} {{ pub.tags | join: ' ' | downcase | escape }}">
+  <div class="pub-entry__main">
+    <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title | escape }}</a></div>
+    {% if pub.authors %}<div class="pub-entry__authors">{{ pub.authors | escape | replace: 'Ricardo V. Godoy', '<strong>Ricardo V. Godoy</strong>' }}</div>{% endif %}
+    <div class="pub-entry__venue">
+      <span>{{ pub.date | date: "%Y" }}</span>
+      <span aria-hidden="true">·</span>
+      <span>{{ pub.venue | escape }}</span>
+      {% if pub.award %}<span class="pub-entry__award">{{ pub.award | escape }}</span>{% endif %}
+    </div>
+  </div>
+  <div class="pub-entry__links">
+    <a href="{{ pub.url | relative_url }}">Details</a>
+    {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+    {% if pub.doi and pub.doi != "" %}
+      {% if pub.doi contains 'http' %}<a href="{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>
+      {% else %}<a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+    {% endif %}
+    {% if pub.code and pub.code != "" %}<a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+    {% if pub.bibtex and pub.bibtex != "" %}<a href="{{ pub.bibtex }}" target="_blank" rel="noopener">BibTeX</a>{% elsif pub.bibtexurl and pub.bibtexurl != "" %}<a href="{{ pub.bibtexurl }}" target="_blank" rel="noopener">BibTeX</a>{% endif %}
+  </div>
+  {% if pub.tags %}
+  <div class="pub-entry__topics">
+    {% for tag in pub.tags %}<span class="tag">{{ tag | escape }}</span>{% endfor %}
+  </div>
+  {% endif %}
+</article>

@@ -1,77 +1,128 @@
 ---
-layout: single
+layout: default
 title: "Research"
-label: "What I Work On"
-description: "My research focuses on building Physical AI: robot systems that integrate embodiment, sensing, and control for real-world environments."
+description: "Mobile manipulation, shared autonomy, teleoperation, and wearable sensing."
 permalink: /research/
-narrow: true
 ---
 
-<div class="research-topic">
-  <div class="research-topic__title">Physical AI for real-world inspection and automation</div>
-  <div class="research-topic__desc">I develop end-to-end robotics systems that combines AI capabilities and deployment, including perception, task specification, control, and evaluation under real-world constraints (including latency, safety, partial observability, and noisy sensing).</div>
-</div>
+<section class="page-header research-header">
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h1 class="page-header__title">Manipulation, shared autonomy, and human–robot interfaces</h1>
+    <p class="page-header__desc">Research on physical robots, with a focus on field and industrial tasks.</p>
+  </div>
+</section>
 
-<div class="research-topic">
-  <div class="research-topic__title">Dexterous manipulation in clutter</div>
-  <div class="research-topic__desc">My focus is on robust grasping and manipulation of unknown objects in clutter by combining vision with proprioceptive feedback and practical sensing, aiming for performance that does not rely on fragile assumptions.</div>
-</div>
+<section class="page-section research-page" style="padding-top: 0;">
+  <div class="container">
+    <article class="research-line fade-in">
+      <figure class="research-line__visual">
+        <img src="{{ '/images/projects/language-guided-grasping.jpg' | relative_url }}" alt="Boston Dynamics Spot carrying out a grasping experiment in a cluttered scene">
+        <figcaption>Language-guided grasping on a legged mobile manipulator.</figcaption>
+      </figure>
+      <div class="research-line__content">
+        <div class="section-label">Mobile manipulation and navigation</div>
+        <h2>Perception and control on physical robots</h2>
+        <p>Work in this area covers object grounding, 3D reconstruction, grasp selection, collision-aware planning, and execution on Spot. Experiments include clutter, occlusion, incomplete depth, and calibration error.</p>
+        <p>Capability-aware traversability conditions predictions on the robot platform. Spot and a wheeled robot receive different maps from the same scene.</p>
+        <div class="research-line__work">
+          <a href="#language-guided-manipulation"><strong>Language-guided mobile manipulation</strong><span>Target grounding, partial geometry, grasping</span></a>
+          <a href="#shared-autonomy"><strong>Open-vocabulary shared autonomy</strong><span>Guidance, collision avoidance, valve tasks</span></a>
+          <a href="#capability-aware-navigation"><strong>Capability-aware navigation</strong><span>Embodiment-conditioned traversability</span></a>
+        </div>
+      </div>
+    </article>
 
-<div class="research-topic">
-  <div class="research-topic__title">Human-robot interaction for close-proximity tasks</div>
-  <div class="research-topic__desc">I study interaction where humans and robots share space, timing, and intent. This includes designing interfaces and behaviors that are predictable, safe, and efficient for users, especially in tasks that require continuous adjustment rather than pre-scripted motions.</div>
-</div>
+    <article class="research-line research-line--reverse fade-in">
+      <figure class="research-line__visual">
+        <img src="{{ '/images/projects/spot-teleoperation.jpg' | relative_url }}" alt="Vision-based teleoperation system connecting an operator's motion to a robot arm">
+        <figcaption>Vision-based shared control of Spot's manipulator.</figcaption>
+      </figure>
+      <div class="research-line__content">
+        <div class="section-label">Teleoperation and shared control</div>
+        <h2>Human input in the control loop</h2>
+        <p>The operator provides motion, target, or task commands. The robot handles collision avoidance, local planning, and final alignment.</p>
+        <p>Earlier work used EMG and lightmyography to decode gestures, dexterous motion, and grasping force. Current work also uses RGB-D body tracking, gaze, open-vocabulary target selection, and shared autonomy.</p>
+        <div class="research-line__work">
+          <a href="#legged-robot-teleoperation"><strong>Vision-based robot teleoperation</strong><span>Motion mapping and shared grasp execution</span></a>
+          <a href="#wearable-intent-decoding"><strong>Wearable intent decoding</strong><span>EMG, lightmyography, gesture and force</span></a>
+          <a href="{{ '/publication/2025-icar-1' | relative_url }}"><strong>Gaze-oriented robot interaction</strong><span>Mixed reality and assistive HRI</span></a>
+        </div>
+      </div>
+    </article>
 
-<div class="research-topic">
-  <div class="research-topic__title">Teleoperation and shared control</div>
-  <div class="research-topic__desc">I design teleoperation pipelines that enable a human operator to provide intent, while the robot handles timing, collision avoidance, and local motion generation. The goal is reliable task execution, not just demonstrations.</div>
-</div>
+    <section class="research-systems" aria-labelledby="research-systems-title">
+      <div class="section-header fade-in">
+        <div class="section-label">Systems and experiments</div>
+        <h2 id="research-systems-title">Selected research</h2>
+        <p>Hardware implementations, experimental results, and system components.</p>
+      </div>
 
-<div class="research-topic">
-  <div class="research-topic__title">Wearable sensing and biosignal-driven intent (EMG and beyond)</div>
-  <div class="research-topic__desc">I use wearable sensing, especially EMG, to infer user intent for robot control and assistance. This includes signal processing, intent decoding, and control interfaces that remain usable under day-to-day variability (electrode placement, fatigue, motion artifacts).</div>
-</div>
+      {% for project in site.data.projects %}
+      <article class="project-row fade-in" id="{{ project.slug }}">
+        <div class="project-row__media">
+          {% if project.image contains 'http' %}
+            <img src="{{ project.image }}" alt="{{ project.image_alt }}" loading="lazy">
+          {% else %}
+            <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="project-row__content">
+          <div class="section-label">{{ project.area }}</div>
+          <h2>{{ project.title }}</h2>
+          <p>{{ project.summary }}</p>
+          {% if project.components %}
+          <div class="project-row__architecture">
+            <span>System components</span>
+            <ol>
+              {% for component in project.components %}<li>{{ component }}</li>{% endfor %}
+            </ol>
+          </div>
+          {% endif %}
+          <div class="project-row__evidence">
+            {% for item in project.evidence %}<span>{{ item }}</span>{% endfor %}
+          </div>
+          <div class="project-row__tags">
+            {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+          </div>
+          <div class="project-row__links">
+            {% if project.publication_url %}<a class="btn btn--outline btn--small" href="{{ project.publication_url | relative_url }}">Publication page</a>{% endif %}
+            {% if project.paper_url %}
+              {% if project.paper_url contains 'http' %}<a class="btn btn--outline btn--small" href="{{ project.paper_url }}" target="_blank" rel="noopener">Paper</a>
+              {% else %}<a class="btn btn--outline btn--small" href="{{ project.paper_url | relative_url }}" target="_blank" rel="noopener">Paper</a>{% endif %}
+            {% endif %}
+            {% if project.code_url %}<a class="btn btn--outline btn--small" href="{{ project.code_url }}" target="_blank" rel="noopener">Code</a>{% endif %}
+            {% if project.video_url %}<a class="btn btn--outline btn--small" href="{{ project.video_url }}" target="_blank" rel="noopener">Video</a>{% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
 
-<div class="research-topic">
-  <div class="research-topic__title">Vision-Language Models for Robot Locomanipulation</div>
-  <div class="research-topic__desc">I study how vision-language models can support robot locomanipulation by grounding task-relevant language into perception and action in real-world environments. This includes identifying objects and affordances in clutter, guiding shared autonomy, and supporting manipulation on mobile platforms under partial observability, latency constraints, and changing task conditions.</div>
-</div>
-
-<div class="research-topic">
-  <div class="research-topic__title">Assistive Human-Robot Interaction</div>
-  <div class="research-topic__desc">I develop assistive human-robot interaction methods that translate human intent into reliable robot assistance through adaptive interfaces, shared autonomy, and real-time perception. This includes collaborative work on assistive quadruped robots for mobility support, where onboard sensing and intention-aware control are used to provide context-sensitive assistance in everyday environments. I am also interested in how vision-language models can enhance these systems by improving scene interpretation, user adaptation, and natural interaction with robotic assistants.</div>
-</div>
-
-<div class="research-topic">
-  <div class="research-topic__title">Multimodal perception for manipulation</div>
-  <div class="research-topic__desc">I integrate multiple sensing streams (vision, motion capture when available, robot proprioception, and task context) to support manipulation pipelines that are resilient to occlusion, clutter, and changing lighting.</div>
-</div>
-
-<div class="research-topic">
-  <div class="research-topic__title">Locomanipulation on mobile platforms</div>
-  <div class="research-topic__desc">I extend manipulation to mobile platforms (e.g., legged robots) where navigation and manipulation must be solved in the same loop. This requires whole-body planning and control, as well as interfaces that maintain system stability while interacting with the environment.</div>
-</div>
-
-<div class="research-topic">
-  <div class="research-topic__title">Robot self-learning in the real world</div>
-  <div class="research-topic__desc">In the long term, I envision robots that continually improve through their own experience, collecting data from interactions, detecting failure modes, and adapting to new environments with minimal human intervention. The emphasis is on safety, repeatability, and measurable gains over time.</div>
-</div>
-
-<div class="infra">
-  <h2 class="infra__heading">Infrastructure</h2>
-  <p class="infra__intro">My research is conducted at the USP Center for Robotics (CRob), in the research group led by Assoc. Prof. Marcelo Becker, which provides access to an extensive fleet of robotic platforms:</p>
-  <dl class="infra__grid">
-    <div class="infra__row">
-      <dt>Manipulators</dt>
-      <dd>3× KUKA iisy, 1× NB 55, 1× Franka Research 3, 3× DynaArm, 1× Spot with an arm</dd>
+    <div class="deployment-strip fade-in">
+      <div>
+        <div class="section-label">Evaluation</div>
+        <h2>Common experimental constraints</h2>
+      </div>
+      <ul>
+        <li>Real-time operation</li>
+        <li>Incomplete and noisy sensing</li>
+        <li>Safety and collision constraints</li>
+        <li>Evaluation on physical systems</li>
+      </ul>
     </div>
-    <div class="infra__row">
-      <dt>Legged &amp; mobile robots</dt>
-      <dd>4× ANYmal-D, 4× Spot, 2× B2, 3× ASCENTO, 2× Taurob, 2× TerraSentia, 2× BIKE, RollerBOT (various sizes), Mirã 2</dd>
+
+    <div class="infra fade-in">
+      <div class="infra__intro-wrap">
+        <div class="section-label">Research environment</div>
+        <h2 class="infra__heading">Platforms at the USP Center for Robotics</h2>
+        <p class="infra__intro">I work in the group led by Assoc. Prof. Marcelo Becker at the USP Center for Robotics.</p>
+      </div>
+      <dl class="infra__grid">
+        <div class="infra__row"><dt>Manipulation</dt><dd>KUKA iisy, Franka Research 3, DynaArm, NB 55, and Spot Arm</dd></div>
+        <div class="infra__row"><dt>Legged and mobile</dt><dd>ANYmal-D, Spot, Unitree B2, Ascento, Taurob, TerraSentia, and custom platforms</dd></div>
+        <div class="infra__row"><dt>Aerial</dt><dd>Fotokite, Voliro, Flybotix ASIO, and experimental UAV platforms</dd></div>
+      </dl>
     </div>
-    <div class="infra__row">
-      <dt>Aerial</dt>
-      <dd>2× FotoKite, 2× Voliro, 4× ASIO</dd>
-    </div>
-  </dl>
-</div>
+  </div>
+</section>

@@ -25,11 +25,11 @@ permalink: /talks/
         {% elsif talk.type == "Talk" or talk.type == "talk" %}
           <span class="talk-item__type talk-item__type--talk">Invited Talk</span>
         {% else %}
-          <span class="talk-item__type talk-item__type--exhibit">{{ talk.type | default: "Talk" }}</span>
+          <span class="talk-item__type talk-item__type--exhibit">{{ talk.type | default: "Talk" | escape }}</span>
         {% endif %}
-        <a href="{{ talk.url | relative_url }}">{{ talk.title }}</a>
+        <a href="{{ talk.url | relative_url }}">{{ talk.title | escape }}</a>
       </div>
-      <div class="talk-item__venue">{{ talk.venue }}</div>
+      <div class="talk-item__venue">{{ talk.venue | escape }}</div>
     </div>
     {% endfor %}
 
