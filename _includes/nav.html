@@ -6,7 +6,7 @@
     </a>
 
     <ul class="nav-links">
-      {% assign nav_items = "Research|/research/,Publications|/publications/,Talks|/talks/,Teaching|/teaching/,Supervision|/supervision/,CV|/cv/" | split: "," %}
+      {% assign nav_items = "Research|/research/,Publications|/publications/,Videos|/videos/,Talks|/talks/,Teaching|/teaching/,Supervision|/supervision/,CV|/cv/" | split: "," %}
       {% for item in nav_items %}
         {% assign parts = item | split: "|" %}
         <li><a href="{{ parts[1] | relative_url }}" {% if page.url == parts[1] %}class="active" aria-current="page"{% endif %}>{{ parts[0] }}</a></li>
@@ -23,7 +23,7 @@
 
 <div class="nav-mobile-menu" id="mobile-navigation" hidden>
   <a href="{{ '/' | relative_url }}">Home</a>
-  {% assign nav_items = "Research|/research/,Publications|/publications/,Teaching|/teaching/,Supervision|/supervision/,CV|/cv/,Talks|/talks/,News|/year-archive/" | split: "," %}
+  {% assign nav_items = "Research|/research/,Publications|/publications/,Videos|/videos/,Talks|/talks/,Teaching|/teaching/,Supervision|/supervision/,CV|/cv/,News|/year-archive/" | split: "," %}
   {% for item in nav_items %}
     {% assign parts = item | split: "|" %}
     <a href="{{ parts[1] | relative_url }}">{{ parts[0] }}</a>
