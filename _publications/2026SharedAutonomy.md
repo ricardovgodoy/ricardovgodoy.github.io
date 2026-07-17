@@ -11,7 +11,7 @@ venue: 'Preprint · RA-L submission'
 tags: [control, manipulation, teleoperation, locomanipulation, shared-autonomy, open-vocabulary, collision-avoidance]
 doi: 
 code: 
-permalink: /publication/2026-shared-control-1
+permalink: /publication/2026SharedAutonomy
 excerpt: 'Open-vocabulary target grounding, volumetric collision mapping, potential-field assistance, and GPU-accelerated MPC for shared and autonomous manipulation on Spot.'
 date: 2026-07-10
 paperurl: '/files/2026_RAL_Teleop_Potential_Fields.pdf'
