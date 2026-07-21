@@ -10,11 +10,11 @@ short_contribution: "All shared-control trials succeeded. Minimum obstacle clear
 venue: 'Preprint · RA-L submission'
 tags: [control, manipulation, teleoperation, locomanipulation, shared-autonomy, open-vocabulary, collision-avoidance]
 doi: 
-code: 
+code: 'https://perception-to-assistance.github.io'
 permalink: /publication/2026SharedAutonomy
 excerpt: 'Open-vocabulary target grounding, volumetric collision mapping, potential-field assistance, and GPU-accelerated MPC for shared and autonomous manipulation on Spot.'
 date: 2026-07-10
-paperurl: '/files/2026_RAL_Teleop_Potential_Fields.pdf'
+paperurl: 'http://arxiv.org/abs/2607.17323'
 bibtexurl: ''
 citation: ''
 ---
