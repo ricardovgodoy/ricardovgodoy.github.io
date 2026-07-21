@@ -1,6 +1,7 @@
 ---
 title: "Redundant Robot Kinematics Error Analysis for Neurosurgical Procedures"
 collection: publications
+authors: "Ricardo V. Godoy, Tharik J. S. Reis, Gustavo J. G. Lahr, Paulo H. Polegato, Marcelo Becker, Daniel V. Magalhães, Glauco A. P. Caurin, Helio R. Machado, Marcelo V. Santos"
 category: conferences
 pubtype: conference
 tags: [teleoperation, control]
@@ -8,9 +9,9 @@ doi: 10.1109/INDUSCON51756.2021.9529675
 permalink: /publication/2021-induscon-1
 excerpt: 'This paper explores the kinematic relation between the robot configuration in joint space and both the robot tool center point (TCP) position resolution and the robot end-effector orientation resolution with the purpose of reducing error.'
 date: 2021-08-15
-venue: '2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
+venue: '2021 14th IEEE International Conference on Industry Applications (INDUSCON)'
 paperurl: 'https://ieeexplore.ieee.org/document/9529675'
-bibtexurl: 'http://ricardovgodoy.github.io/files/2021-induscon-1.bib'
+bibtexurl: 'https://www.ricardovgodoy.com/files/2021-induscon-1.bib'
 citation: 'R. V. Godoy et al., "Redundant Robot Kinematics Error Analysis for Neurosurgical Procedures," 2021 14th IEEE International Conference on Industry Applications (INDUSCON), São Paulo, Brazil, 2021, pp. 1029-1035, doi: 10.1109/INDUSCON51756.2021.9529675.'
 ---
 
