@@ -8,12 +8,13 @@ thumbnail: /images/projects/capability-aware-navigation.jpg
 short_contribution: "Capability conditioning produces different traversability predictions for legged and wheeled robots from the same scene."
 tags: [control]
 doi: 
-code: 'https://capability-aware-traversability.github.io'
+projecturl: 'https://capability-aware-traversability.github.io'
+code: ''
 permalink: /publication/2026-navigation-model
 excerpt: 'Capability-Aware Traversability conditions spatial predictions on the physical limits of legged and wheeled robots.'
 date: 2026-06-17
 venue: '2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
-paperurl: 'https://capability-aware-traversability.github.io'
+paperurl: '/files/IROS___Conditioned_Traversability.pdf'
 bibtexurl: ''
 citation: ''
 ---
