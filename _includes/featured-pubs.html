@@ -21,7 +21,8 @@
           {% if pub.authors %}<p class="selected-pub-card__authors">{{ pub.authors | replace: 'Ricardo V. Godoy', '<strong>Ricardo V. Godoy</strong>' }}</p>{% endif %}
           <p class="selected-pub-card__contribution">{{ pub.short_contribution }}</p>
           <div class="selected-pub-card__links">
-            <a href="{{ pub.url | relative_url }}">Project</a>
+            <a href="{{ pub.url | relative_url }}">Details</a>
+            {% if pub.projecturl and pub.projecturl != "" %}<a href="{{ pub.projecturl }}" target="_blank" rel="noopener">Project page</a>{% endif %}
             {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">Paper</a>{% endif %}
             {% if pub.code and pub.code != "" %}<a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
           </div>
