@@ -14,8 +14,8 @@
     - "Potential-field assistance and cuRobo MPC"
   tags: ["Shared autonomy", "Open vocabulary", "MPC"]
   page_url: "/research/#shared-autonomy"
-  publication_url: "/publication/2026-shared-control-1"
-  paper_url: "/files/2026_RAL_Teleop_Potential_Fields.pdf"
+  publication_url: "https://perception-to-assistance.github.io"
+  paper_url: "https://arxiv.org/abs/2607.17323"
   video_url: "https://www.youtube.com/watch?v=UNAeSZh0kCU"
 
 - slug: "language-guided-manipulation"
