@@ -56,7 +56,7 @@
   page_url: "/research/#legged-robot-teleoperation"
   publication_url: "/publication/2025-lars-teleop"
   paper_url: "https://arxiv.org/abs/2508.14994"
-  code_url: "https://github.com/EESC-LabRoM/MoveitServoing/blob/spot_teleop/"
+  code_url: "https://github.com/EESC-LabRoM/MoveitServoing/tree/spot_teleop/"
   video_url: "https://www.youtube.com/watch?v=klgpq57c8UM"
 
 - slug: "wearable-intent-decoding"
