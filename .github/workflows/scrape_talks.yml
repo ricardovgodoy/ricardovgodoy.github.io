@@ -49,5 +49,15 @@ jobs:
           echo "No changes to commit."
         else
           git commit -m "Update talk map [skip ci]"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase FETCH_HEAD
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Could not push the generated talk map after 3 attempts."
+              exit 1
+            fi
+          done
         fi

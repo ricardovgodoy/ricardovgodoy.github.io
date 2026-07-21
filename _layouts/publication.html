@@ -24,6 +24,7 @@ layout: default
 
       <div class="publication-actions" aria-label="Publication resources">
         {% if page.paperurl and page.paperurl != "" %}<a href="{{ page.paperurl }}" class="btn btn--primary btn--small" target="_blank" rel="noopener">PDF</a>{% endif %}
+        {% if page.projecturl and page.projecturl != "" %}<a href="{{ page.projecturl }}" class="btn btn--outline btn--small" target="_blank" rel="noopener">Project page</a>{% endif %}
         {% if page.doi and page.doi != "" %}
           {% if page.doi contains 'http' %}<a href="{{ page.doi }}" class="btn btn--outline btn--small" target="_blank" rel="noopener">DOI</a>
           {% else %}<a href="https://doi.org/{{ page.doi }}" class="btn btn--outline btn--small" target="_blank" rel="noopener">DOI</a>{% endif %}

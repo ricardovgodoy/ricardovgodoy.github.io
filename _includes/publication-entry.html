@@ -16,6 +16,7 @@
   </div>
   <div class="pub-entry__links">
     <a href="{{ pub.url | relative_url }}">Details</a>
+    {% if pub.projecturl and pub.projecturl != "" %}<a href="{{ pub.projecturl }}" target="_blank" rel="noopener">Project page</a>{% endif %}
     {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
     {% if pub.doi and pub.doi != "" %}
       {% if pub.doi contains 'http' %}<a href="{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>

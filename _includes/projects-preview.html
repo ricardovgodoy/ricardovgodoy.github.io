@@ -25,7 +25,10 @@
           </div>
           <div class="project-card__links">
             <a href="{{ project.page_url | relative_url }}">System details</a>
-            {% if project.publication_url %}<a href="{{ project.publication_url | relative_url }}">Publication page</a>{% endif %}
+            {% if project.publication_url %}
+              {% if project.publication_url contains 'http' %}<a href="{{ project.publication_url }}" target="_blank" rel="noopener">Project page</a>
+              {% else %}<a href="{{ project.publication_url | relative_url }}">Publication page</a>{% endif %}
+            {% endif %}
             {% if project.paper_url %}
               {% if project.paper_url contains 'http' %}<a href="{{ project.paper_url }}" target="_blank" rel="noopener">Related paper</a>
               {% else %}<a href="{{ project.paper_url | relative_url }}" target="_blank" rel="noopener">Related paper</a>{% endif %}

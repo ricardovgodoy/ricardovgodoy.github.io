@@ -9,8 +9,8 @@ permalink: /publication/2025-kirigami-1
 excerpt: 'In this paper, we explore this new class of soft robotic grippers by proposing new designs and investigating their post-contact reconfiguration behaviour in a series of experiments covering grasping experiments and grasping force exertion measurement experiments.'
 date: 2024-08-24
 venue: 'IEEE Access'
-paperurl: 'https://ieeexplore.ieee.org/document/10639969?denied='
-bibtexurl: 'http://ricardovgodoy.github.io/files/2025-kirigami-1.bib'
+paperurl: 'https://ieeexplore.ieee.org/document/10639969'
+bibtexurl: 'https://www.ricardovgodoy.com/files/2025-kirigami-1.bib'
 citation: 'J. Buzzatto et al., "Multi-Layer, Sensorized Kirigami Grippers for Delicate Yet Robust Robot Grasping and Single-Grasp Object Identification," in IEEE Access, vol. 12, pp. 115994-116012, 2024, doi: 10.1109/ACCESS.2024.3446729.'
 ---
 

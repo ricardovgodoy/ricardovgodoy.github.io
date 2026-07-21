@@ -7,14 +7,9 @@
     </div>
     <div class="footer-groups">
       <nav class="footer-links" aria-label="Site links">
-        <a href="{{ '/research/' | relative_url }}">Research</a>
-        <a href="{{ '/publications/' | relative_url }}">Publications</a>
-        <a href="{{ '/talks/' | relative_url }}">Talks</a>
-        <a href="{{ '/teaching/' | relative_url }}">Teaching</a>
-        <a href="{{ '/supervision/' | relative_url }}">Supervision</a>
-        <a href="{{ '/videos/' | relative_url }}">Videos</a>
-        <a href="{{ '/year-archive/' | relative_url }}">News</a>
-        <a href="{{ '/cv/' | relative_url }}">CV</a>
+        {% for item in site.data.navigation.main %}
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endfor %}
       </nav>
       <nav class="footer-links footer-links--profiles" aria-label="External profiles">
         <a href="https://scholar.google.com/citations?user=vVXZEB8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener"><i class="ai ai-google-scholar" aria-hidden="true"></i>Scholar</a>

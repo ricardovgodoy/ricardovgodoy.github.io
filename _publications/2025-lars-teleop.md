@@ -11,15 +11,13 @@ short_contribution: "An RGB-D camera maps wrist motion to Spot's arm. Shared con
 award: "Best Paper, IEEE LARS 2025"
 tags: [teleoperation, shared-control, control, vision, perception, manipulation, grasping, mobile-manipulation, legged-robots]
 doi: 10.1109/LARS69345.2025.11272961       # optional
-code: https://github.com/EESC-LabRoM/MoveitServoing/blob/spot_teleop/
+code: https://github.com/EESC-LabRoM/MoveitServoing/tree/spot_teleop/
 permalink: /publication/2025-lars-teleop
 excerpt: 'RGB-D wrist tracking for real-time control of Spot’s arm, with collision avoidance and gesture-triggered grasping.'
 date: 2025-10-03
 venue: '2025 IEEE Latin American Robotics Symposium (LARS)'
 paperurl: 'https://ieeexplore.ieee.org/document/11272961'
-citation: 'M. V. D. Silva et al., "A Vision-Based Shared-Control Teleoperation Scheme for Controlling the Robotic Arm of a Four-Legged Robot," 2025 Latin American Robotics Symposium (LARS), Monterrey, Mexico, 2025, pp. 1-6, doi: 10.1109/LARS69345.2025.11272961. keywords: {Wrist;Service robots;Tracking;Robot vision systems;Manipulators;Real-time systems;Safety;Quadrupedal robots;Collision avoidance;Robots}
-
-'
+citation: 'M. V. da Silva et al., “A Vision-Based Shared-Control Teleoperation Scheme for Controlling the Robotic Arm of a Four-Legged Robot,” 2025 Latin American Robotics Symposium (LARS), pp. 1–6, 2025, doi: 10.1109/LARS69345.2025.11272961.'
 ---
 
 This paper received the Best Paper Award at IEEE LARS 2025.

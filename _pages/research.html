@@ -1,15 +1,15 @@
 ---
 layout: default
 title: "Research"
-description: "Mobile manipulation, shared autonomy, teleoperation, and wearable sensing."
+description: "Robotic systems for manipulation, mobility, field robotics, and human–robot interaction."
 permalink: /research/
 ---
 
 <section class="page-header research-header">
   <div class="container">
     <div class="section-label">Research</div>
-    <h1 class="page-header__title">Manipulation, shared autonomy, and human–robot interfaces</h1>
-    <p class="page-header__desc">Research on physical robots, with a focus on field and industrial tasks.</p>
+    <h1 class="page-header__title">Robotic systems for manipulation, mobility, and human–robot interaction</h1>
+    <p class="page-header__desc">Perception, learning, planning, control, and hardware experiments for field, industrial, and assistive robotics.</p>
   </div>
 </section>
 
@@ -42,7 +42,7 @@ permalink: /research/
         <div class="section-label">Teleoperation and shared control</div>
         <h2>Human input in the control loop</h2>
         <p>The operator provides motion, target, or task commands. The robot handles collision avoidance, local planning, and final alignment.</p>
-        <p>Earlier work used EMG and lightmyography to decode gestures, dexterous motion, and grasping force. Current work also uses RGB-D body tracking, gaze, open-vocabulary target selection, and shared autonomy.</p>
+        <p>Earlier work used EMG and lightmyography to decode gestures, dexterous motion, and grasping force. Recent work also uses RGB-D body tracking, gaze, open-vocabulary target selection, and shared autonomy.</p>
         <div class="research-line__work">
           <a href="#legged-robot-teleoperation"><strong>Vision-based robot teleoperation</strong><span>Motion mapping and shared grasp execution</span></a>
           <a href="#wearable-intent-decoding"><strong>Wearable intent decoding</strong><span>EMG, lightmyography, gesture and force</span></a>
@@ -86,7 +86,10 @@ permalink: /research/
             {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
           </div>
           <div class="project-row__links">
-            {% if project.publication_url %}<a class="btn btn--outline btn--small" href="{{ project.publication_url | relative_url }}">Publication page</a>{% endif %}
+            {% if project.publication_url %}
+              {% if project.publication_url contains 'http' %}<a class="btn btn--outline btn--small" href="{{ project.publication_url }}" target="_blank" rel="noopener">Project page</a>
+              {% else %}<a class="btn btn--outline btn--small" href="{{ project.publication_url | relative_url }}">Publication page</a>{% endif %}
+            {% endif %}
             {% if project.paper_url %}
               {% if project.paper_url contains 'http' %}<a class="btn btn--outline btn--small" href="{{ project.paper_url }}" target="_blank" rel="noopener">Paper</a>
               {% else %}<a class="btn btn--outline btn--small" href="{{ project.paper_url | relative_url }}" target="_blank" rel="noopener">Paper</a>{% endif %}

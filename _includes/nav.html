@@ -6,10 +6,8 @@
     </a>
 
     <ul class="nav-links">
-      {% assign nav_items = "Research|/research/,Publications|/publications/,Videos|/videos/,Talks|/talks/,Teaching|/teaching/,Supervision|/supervision/,News|/year-archive/,CV|/cv/" | split: "," %}
-      {% for item in nav_items %}
-        {% assign parts = item | split: "|" %}
-        <li><a href="{{ parts[1] | relative_url }}" {% if page.url == parts[1] %}class="active" aria-current="page"{% endif %}>{{ parts[0] }}</a></li>
+      {% for item in site.data.navigation.main %}
+        <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {% endfor %}
     </ul>
 
@@ -23,10 +21,8 @@
 
 <div class="nav-mobile-menu" id="mobile-navigation" hidden>
   <a href="{{ '/' | relative_url }}">Home</a>
-  {% assign nav_items = "Research|/research/,Publications|/publications/,Videos|/videos/,Talks|/talks/,Teaching|/teaching/,Supervision|/supervision/,News|/year-archive/,CV|/cv/" | split: "," %}
-  {% for item in nav_items %}
-    {% assign parts = item | split: "|" %}
-    <a href="{{ parts[1] | relative_url }}">{{ parts[0] }}</a>
+  {% for item in site.data.navigation.main %}
+    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
   {% endfor %}
   <a href="mailto:ricardo.godoy@alumni.usp.br">Email Ricardo</a>
 </div>

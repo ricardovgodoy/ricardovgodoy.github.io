@@ -1,22 +1,24 @@
 ---
-title: "From Perception to Assistance: VLM-Driven Potential Fields for Shared-Control Manipulation"
+title: "From Perception to Assistance: Open-Vocabulary Shared Autonomy for Robotic Manipulation"
 collection: publications
+authors: "Murilo Vinicius da Silva, Ricardo V. Godoy, Juliano Negri, Gustavo J. G. Lahr, Ranulfo Bezerra, Marcelo Becker"
 category: preprints
 pubtype: preprint
 featured: true
 homepage_selected: true
 thumbnail: /images/projects/shared-autonomy-hero.jpg
 short_contribution: "All shared-control trials succeeded. Minimum obstacle clearance was 18 cm during deliberately unsafe commands."
-venue: 'Preprint · RA-L submission'
+venue: 'arXiv preprint · RA-L submission'
 tags: [control, manipulation, teleoperation, locomanipulation, shared-autonomy, open-vocabulary, collision-avoidance]
 doi: 
-code: 'https://perception-to-assistance.github.io'
+projecturl: 'https://perception-to-assistance.github.io'
+code: ''
 permalink: /publication/2026SharedAutonomy
 excerpt: 'Open-vocabulary target grounding, volumetric collision mapping, potential-field assistance, and GPU-accelerated MPC for shared and autonomous manipulation on Spot.'
-date: 2026-07-10
-paperurl: 'http://arxiv.org/abs/2607.17323'
+date: 2026-07-19
+paperurl: 'https://arxiv.org/pdf/2607.17323'
 bibtexurl: ''
-citation: ''
+citation: 'M. V. da Silva, R. V. Godoy, J. Negri, G. J. G. Lahr, R. Bezerra, and M. Becker, “From Perception to Assistance: Open-Vocabulary Shared Autonomy for Robotic Manipulation,” arXiv:2607.17323, 2026.'
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UNAeSZh0kCU?si=SlpDeKnhavhE5Z7W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
