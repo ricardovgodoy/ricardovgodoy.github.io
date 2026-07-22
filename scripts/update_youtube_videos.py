@@ -8,9 +8,10 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterator
 from urllib.request import Request, urlopen
@@ -99,6 +100,55 @@ def text_value(value: Any) -> str:
     return ""
 
 
+def relative_date(value: Any) -> str:
+    texts: list[str] = []
+    for item in walk_dicts(value):
+        for key in ("content", "simpleText", "accessibilityLabel"):
+            if isinstance(item.get(key), str):
+                texts.append(item[key])
+
+    now = datetime.now(timezone.utc)
+    for original in texts:
+        normalized = unicodedata.normalize("NFKD", original.casefold())
+        normalized = "".join(
+            char for char in normalized if not unicodedata.combining(char)
+        )
+        if normalized.strip() in {"today", "hoy", "hoje"}:
+            return now.date().isoformat()
+
+        match = re.search(
+            r"(\d+)\s+(seconds?|minutes?|hours?|days?|weeks?|months?|years?)\s+ago",
+            normalized,
+        )
+        if not match:
+            match = re.search(
+                r"(?:hace|ha)\s+(\d+)\s+"
+                r"(segundos?|minutos?|horas?|dias?|semanas?|mes(?:es)?|anos?)",
+                normalized,
+            )
+        if not match:
+            continue
+
+        amount = int(match.group(1))
+        unit = match.group(2)
+        if unit.startswith(("second", "segundo")):
+            delta = timedelta(seconds=amount)
+        elif unit.startswith(("minute", "minuto")):
+            delta = timedelta(minutes=amount)
+        elif unit.startswith(("hour", "hora")):
+            delta = timedelta(hours=amount)
+        elif unit.startswith(("day", "dia")):
+            delta = timedelta(days=amount)
+        elif unit.startswith(("week", "semana")):
+            delta = timedelta(weeks=amount)
+        elif unit.startswith(("month", "mes")):
+            delta = timedelta(days=30 * amount)
+        else:
+            delta = timedelta(days=365 * amount)
+        return (now - delta).date().isoformat()
+    return ""
+
+
 def extract_page_videos(data: Any, collaborations_only: bool = False) -> list[dict[str, str]]:
     videos: list[dict[str, str]] = []
     seen: set[str] = set()
@@ -120,7 +170,13 @@ def extract_page_videos(data: Any, collaborations_only: bool = False) -> list[di
 
         metadata = view.get("metadata", {}).get("lockupMetadataViewModel", {})
         title = text_value(metadata.get("title", {}))
-        videos.append({"youtube_id": video_id, "title": title, "date": ""})
+        videos.append(
+            {
+                "youtube_id": video_id,
+                "title": title,
+                "date": relative_date(metadata),
+            }
+        )
         seen.add(video_id)
 
     if collaborations_only:
@@ -143,7 +199,7 @@ def extract_page_videos(data: Any, collaborations_only: bool = False) -> list[di
                 {
                     "youtube_id": video_id,
                     "title": text_value(renderer.get("title", {})),
-                    "date": "",
+                    "date": relative_date(renderer),
                 }
             )
             seen.add(video_id)
@@ -223,6 +279,36 @@ def hydrate_video(video: dict[str, str]) -> dict[str, str]:
     }
 
 
+def read_existing_videos() -> list[dict[str, str]]:
+    if not OUT_PATH.exists():
+        return []
+
+    videos: list[dict[str, str]] = []
+    current: dict[str, str] = {}
+    fields = {
+        "- title: ": "title",
+        "  youtube_id: ": "youtube_id",
+        "  date: ": "date",
+    }
+    for line in OUT_PATH.read_text(encoding="utf-8").splitlines():
+        if line.startswith("- title: ") and current:
+            if current.get("youtube_id"):
+                videos.append(current)
+            current = {}
+        for prefix, field in fields.items():
+            if not line.startswith(prefix):
+                continue
+            raw_value = line[len(prefix) :]
+            try:
+                current[field] = str(json.loads(raw_value))
+            except json.JSONDecodeError:
+                current[field] = raw_value.strip().strip('"')
+            break
+    if current.get("youtube_id"):
+        videos.append(current)
+    return videos
+
+
 def merge_videos(*groups: list[dict[str, str]]) -> list[dict[str, str]]:
     merged: dict[str, dict[str, str]] = {}
     for group in groups:
@@ -258,6 +344,10 @@ def write_yaml(videos: list[dict[str, str]]) -> None:
 
 
 def main() -> int:
+    existing_by_id = {
+        video["youtube_id"]: video for video in read_existing_videos()
+    }
+
     upload_feed = fetch_text(
         f"https://www.youtube.com/feeds/videos.xml?channel_id={CHANNEL_ID}"
     )
@@ -271,7 +361,15 @@ def main() -> int:
         videos = extract_page_videos(parse_initial_data(page))
         if not videos:
             raise RuntimeError(f"Playlist {playlist_id} returned no videos")
-        playlist_videos.extend(videos)
+        try:
+            playlist_feed = fetch_text(
+                f"https://www.youtube.com/feeds/videos.xml?playlist_id={playlist_id}"
+            )
+            feed_videos = parse_upload_feed(playlist_feed)
+        except Exception as error:
+            print(f"Warning: playlist feed unavailable: {error}", file=sys.stderr)
+            feed_videos = []
+        playlist_videos.extend(merge_videos(videos, feed_videos))
 
     channel_page = fetch_text(CHANNEL_URL)
     collaborations = extract_page_videos(
@@ -280,17 +378,40 @@ def main() -> int:
     if not collaborations:
         raise RuntimeError("The YouTube Collaborations section returned no videos")
 
-    external_by_id = {
-        video["youtube_id"]: video for video in playlist_videos + collaborations
-    }
+    candidates = merge_videos(uploads, playlist_videos, collaborations)
+    complete: list[dict[str, str]] = []
+    unresolved: list[dict[str, str]] = []
+    for video in candidates:
+        previous = existing_by_id.get(video["youtube_id"], {})
+        if not video.get("title") and previous.get("title"):
+            video["title"] = previous["title"]
+        if previous.get("date"):
+            video["date"] = previous["date"]
+        if video.get("title") and video.get("date"):
+            complete.append(video)
+        else:
+            unresolved.append(video)
+
+    print(
+        f"Resolved {len(complete)} videos from feeds, channel pages, or stored data; "
+        f"{len(unresolved)} require watch-page metadata"
+    )
+
     hydrated: list[dict[str, str]] = []
     with ThreadPoolExecutor(max_workers=4) as executor:
         pending = {
             executor.submit(hydrate_video, video): video["youtube_id"]
-            for video in external_by_id.values()
+            for video in unresolved
         }
         for future in as_completed(pending):
-            hydrated.append(future.result())
+            video_id = pending[future]
+            try:
+                hydrated.append(future.result())
+            except Exception as error:
+                print(
+                    f"Warning: watch-page metadata unavailable for {video_id}: {error}",
+                    file=sys.stderr,
+                )
 
     incomplete = [
         video["youtube_id"]
@@ -298,11 +419,22 @@ def main() -> int:
         if not video.get("title") or not video.get("date")
     ]
     if incomplete:
-        raise RuntimeError(
-            "Could not read a title or publication date for: " + ", ".join(incomplete)
+        print(
+            "Warning: skipped videos without a title or publication date: "
+            + ", ".join(incomplete),
+            file=sys.stderr,
         )
 
-    videos = merge_videos(uploads, hydrated)
+    videos = merge_videos(
+        complete,
+        [
+            video
+            for video in hydrated
+            if video.get("title") and video.get("date")
+        ],
+    )
+    if not videos:
+        raise RuntimeError("No complete video entries were available")
     write_yaml(videos)
     print(
         f"Wrote {len(videos)} videos to {OUT_PATH} "
