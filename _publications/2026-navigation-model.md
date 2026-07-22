@@ -9,12 +9,12 @@ short_contribution: "Capability conditioning produces different traversability p
 tags: [control]
 doi: 
 projecturl: 'https://capability-aware-traversability.github.io'
-code: ''
+code: 'https://capability-aware-traversability.github.io'
 permalink: /publication/2026-navigation-model
 excerpt: 'Capability-Aware Traversability conditions spatial predictions on the physical limits of legged and wheeled robots.'
 date: 2026-06-17
 venue: '2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)'
-paperurl: '/files/IROS___Conditioned_Traversability.pdf'
+paperurl: 'https://capability-aware-traversability.github.io'
 bibtexurl: ''
 citation: ''
 ---
