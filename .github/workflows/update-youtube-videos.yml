@@ -2,6 +2,11 @@ name: Update YouTube videos list
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/update-youtube-videos.yml"
+      - "scripts/update_youtube_videos.py"
+      - "_data/videos.yml"
   schedule:
     - cron: "0 9 * * *" # daily 09:00 UTC
 
@@ -40,6 +45,7 @@ jobs:
           git status --porcelain
 
       - name: Commit updates
+        if: github.event_name != 'pull_request'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: ${{ github.ref_name }}
