@@ -6,7 +6,8 @@
     </div>
 
     <div class="grid-2">
-    {% for v in site.data.videos limit:4 %}
+    {% assign videos = site.data.videos | sort: "date" | reverse %}
+    {% for v in videos limit:4 %}
       <a href="https://www.youtube.com/watch?v={{ v.youtube_id }}" target="_blank" rel="noopener" class="video-card fade-in">
         <div class="video-card__thumb">
           <img src="{{ v.thumbnail }}" alt="{{ v.title | escape }}" loading="lazy" width="480" height="360">

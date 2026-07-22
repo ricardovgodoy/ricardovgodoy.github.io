@@ -17,23 +17,13 @@ permalink: /videos/
 <section class="page-section demos-page" style="padding-top: 0;">
   <div class="container">
     <div class="demo-grid">
-      {% for video in site.data.videos %}
+      {% assign videos = site.data.videos | sort: "date" | reverse %}
+      {% for video in videos %}
       <a class="video-card fade-in" href="https://www.youtube.com/watch?v={{ video.youtube_id }}" target="_blank" rel="noopener">
         <div class="video-card__thumb">
           <img src="{{ video.thumbnail }}" alt="Video still for {{ video.title | escape }}" loading="lazy" width="480" height="360">
           <span class="video-card__play" aria-hidden="true">▶</span>
           <span class="video-card__year-badge">{{ video.date | slice: 0, 4 }}</span>
-        </div>
-        <div class="video-card__body"><h2 class="video-card__title">{{ video.title }}</h2></div>
-      </a>
-      {% endfor %}
-
-      {% for video in site.data.playlist_videos %}
-      <a class="video-card fade-in" href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank" rel="noopener">
-        <div class="video-card__thumb">
-          <img src="https://i.ytimg.com/vi/{{ video.id }}/hqdefault.jpg" alt="Video still for {{ video.title | escape }}" loading="lazy" width="480" height="360">
-          <span class="video-card__play" aria-hidden="true">▶</span>
-          {% if video.date %}<span class="video-card__year-badge">{{ video.date | slice: 0, 4 }}</span>{% endif %}
         </div>
         <div class="video-card__body"><h2 class="video-card__title">{{ video.title }}</h2></div>
       </a>
