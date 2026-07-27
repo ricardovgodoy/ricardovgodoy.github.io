@@ -1,6 +1,7 @@
 ---
 title: "Electromyography Based Decoding of Dexterous, In-Hand Manipulation Motions With Temporal Multichannel Vision Transformers"
 collection: publications
+authors: "Ricardo V. Godoy, Anany Dwivedi, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
 featured: true

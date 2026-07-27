@@ -1,6 +1,7 @@
 ---
 title: "A Leaf-Level Dataset for Soybean-Cotton Detection and Segmentation"
 collection: publications
+authors: "Thiago H. Segreto, Juliano D. Negri, Paulo H. Polegato, João Manoel Herrera Pinheiro, Ricardo V. Godoy, Marcelo Becker"
 category: manuscripts
 pubtype: journal
 tags: [perception, vision]

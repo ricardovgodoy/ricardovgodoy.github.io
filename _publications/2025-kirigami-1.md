@@ -1,6 +1,7 @@
 ---
 title: "Multi-Layer, Sensorized Kirigami Grippers for Delicate Yet Robust Robot Grasping and Single-Grasp Object Identification"
 collection: publications
+authors: "Joao Buzzatto, Haodan Jiang, Junbang Liang, Bryan Busby, Angus Lynch, Ricardo V. Godoy, Saori Matsunaga, Rintaro Haraguchi, Toshisada Mariyama, Bruce A. MacDonald, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
 tags: [grasping, manipulation]

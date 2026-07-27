@@ -1,6 +1,7 @@
 ---
 title: "Combining Augmented Reality with Semi-autonomous, Lightmyography Based Control to Improve Usability of Prostheses"
 collection: publications
+authors: "Bonnie Guan, Zhe Wang, Ricardo V. Godoy, Mahonri Owen, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
 tags: [teleoperation, biosignal, control, grasping, manipulation, dexterous-manipulation, wearable-sensing]

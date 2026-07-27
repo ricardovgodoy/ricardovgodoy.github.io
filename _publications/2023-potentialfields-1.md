@@ -1,6 +1,7 @@
 ---
 title: "On Semi-Autonomous Robotic Telemanipulation Employing Electromyography Based Motion Decoding and Potential Fields"
 collection: publications
+authors: "Bonnie Guan, Ricardo V. Godoy, Felipe Sanches, Anany Dwivedi, Minas Liarokapis"
 category: conferences
 pubtype: conference
 tags: [teleoperation, shared-control, wearable-sensing, control, biosignal, manipulation, grasping]
