@@ -1,6 +1,7 @@
 ---
 title: "An Affordances and Electromyography Based Telemanipulation Framework for Control of Robotic Arm-Hand Systems"
 collection: publications
+authors: "Ricardo V. Godoy, Bonnie Guan, Anany Dwivedi, Minas Liarokapis"
 category: conferences
 pubtype: conference
 tags: [teleoperation, shared-control, wearable-sensing, control, biosignal, manipulation]

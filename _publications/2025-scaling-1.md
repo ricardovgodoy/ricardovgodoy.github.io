@@ -1,6 +1,7 @@
 ---
 title: "The impact of feature scaling in machine learning: Effects on regression and classification tasks"
 collection: publications
+authors: "João Manoel Herrera Pinheiro, Suzana Vilas Boas de Oliveira, Thiago Henrique Segreto Silva, Pedro Antonio Rabelo Saraiva, Enzo Ferreira de Souza, Ricardo V. Godoy, Leonardo André Ambrosio, Marcelo Becker"
 category: manuscripts
 pubtype: journal
 tags: []

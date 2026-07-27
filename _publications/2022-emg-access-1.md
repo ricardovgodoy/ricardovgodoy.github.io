@@ -1,6 +1,7 @@
 ---
 title: "On EMG Based Dexterous Robotic Telemanipulation: Assessing Machine Learning Techniques, Feature Extraction Methods, and Shared Control Schemes"
 collection: publications
+authors: "Ricardo V. Godoy, Anany Dwivedi, Bonnie Guan, Amber Turner, Dasha Shieff, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
 tags: [teleoperation, biosignal, control, grasping, manipulation, dexterous-manipulation, wearable-sensing]

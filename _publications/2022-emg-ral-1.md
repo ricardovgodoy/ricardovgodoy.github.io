@@ -1,11 +1,12 @@
 ---
 title: "Electromyography-Based, Robust Hand Motion Classification Employing Temporal Multi-Channel Vision Transformers"
 collection: publications
+authors: "Ricardo V. Godoy, Gustavo J. G. Lahr, Anany Dwivedi, Tharik J. S. Reis, Paulo H. Polegato, Marcelo Becker, Glauco A. P. Caurin, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
 featured: true
 tags: [biosignal, grasping, manipulation, control, wearable-sensing]
-doi: 10.1109/LRA.2022.319262
+doi: 10.1109/LRA.2022.3192623
 permalink: /publication/2022-emg-ral-1
 excerpt: 'In this work, we propose Temporal Multi-Channel Vision Transformers as a deep learning technique that has the potential to achieve dexterous control of robots and bionic hands. The performance of this method is evaluated and compared with other well-known methods, employing the open-access Ninapro dataset.'
 date: 2022-07-20

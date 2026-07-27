@@ -7,7 +7,6 @@ featured: true
 thumbnail: /images/projects/language-guided-grasping.jpg
 authors: "Dilermando Almeida, Juliano Negri, Guilherme Lazzarini, Thiago H. Segreto, Ranulfo Bezerra, Gustavo J. G. Lahr, Ricardo V. Godoy, Marcelo Becker"
 short_contribution: "Object-centric completion and execution-aware selection improved grasp success from 3/10 to 9/10 under partial observations."
-venue: 'Preprint'
 tags: [control,grasping,vision,manipulation,mobile-manipulation,perception]
 doi: 
 code: 

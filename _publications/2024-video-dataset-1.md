@@ -1,6 +1,7 @@
 ---
 title: "A Video Dataset of Everyday Life Grasps for the Training of Shared Control Operation Models for Myoelectric Prosthetic Hands"
 collection: publications
+authors: "Ricardo V. Godoy, Bonnie Guan, Anany Dwivedi, Mahonri Owen, Minas Liarokapis"
 category: conferences
 pubtype: conference
 tags: [vision, grasping, perception, manipulation]

@@ -1,6 +1,7 @@
 ---
 title: "Comparing Human and Robot Performance in the Execution of Kitchen Tasks: Evaluating Grasping and Dexterous Manipulation Skills"
 collection: publications
+authors: "Nathan Elangovan, Che-Ming Chang, Ricardo V. Godoy, Felipe Sanches, Ke Wang, Patrick Jarvis, Minas Liarokapis"
 category: conferences
 pubtype: conference
 tags: [grasping, manipulation]

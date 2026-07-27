@@ -1,6 +1,7 @@
 ---
 title: "Electromyography-Based, Robust Hand Motion Classification Employing Temporal Multi-Channel Vision Transformers"
 collection: publications
+authors: "Ricardo V. Godoy, Gustavo J. G. Lahr, Anany Dwivedi, Tharik J. S. Reis, Paulo H. Polegato, Marcelo Becker, Glauco A. P. Caurin, Minas Liarokapis"
 category: conferences
 pubtype: conference
 tags: [control, biosignal, grasping, manipulation, wearable-sensing]
