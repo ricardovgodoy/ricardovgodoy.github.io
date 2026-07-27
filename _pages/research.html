@@ -21,14 +21,15 @@ permalink: /research/
         <figcaption>Language-guided grasping on a legged mobile manipulator.</figcaption>
       </figure>
       <div class="research-line__content">
-        <div class="section-label">Mobile manipulation and navigation</div>
-        <h2>Perception and control on physical robots</h2>
-        <p>Work in this area covers object grounding, 3D reconstruction, grasp selection, collision-aware planning, and execution on Spot. Experiments include clutter, occlusion, incomplete depth, and calibration error.</p>
-        <p>Capability-aware traversability conditions predictions on the robot platform. Spot and a wheeled robot receive different maps from the same scene.</p>
+        <div class="section-label">Robot autonomy</div>
+        <h2>Perception, manipulation, and navigation</h2>
+        <p>This work covers object grounding, 3D reconstruction, grasp selection, collision-aware planning, locomotion, and real-time control across manipulators, legged robots, and wheeled platforms. Experiments address clutter, occlusion, incomplete depth, calibration error, and changing environments.</p>
+        <p>Navigation models account for morphology and physical capability when estimating traversability and selecting motions.</p>
         <div class="research-line__work">
           <a href="#language-guided-manipulation"><strong>Language-guided mobile manipulation</strong><span>Target grounding, partial geometry, grasping</span></a>
           <a href="#shared-autonomy"><strong>Open-vocabulary shared autonomy</strong><span>Guidance, collision avoidance, valve tasks</span></a>
           <a href="#capability-aware-navigation"><strong>Capability-aware navigation</strong><span>Embodiment-conditioned traversability</span></a>
+          <a href="{{ '/publication/2026-rank' | relative_url }}"><strong>Learning-based locomotion</strong><span>Representation health and sim-to-real control</span></a>
         </div>
       </div>
     </article>
@@ -36,13 +37,13 @@ permalink: /research/
     <article class="research-line research-line--reverse fade-in">
       <figure class="research-line__visual">
         <img src="{{ '/images/projects/spot-teleoperation.jpg' | relative_url }}" alt="Vision-based teleoperation system connecting an operator's motion to a robot arm">
-        <figcaption>Vision-based shared control of Spot's manipulator.</figcaption>
+        <figcaption>Vision-based shared control of a mobile manipulator.</figcaption>
       </figure>
       <div class="research-line__content">
-        <div class="section-label">Teleoperation and shared control</div>
-        <h2>Human input in the control loop</h2>
-        <p>The operator provides motion, target, or task commands. The robot handles collision avoidance, local planning, and final alignment.</p>
-        <p>Earlier work used EMG and lightmyography to decode gestures, dexterous motion, and grasping force. Recent work also uses RGB-D body tracking, gaze, open-vocabulary target selection, and shared autonomy.</p>
+        <div class="section-label">Human–robot interaction</div>
+        <h2>Teleoperation, shared control, and intent decoding</h2>
+        <p>People provide motion, target, or task commands through vision, gaze, muscle signals, and natural language. Robot assistance covers collision avoidance, local planning, grasp execution, and final alignment.</p>
+        <p>EMG and lightmyography support gesture, dexterous-motion, and force decoding. RGB-D tracking, mixed reality, and open-vocabulary perception support camera-based and assistive interfaces.</p>
         <div class="research-line__work">
           <a href="#legged-robot-teleoperation"><strong>Vision-based robot teleoperation</strong><span>Motion mapping and shared grasp execution</span></a>
           <a href="#wearable-intent-decoding"><strong>Wearable intent decoding</strong><span>EMG, lightmyography, gesture and force</span></a>
