@@ -2,12 +2,12 @@
   <div class="container">
     <div class="section-header fade-in">
       <div class="section-label">Publications</div>
-      <h2>Selected publications</h2>
+      <h2>Latest publications</h2>
     </div>
 
-    {% assign selected_pubs = site.publications | where: "homepage_selected", true | sort: "date" | reverse %}
+    {% assign latest_pubs = site.publications | sort: "date" | reverse %}
     <div class="home-pub-list">
-      {% for pub in selected_pubs %}
+      {% for pub in latest_pubs limit:4 %}
       <article class="home-pub-row fade-in">
         <time class="home-pub-row__year" datetime="{{ pub.date | date: '%Y-%m-%d' }}">{{ pub.date | date: "%Y" }}</time>
         <div class="home-pub-row__main">
