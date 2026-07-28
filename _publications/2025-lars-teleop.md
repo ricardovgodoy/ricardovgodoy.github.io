@@ -4,6 +4,7 @@ collection: publications
 category: conferences
 pubtype: conference
 featured: true
+homepage_selected: true
 thumbnail: /images/projects/spot-teleoperation.jpg
 authors: "Murilo Vinicius da Silva, Matheus Hipolito Carvalho, Juliano Negri, Thiago Segreto, Gustavo J. G. Lahr, Ricardo V. Godoy, Marcelo Becker"
 short_contribution: "An RGB-D camera maps wrist motion to Spot's arm. Shared control handles collision avoidance and grasp execution."

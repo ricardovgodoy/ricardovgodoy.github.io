@@ -38,6 +38,26 @@
   paper_url: "https://arxiv.org/abs/2603.07866"
   video_url: "https://www.youtube.com/watch?v=9Ca3zzUI8Ic"
 
+- slug: "capability-aware-navigation"
+  area: "Field robotics"
+  title: "Capability-aware navigation across robot embodiments"
+  summary: "The traversability model uses the robot's physical capabilities as an input. The same scene produces different maps for legged and wheeled platforms."
+  image: "/images/projects/capability-aware-navigation.jpg"
+  image_alt: "Spot and a wheeled robot with capability-conditioned traversability overlays"
+  evidence:
+    - "Accepted at IROS 2026"
+    - "Legged and wheeled robots"
+  components:
+    - "Scene-level visual representation"
+    - "Robot capability conditioning"
+    - "Platform-specific traversability prediction"
+    - "Real-time local obstacle avoidance"
+  tags: ["Traversability", "Embodiment", "Navigation"]
+  page_url: "/research/#capability-aware-navigation"
+  publication_url: "/publication/2026-navigation-model"
+  paper_url: "/files/IROS___Conditioned_Traversability.pdf"
+  video_url: "https://www.youtube.com/watch?v=reXul8PdFEo"
+
 - slug: "legged-robot-teleoperation"
   area: "Human-guided control"
   title: "Vision-based teleoperation of a legged manipulator"
@@ -77,23 +97,3 @@
   page_url: "/research/#wearable-intent-decoding"
   publication_url: "/publication/2023-lmg-sr-1"
   paper_url: "https://www.nature.com/articles/s41598-022-25982-w"
-
-- slug: "capability-aware-navigation"
-  area: "Field robotics"
-  title: "Capability-aware navigation across robot embodiments"
-  summary: "The traversability model uses the robot's physical capabilities as an input. The same scene produces different maps for legged and wheeled platforms."
-  image: "/images/projects/capability-aware-navigation.jpg"
-  image_alt: "Spot and a wheeled robot with capability-conditioned traversability overlays"
-  evidence:
-    - "Accepted at IROS 2026"
-    - "Legged and wheeled robots"
-  components:
-    - "Scene-level visual representation"
-    - "Robot capability conditioning"
-    - "Platform-specific traversability prediction"
-    - "Real-time local obstacle avoidance"
-  tags: ["Traversability", "Embodiment", "Navigation"]
-  page_url: "/research/#capability-aware-navigation"
-  publication_url: "/publication/2026-navigation-model"
-  paper_url: "/files/IROS___Conditioned_Traversability.pdf"
-  video_url: "https://www.youtube.com/watch?v=reXul8PdFEo"
