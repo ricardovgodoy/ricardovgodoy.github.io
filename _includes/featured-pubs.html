@@ -1,31 +1,27 @@
 <section class="page-section selected-work section-rule" id="publications">
   <div class="container">
     <div class="section-header fade-in">
-      <div class="section-label">Selected publications</div>
-      <h2>Recent work</h2>
+      <div class="section-label">Publications</div>
+      <h2>Selected publications</h2>
     </div>
 
     {% assign selected_pubs = site.publications | where: "homepage_selected", true | sort: "date" | reverse %}
-    <div class="selected-pub-grid">
+    <div class="home-pub-list">
       {% for pub in selected_pubs %}
-      <article class="selected-pub-card fade-in">
-        <a class="selected-pub-card__media" href="{{ pub.url | relative_url }}">
-          <img src="{{ pub.thumbnail | relative_url }}" alt="Visual from {{ pub.title | escape }}" loading="lazy">
-          <span>{{ pub.date | date: "%Y" }}</span>
-        </a>
-        <div class="selected-pub-card__body">
-          <div class="selected-pub-card__venue{% if pub.award %} selected-pub-card__venue--award{% endif %}">
-            {% if pub.award %}{{ pub.award }}{% else %}{{ pub.venue }}{% endif %}
-          </div>
+      <article class="home-pub-row fade-in">
+        <time class="home-pub-row__year" datetime="{{ pub.date | date: '%Y-%m-%d' }}">{{ pub.date | date: "%Y" }}</time>
+        <div class="home-pub-row__main">
           <h3><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></h3>
-          {% if pub.authors %}<p class="selected-pub-card__authors">{{ pub.authors | replace: 'Ricardo V. Godoy', '<strong>Ricardo V. Godoy</strong>' }}</p>{% endif %}
-          <p class="selected-pub-card__contribution">{{ pub.short_contribution }}</p>
-          <div class="selected-pub-card__links">
-            <a href="{{ pub.url | relative_url }}">Details</a>
-            {% if pub.projecturl and pub.projecturl != "" %}<a href="{{ pub.projecturl }}" target="_blank" rel="noopener">Project page</a>{% endif %}
-            {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">Paper</a>{% endif %}
-            {% if pub.code and pub.code != "" %}<a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
-          </div>
+          {% if pub.authors %}<p class="home-pub-row__authors">{{ pub.authors | replace: 'Ricardo V. Godoy', '<strong>Ricardo V. Godoy</strong>' }}</p>{% endif %}
+          <p class="home-pub-row__venue">
+            {{ pub.venue }}{% if pub.award %}<span>{{ pub.award }}</span>{% endif %}
+          </p>
+        </div>
+        <div class="home-pub-row__links">
+          <a href="{{ pub.url | relative_url }}">Details</a>
+          {% if pub.projecturl and pub.projecturl != "" %}<a href="{{ pub.projecturl }}" target="_blank" rel="noopener">Project</a>{% endif %}
+          {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">Paper</a>{% endif %}
+          {% if pub.code and pub.code != "" %}<a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
         </div>
       </article>
       {% endfor %}
