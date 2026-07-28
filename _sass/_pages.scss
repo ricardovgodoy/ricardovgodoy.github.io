@@ -71,6 +71,12 @@
   border-radius: 8px;
   background: var(--bg-elevated);
 }
+.research-line__visual.research-line__visual--figure img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  background: #fff;
+}
 .research-line__visual figcaption { margin-top: 10px; color: var(--text-muted); font-family: var(--font-mono); font-size: 9.5px; }
 .research-line__content { position: relative; }
 .research-line__index {
