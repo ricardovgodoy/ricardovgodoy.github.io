@@ -9,7 +9,7 @@ My work focuses on cutting-edge research in:
 - Intuitive and Robust Control
 - Machine Learning for Control of Robotic Devices
 
-🔗 Visit the website: [https://ricardovgodoy.github.io](https://ricardovgodoy.github.io)
+🔗 Visit the website: [ricardovgodoy.com](https://www.ricardovgodoy.com)
 
 ## Publications
 Check out my latest work [here](https://ricardovgodoy.github.io/publications/).
