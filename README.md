@@ -15,4 +15,4 @@ My work focuses on cutting-edge research in:
 Check out my latest work [here](https://ricardovgodoy.github.io/publications/).
 
 ## Contact
-[vogodoy.ricardo@gmail.com]
+[ricardo.godoy@usp.br](mailto:ricardo.godoy@usp.br)
