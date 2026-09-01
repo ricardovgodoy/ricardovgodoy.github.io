@@ -1,9 +1,21 @@
 {% assign pub = include.pub %}
-<article class="pub-entry"
+<article class="pub-entry{% if pub.media_webm or pub.media_mp4 or pub.media_poster or pub.thumbnail %} pub-entry--with-media{% endif %}"
   data-year="{{ pub.date | date: '%Y' }}"
   data-type="{{ include.type }}"
   data-tags="{{ pub.tags | join: ',' | escape }}"
   data-search="{{ pub.title | downcase | escape }} {{ pub.venue | downcase | escape }} {{ pub.authors | downcase | escape }} {{ pub.tags | join: ' ' | downcase | escape }}">
+  {% if pub.media_webm or pub.media_mp4 or pub.media_poster or pub.thumbnail %}
+  <div class="pub-entry__media">
+    {% if pub.media_webm or pub.media_mp4 %}
+    <video autoplay muted loop playsinline preload="metadata"{% if pub.media_poster %} poster="{{ pub.media_poster | relative_url }}"{% endif %} aria-label="Animated preview for {{ pub.title | escape }}">
+      {% if pub.media_webm %}<source src="{{ pub.media_webm | relative_url }}" type="video/webm">{% endif %}
+      {% if pub.media_mp4 %}<source src="{{ pub.media_mp4 | relative_url }}" type="video/mp4">{% endif %}
+    </video>
+    {% else %}
+    <img src="{{ pub.media_poster | default: pub.thumbnail | relative_url }}" alt="Figure for {{ pub.title | escape }}" loading="lazy">
+    {% endif %}
+  </div>
+  {% endif %}
   <div class="pub-entry__main">
     <div class="pub-entry__title"><a href="{{ pub.url | relative_url }}">{{ pub.title | escape }}</a></div>
     {% if pub.authors %}<div class="pub-entry__authors">{{ pub.authors | escape | replace: 'Ricardo V. Godoy', '<strong>Ricardo V. Godoy</strong>' }}</div>{% endif %}
@@ -16,7 +28,7 @@
   </div>
   <div class="pub-entry__links">
     <a href="{{ pub.url | relative_url }}">Details</a>
-    {% if pub.projecturl and pub.projecturl != "" %}<a href="{{ pub.projecturl }}" target="_blank" rel="noopener">Project page</a>{% endif %}
+    {% if pub.projecturl and pub.projecturl != "" %}<a class="pub-entry__link--project" href="{{ pub.projecturl }}" target="_blank" rel="noopener">Project page</a>{% endif %}
     {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">PDF</a>{% endif %}
     {% if pub.doi and pub.doi != "" %}
       {% if pub.doi contains 'http' %}<a href="{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>

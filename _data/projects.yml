@@ -43,6 +43,9 @@
   title: "Capability-aware navigation across robot embodiments"
   summary: "The traversability model uses the robot's physical capabilities as an input. The same scene produces different maps for legged and wheeled platforms."
   image: "/images/projects/capability-aware-navigation.jpg"
+  media_webm: "/images/publications/capability-aware-traversability.webm"
+  media_mp4: "/images/publications/capability-aware-traversability.mp4"
+  media_poster: "/images/publications/capability-aware-traversability.webp"
   image_alt: "Spot and a wheeled robot with capability-conditioned traversability overlays"
   evidence:
     - "Accepted at IROS 2026"

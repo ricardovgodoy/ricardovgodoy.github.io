@@ -7,8 +7,20 @@
 
     <ul class="nav-links">
       {% for item in site.data.navigation.main %}
+        {% if item.primary %}
         <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endif %}
       {% endfor %}
+      <li class="nav-more">
+        <details>
+          <summary>More</summary>
+          <div class="nav-more__menu">
+            {% for item in site.data.navigation.main %}
+              {% unless item.primary %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endunless %}
+            {% endfor %}
+          </div>
+        </details>
+      </li>
     </ul>
 
     <a class="nav-contact" href="mailto:ricardo.godoy@usp.br">Contact</a>

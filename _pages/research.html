@@ -62,7 +62,12 @@ permalink: /research/
       {% for project in site.data.projects %}
       <article class="project-row fade-in" id="{{ project.slug }}">
         <div class="project-row__media">
-          {% if project.image contains 'http' %}
+          {% if project.media_webm or project.media_mp4 %}
+            <video autoplay muted loop playsinline preload="metadata"{% if project.media_poster %} poster="{{ project.media_poster | relative_url }}"{% endif %} aria-label="Animated preview for {{ project.title | escape }}">
+              {% if project.media_webm %}<source src="{{ project.media_webm | relative_url }}" type="video/webm">{% endif %}
+              {% if project.media_mp4 %}<source src="{{ project.media_mp4 | relative_url }}" type="video/mp4">{% endif %}
+            </video>
+          {% elsif project.image contains 'http' %}
             <img src="{{ project.image }}" alt="{{ project.image_alt }}" loading="lazy">
           {% else %}
             <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" loading="lazy">

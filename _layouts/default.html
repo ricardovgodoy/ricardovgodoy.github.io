@@ -33,7 +33,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url }}">
   <noscript><style>.fade-in{opacity:1 !important;transform:none !important;}</style></noscript>
@@ -41,7 +41,7 @@
   {% if page.head_extra %}{{ page.head_extra }}{% endif %}
   {% feed_meta %}
 </head>
-<body>
+<body{% if page.layout == 'home' %} class="home-clean-page"{% endif %}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="site-wrapper">
     {% include nav.html %}
@@ -65,6 +65,23 @@
         animated.forEach(function(el) { observer.observe(el); });
       } else {
         animated.forEach(function(el) { el.classList.add('is-visible'); });
+      }
+
+      var motionPreviews = document.querySelectorAll('video[autoplay]');
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        motionPreviews.forEach(function(video) {
+          video.pause();
+          video.removeAttribute('autoplay');
+        });
+      } else if ('IntersectionObserver' in window) {
+        var videoObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) entry.target.play().catch(function() {});
+            else entry.target.pause();
+          });
+        }, { rootMargin: '120px 0px' });
+        motionPreviews.forEach(function(video) { videoObserver.observe(video); });
       }
 
       var toggle = document.querySelector('[data-nav-toggle]');
