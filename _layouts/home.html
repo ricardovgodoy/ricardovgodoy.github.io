@@ -1,9 +1,122 @@
 ---
 layout: default
 ---
-{% include hero.html %}
-{% include projects-preview.html %}
-{% include research-threads.html %}
-{% include featured-pubs.html %}
-{% include videos-preview.html %}
-{% include academic-links.html %}
+
+<div class="academic-home">
+  <div class="academic-shell">
+    <header class="academic-profile fade-in">
+      <div class="academic-profile__copy">
+        <h1>Ricardo V. Godoy</h1>
+        <p>I am a Postdoctoral Researcher at the University of São Paulo (USP), working with Prof. Marcelo Becker at the Center for Robotics. My research focuses on manipulation, locomanipulation, shared autonomy, and human–robot interaction, with an emphasis on systems evaluated on physical robots.</p>
+        <p>I am currently technical lead for manipulation and locomanipulation in an industry-funded field robotics project. I also serve as an Associate Editor for <em>IEEE Robotics and Automation Letters</em> in the area of Robot Learning.</p>
+
+        <nav class="academic-profile__links" aria-label="Academic and professional profiles">
+          <a href="https://scholar.google.com/citations?user=vVXZEB8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener"><i class="ai ai-google-scholar" aria-hidden="true"></i> Scholar</a>
+          <a href="https://orcid.org/0000-0002-5323-9299" target="_blank" rel="noopener"><i class="ai ai-orcid" aria-hidden="true"></i> ORCID</a>
+          <a href="https://github.com/ricardovgodoy" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/ricardo-vilela-de-godoy" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a href="https://www.researchgate.net/profile/Ricardo-Vilela-De-Godoy" target="_blank" rel="noopener"><i class="ai ai-researchgate" aria-hidden="true"></i> ResearchGate</a>
+          <a href="https://www.youtube.com/@RicardoVGodoy" target="_blank" rel="noopener"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</a>
+          <a href="{{ '/cv/' | relative_url }}"><i class="ai ai-cv" aria-hidden="true"></i> CV</a>
+        </nav>
+      </div>
+
+      <div class="academic-profile__portrait">
+        <img src="{{ '/images/new_profile_new2.JPG' | relative_url }}" alt="Ricardo V. Godoy" width="230" height="230">
+        <a class="academic-profile__email" href="mailto:ricardo.godoy@usp.br">ricardo.godoy@usp.br</a>
+      </div>
+    </header>
+
+    <section class="academic-section fade-in" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research</h2>
+      <p>My research focuses on robotic manipulation and locomanipulation, teleoperation and shared control, and human–robot interaction. I work with vision, EMG, lightmyography, gaze, gestures, and natural language to develop perception, planning, learning, and control methods for field, industrial, and assistive robots. I evaluate these systems on physical hardware, under real-time and safety constraints.</p>
+      <p class="academic-more"><a href="{{ '/research/' | relative_url }}">Research overview</a></p>
+    </section>
+
+    <section class="academic-section fade-in" aria-labelledby="publications-heading">
+      <div class="academic-heading-row">
+        <h2 id="publications-heading">Selected publications</h2>
+        <a href="{{ '/publications/' | relative_url }}">All publications</a>
+      </div>
+
+      {% assign selected_pubs = site.publications | where: "homepage_selected", true | sort: "date" | reverse %}
+      <div class="academic-list">
+        {% for pub in selected_pubs limit:4 %}
+        <article class="academic-entry">
+          <a class="academic-entry__image" href="{{ pub.url | relative_url }}">
+            {% if pub.media_webm or pub.media_mp4 %}
+            <video autoplay muted loop playsinline preload="metadata"{% if pub.media_poster %} poster="{{ pub.media_poster | relative_url }}"{% endif %} aria-label="Animated preview for {{ pub.title | escape }}">
+              {% if pub.media_webm %}<source src="{{ pub.media_webm | relative_url }}" type="video/webm">{% endif %}
+              {% if pub.media_mp4 %}<source src="{{ pub.media_mp4 | relative_url }}" type="video/mp4">{% endif %}
+            </video>
+            {% else %}
+            <img src="{{ pub.media_poster | default: pub.thumbnail | relative_url }}" alt="Preview for {{ pub.title | escape }}" loading="lazy">
+            {% endif %}
+          </a>
+          <div class="academic-entry__body">
+            <h3><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></h3>
+            {% if pub.authors %}<p class="academic-entry__authors">{{ pub.authors | replace: 'Ricardo V. Godoy', '<strong>Ricardo V. Godoy</strong>' }}</p>{% endif %}
+            <p class="academic-entry__venue"><em>{{ pub.venue }}</em>, {{ pub.date | date: "%Y" }}</p>
+            {% if pub.short_contribution %}<p class="academic-entry__summary">{{ pub.short_contribution }}</p>{% endif %}
+            <div class="academic-entry__links">
+              {% if pub.projecturl and pub.projecturl != "" %}<a href="{{ pub.projecturl }}" target="_blank" rel="noopener">project page</a>{% endif %}
+              {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">paper</a>{% endif %}
+              {% if pub.code and pub.code != "" %}<a href="{{ pub.code }}" target="_blank" rel="noopener">code</a>{% endif %}
+              <a href="{{ pub.url | relative_url }}">details</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="academic-section fade-in" aria-labelledby="projects-heading">
+      <div class="academic-heading-row">
+        <h2 id="projects-heading">Selected projects</h2>
+        <a href="{{ '/research/' | relative_url }}">All research</a>
+      </div>
+
+      <div class="academic-list">
+        {% for project in site.data.projects limit:3 %}
+        <article class="academic-entry academic-entry--project">
+          <a class="academic-entry__image" href="{{ project.page_url | relative_url }}">
+            {% if project.media_webm or project.media_mp4 %}
+            <video autoplay muted loop playsinline preload="metadata"{% if project.media_poster %} poster="{{ project.media_poster | relative_url }}"{% endif %} aria-label="Animated preview for {{ project.title | escape }}">
+              {% if project.media_webm %}<source src="{{ project.media_webm | relative_url }}" type="video/webm">{% endif %}
+              {% if project.media_mp4 %}<source src="{{ project.media_mp4 | relative_url }}" type="video/mp4">{% endif %}
+            </video>
+            {% else %}
+            <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" loading="lazy">
+            {% endif %}
+          </a>
+          <div class="academic-entry__body">
+            <h3><a href="{{ project.page_url | relative_url }}">{{ project.title }}</a></h3>
+            <p>{{ project.summary }}</p>
+            <div class="academic-entry__links">
+              <a href="{{ project.page_url | relative_url }}">details</a>
+              {% if project.paper_url %}<a href="{{ project.paper_url }}" target="_blank" rel="noopener">paper</a>{% endif %}
+              {% if project.video_url %}<a href="{{ project.video_url }}" target="_blank" rel="noopener">video</a>{% endif %}
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="academic-section academic-news fade-in" aria-labelledby="news-heading">
+      <div class="academic-heading-row">
+        <h2 id="news-heading">Recent news</h2>
+        <a href="{{ '/year-archive/' | relative_url }}">All news</a>
+      </div>
+
+      <div class="academic-news__list">
+        {% for post in site.posts limit:4 %}
+        <a href="{{ post.url | relative_url }}">
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %Y" }}</time>
+          <span>{{ post.title }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>

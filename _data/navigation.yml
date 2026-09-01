@@ -1,10 +1,13 @@
 main:
   - title: "Research"
     url: /research/
+    primary: true
   - title: "Publications"
     url: /publications/
+    primary: true
   - title: "Videos"
     url: /videos/
+    primary: true
   - title: "Talks"
     url: /talks/
   - title: "Teaching"
@@ -13,5 +16,7 @@ main:
     url: /supervision/
   - title: "News"
     url: /year-archive/
+    primary: true
   - title: "CV"
     url: /cv/
+    primary: true

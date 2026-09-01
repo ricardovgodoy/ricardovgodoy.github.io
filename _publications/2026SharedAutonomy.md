@@ -7,6 +7,7 @@ pubtype: preprint
 featured: true
 homepage_selected: true
 thumbnail: /images/projects/shared-autonomy-hero.jpg
+media_poster: /images/projects/shared-autonomy-hero.jpg
 short_contribution: "All shared-control trials succeeded. Minimum obstacle clearance was 18 cm during deliberately unsafe commands."
 venue: 'arXiv preprint · RA-L submission'
 tags: [control, manipulation, teleoperation, locomanipulation, shared-autonomy, open-vocabulary, collision-avoidance]

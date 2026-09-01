@@ -6,6 +6,9 @@ category: conferences
 pubtype: conference
 homepage_selected: true
 thumbnail: /images/projects/capability-aware-navigation.jpg
+media_webm: /images/publications/capability-aware-traversability.webm
+media_mp4: /images/publications/capability-aware-traversability.mp4
+media_poster: /images/publications/capability-aware-traversability.webp
 short_contribution: "Capability conditioning produces different traversability predictions for legged and wheeled robots from the same scene."
 tags: [control]
 doi: 
