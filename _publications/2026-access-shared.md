@@ -10,6 +10,7 @@ permalink: /publication/2026-access-shared
 excerpt: 'This paper expands upon a semi-autonomous control system combining human-in-the-loop control with Lightmyography decoding, together with affordances-based filtering using object detection and IMU data'
 date: 2026-03-24
 venue: 'IEEE ACCESS'
+media_poster: /images/publications/augmented-reality-prosthesis.webp
 paperurl: 'https://ieeexplore.ieee.org/document/11455092'
 bibtexurl: 
 citation: 'B. Guan, Z. Wang, R. V. Godoy, M. Owen and M. Liarokapis, "Combining Augmented Reality with Semi-autonomous, Lightmyography Based Control to Improve Usability of Prostheses," in IEEE Access, doi: 10.1109/ACCESS.2026.3677129.'
