@@ -81,7 +81,7 @@ layout: default
       </div>
 
       <div class="academic-list">
-        {% for project in site.data.projects limit:3 %}
+        {% for project in site.data.projects limit:4 %}
         <article class="academic-entry academic-entry--project">
           <a class="academic-entry__image" href="{{ project.page_url | relative_url }}">
             {% if project.media_webm or project.media_mp4 %}
@@ -98,6 +98,8 @@ layout: default
             <p>{{ project.summary }}</p>
             <div class="academic-entry__links">
               <a href="{{ project.page_url | relative_url }}">details</a>
+              {% if project.project_url %}<a href="{{ project.project_url }}" target="_blank" rel="noopener">project page</a>{% endif %}
+              {% if project.code_url %}<a href="{{ project.code_url }}" target="_blank" rel="noopener">code</a>{% endif %}
               {% if project.paper_url %}<a href="{{ project.paper_url }}" target="_blank" rel="noopener">paper</a>{% endif %}
               {% if project.video_url %}<a href="{{ project.video_url }}" target="_blank" rel="noopener">video</a>{% endif %}
             </div>
