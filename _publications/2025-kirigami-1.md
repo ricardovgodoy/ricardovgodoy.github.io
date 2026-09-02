@@ -4,6 +4,10 @@ collection: publications
 authors: "Joao Buzzatto, Haodan Jiang, Junbang Liang, Bryan Busby, Angus Lynch, Ricardo V. Godoy, Saori Matsunaga, Rintaro Haraguchi, Toshisada Mariyama, Bruce A. MacDonald, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
+media_poster: /images/publications/kirigami-finger-actuation-main.webp
+main_figure: /images/publications/kirigami-finger-actuation-main.webp
+main_figure_alt: "Kirigami robotic finger design, actuation sequence, and grasping examples on everyday objects."
+main_figure_caption: "Kirigami finger construction, actuation sequence, and representative grasps."
 tags: [grasping, manipulation]
 doi: 10.1109/ACCESS.2024.3446729
 permalink: /publication/2025-kirigami-1

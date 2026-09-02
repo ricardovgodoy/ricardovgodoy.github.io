@@ -4,6 +4,10 @@ collection: publications
 authors: "Ricardo V. Godoy, Anany Dwivedi, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
+media_poster: /images/publications/emg-temporal-convolution-main.webp
+main_figure: /images/publications/emg-temporal-convolution-main.webp
+main_figure_alt: "Deep-learning architecture for decoding in-hand manipulation motions from multichannel EMG signals."
+main_figure_caption: "Temporal multichannel architecture used to decode dexterous manipulation motions from EMG."
 featured: true
 tags: [control, biosignal, manipulation, grasping, dexterous-manipulation, wearable-sensing]
 doi: 10.1109/TNSRE.2022.3196622

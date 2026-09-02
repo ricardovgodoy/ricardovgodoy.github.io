@@ -14,12 +14,6 @@ layout: default
 
   <div class="page-section publication-content" style="padding-top: 0;">
     <div class="container container--narrow">
-      {% if page.thumbnail %}
-      <figure class="publication-visual">
-        <img src="{{ page.thumbnail | relative_url }}" alt="Visual from {{ page.title | escape }}">
-      </figure>
-      {% endif %}
-
       {% if page.short_contribution %}<p class="publication-contribution">{{ page.short_contribution }}</p>{% elsif page.description %}<p class="publication-contribution">{{ page.description }}</p>{% endif %}
 
       <div class="publication-actions" aria-label="Publication resources">
@@ -35,7 +29,22 @@ layout: default
 
       {% if page.tags %}<div class="publication-topics">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
 
-      <div class="page-body publication-body">{{ content }}</div>
+      {% if page.youtube_embed and page.youtube_embed != "" %}
+      <div class="publication-embedded-video">
+        <iframe src="https://www.youtube.com/embed/{{ page.youtube_embed | escape }}" title="Video for {{ page.title | escape }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      {% endif %}
+
+      <div class="page-body publication-body">
+        {% if page.main_figure and page.main_figure != "" %}
+        <figure class="publication-main-figure">
+          <img src="{{ page.main_figure | relative_url }}" alt="{{ page.main_figure_alt | default: page.title | escape }}">
+          {% if page.main_figure_caption and page.main_figure_caption != "" %}<figcaption>{{ page.main_figure_caption }}</figcaption>{% endif %}
+        </figure>
+        {% endif %}
+        <h2 class="publication-abstract-title">Abstract</h2>
+        {{ content }}
+      </div>
     </div>
   </div>
 </article>

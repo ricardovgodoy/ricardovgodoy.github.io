@@ -17,8 +17,11 @@ permalink: /research/
   <div class="container">
     <article class="research-line fade-in">
       <figure class="research-line__visual research-line__visual--figure">
-        <img src="{{ '/images/research/robot-autonomy-collision-avoidance.jpg' | relative_url }}" alt="Online 3D reconstruction with commanded and executed robot trajectories and signed-distance plots">
-        <figcaption>Collision-aware planning and execution using an online 3D reconstruction.</figcaption>
+        <video autoplay muted loop playsinline preload="metadata" width="1280" height="720" poster="{{ '/images/publications/language-guided-grasping.webp' | relative_url }}" aria-label="Language-guided grasping and execution on a legged manipulator">
+          <source src="{{ '/images/publications/language-guided-grasping.webm' | relative_url }}" type="video/webm">
+          <source src="{{ '/images/publications/language-guided-grasping.mp4' | relative_url }}" type="video/mp4">
+        </video>
+        <figcaption>Language-guided grasping and execution on a legged manipulator.</figcaption>
       </figure>
       <div class="research-line__content">
         <div class="section-label">Robot autonomy</div>
@@ -36,8 +39,11 @@ permalink: /research/
 
     <article class="research-line research-line--reverse fade-in">
       <figure class="research-line__visual research-line__visual--figure">
-        <img src="{{ '/images/research/human-robot-shared-control.webp' | relative_url }}" alt="Operator gesture, industrial manipulation scene, and plots comparing operator commands with assisted robot trajectories">
-        <figcaption>Operator commands and assisted trajectories during shared-control manipulation.</figcaption>
+        <video autoplay muted loop playsinline preload="metadata" width="1280" height="720" poster="{{ '/images/publications/vision-based-shared-control-teleoperation.webp' | relative_url }}" aria-label="Camera-based operator input and shared-control teleoperation of Spot's arm">
+          <source src="{{ '/images/publications/vision-based-shared-control-teleoperation.webm' | relative_url }}" type="video/webm">
+          <source src="{{ '/images/publications/vision-based-shared-control-teleoperation.mp4' | relative_url }}" type="video/mp4">
+        </video>
+        <figcaption>Camera-based operator input and shared-control teleoperation of Spot's arm.</figcaption>
       </figure>
       <div class="research-line__content">
         <div class="section-label">Human–robot interaction</div>
@@ -71,6 +77,9 @@ permalink: /research/
             <img src="{{ project.image }}" alt="{{ project.image_alt }}" loading="lazy">
           {% else %}
             <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" loading="lazy">
+          {% endif %}
+          {% if project.media_caption %}
+          <p class="project-row__media-caption">{{ project.media_caption }}{% if project.media_source_url %} <a href="{{ project.media_source_url | relative_url }}">Source publication</a>{% endif %}</p>
           {% endif %}
         </div>
         <div class="project-row__content">

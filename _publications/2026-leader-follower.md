@@ -4,6 +4,10 @@ collection: publications
 authors: "Rafael R. Baptista, André de Lima Salgado, Ricardo V. Godoy, Marcelo Becker, Thiago Boaventura, Gustavo J. G. Lahr"
 category: conferences
 pubtype: conference
+media_poster: /images/publications/leader-follower-dataset-pipeline-main.webp
+main_figure: /images/publications/leader-follower-dataset-pipeline-main.webp
+main_figure_alt: "Training and evaluation pipeline for zero-shot and one-shot small language models using leader-follower dialogue data."
+main_figure_caption: "Dataset and adaptation pipeline for small-language-model leader-follower interaction."
 tags: [human-robot-interaction]
 doi: 
 code: https://github.com/bme-research/biorob2026_slm_leader_follower

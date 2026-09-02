@@ -4,6 +4,10 @@ collection: publications
 authors: "João Manoel Herrera Pinheiro, Gabriela do Nascimento Herrera, Alvaro Doria dos Santos, Luciana Bueno dos Reis Fernandes, Ricardo V. Godoy, Eduardo A. B. Almeida, Helena Carolina Onody, Marcelo Andrade da Costa Vieira, Angelica Maria Penteado-Dias, Marcelo Becker"
 category: preprints
 pubtype: preprint
+media_poster: /images/publications/wasp-identification-framework-main.webp
+main_figure: /images/publications/wasp-identification-framework-main.webp
+main_figure_alt: "Automated wasp-identification workflow from image acquisition through annotation, model input, YOLO inference, and expert labeling."
+main_figure_caption: "Operational framework for automated Ichneumonoidea identification and explainable inference."
 tags: [vision,perception]
 doi: 
 code: 

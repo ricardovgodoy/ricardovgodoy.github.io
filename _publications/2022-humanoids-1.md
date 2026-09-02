@@ -4,6 +4,12 @@ collection: publications
 authors: "Nathan Elangovan, Che-Ming Chang, Ricardo V. Godoy, Felipe Sanches, Ke Wang, Patrick Jarvis, Minas Liarokapis"
 category: conferences
 pubtype: conference
+media_webm: /images/publications/human-robot-kitchen-tasks.webm
+media_mp4: /images/publications/human-robot-kitchen-tasks.mp4
+media_poster: /images/publications/human-robot-kitchen-tasks.webp
+main_figure: /images/publications/human-robot-kitchen-task-setup-main.webp
+main_figure_alt: "Synchronized views of participants performing kitchen tasks in a mock kitchen and at a robot teleoperation station."
+main_figure_caption: "Data-collection setup and synchronized viewpoints used to compare human and robot performance on kitchen tasks."
 tags: [grasping, manipulation]
 doi: 10.1109/Humanoids53995.2022.10000248
 permalink: /publication/2022-humanoids-1

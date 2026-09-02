@@ -4,6 +4,10 @@ collection: publications
 authors: "Ricardo V. Godoy, Gustavo J. G. Lahr, Anany Dwivedi, Tharik J. S. Reis, Paulo H. Polegato, Marcelo Becker, Glauco A. P. Caurin, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
+media_poster: /images/publications/emg-hand-motion-interface.webp
+main_figure: /images/publications/emg-temporal-transformer-architecture-main.webp
+main_figure_alt: "Temporal Multi-Channel Vision Transformer architecture that maps windowed multichannel EMG signals to hand-motion classes."
+main_figure_caption: "Temporal Multi-Channel Vision Transformer architecture for EMG-based hand-motion classification."
 featured: true
 tags: [biosignal, grasping, manipulation, control, wearable-sensing]
 doi: 10.1109/LRA.2022.3192623

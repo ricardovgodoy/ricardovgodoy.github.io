@@ -4,6 +4,9 @@ collection: publications
 authors: "João Manoel Herrera Pinheiro, Suzana Vilas Boas de Oliveira, Thiago Henrique Segreto Silva, Pedro Antonio Rabelo Saraiva, Enzo Ferreira de Souza, Ricardo V. Godoy, Leonardo André Ambrosio, Marcelo Becker"
 category: manuscripts
 pubtype: journal
+main_figure: /images/publications/feature-scaling-experiment-main.webp
+main_figure_alt: "Experimental workflow for importing datasets, cleaning data, splitting train and test sets, applying feature scaling, and evaluating models."
+main_figure_caption: "Experimental workflow used to compare feature-scaling methods across classification and regression tasks."
 tags: []
 doi: 10.1109/ACCESS.2025.3635541      # optional
 code: https://github.com/joaomh/article-impact-feature-scaling-classification

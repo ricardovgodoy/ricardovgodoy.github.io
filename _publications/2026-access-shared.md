@@ -4,6 +4,9 @@ collection: publications
 authors: "Bonnie Guan, Zhe Wang, Ricardo V. Godoy, Mahonri Owen, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
+main_figure: /images/publications/ar-shared-control-system-main.webp
+main_figure_alt: "Augmented-reality prosthesis interface showing detected objects, grasp overlays, and assisted manipulation."
+main_figure_caption: "Augmented-reality interface and semi-autonomous shared-control assistance for a prosthetic hand."
 tags: [teleoperation, biosignal, control, grasping, manipulation, dexterous-manipulation, wearable-sensing]
 doi: 10.1109/ACCESS.2026.3677129        # optional
 permalink: /publication/2026-access-shared

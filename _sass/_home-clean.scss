@@ -141,9 +141,9 @@ body.home-clean-page {
 .academic-entry__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
-.academic-entry__image video { width: 100%; height: 100%; object-fit: cover; }
+.academic-entry__image video { display: block; width: 100%; height: 100%; object-fit: contain; }
 
 .academic-entry__body h3 {
   margin: 0 0 5px;

@@ -4,6 +4,9 @@ collection: publications
 authors: "João Manoel Herrera Pinheiro, Gabriela do Nascimento Herrera, Luciana Bueno dos Reis Fernandes, Alvaro Doria dos Santos, Ricardo V. Godoy, Eduardo A. B. Almeida, Helena Carolina Onody, Marcelo Andrade da Costa Vieira, Angelica Maria Penteado-Dias, Marcelo Becker"
 category: manuscripts
 pubtype: journal
+main_figure: /images/publications/parasitoid-wasp-dataset-structure-main.webp
+main_figure_alt: "Folder hierarchy of the parasitoid wasp image dataset organized by view and taxonomic family."
+main_figure_caption: "Organization of the DAPWH parasitoid-wasp image dataset."
 tags: [vision,perception]
 doi: 10.1109/IEEEDATA.2026.3683381
 code: https://github.com/joaomh/DAPWH-2026

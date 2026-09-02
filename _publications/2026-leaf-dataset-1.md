@@ -4,6 +4,9 @@ collection: publications
 authors: "Thiago H. Segreto, Juliano D. Negri, Paulo H. Polegato, João Manoel Herrera Pinheiro, Ricardo V. Godoy, Marcelo Becker"
 category: manuscripts
 pubtype: journal
+main_figure: /images/publications/leaf-dataset-annotation-main.webp
+main_figure_alt: "Soybean and cotton field images with leaf-level detection boxes and segmentation masks."
+main_figure_caption: "Representative leaf-level detection and segmentation annotations from the soybean-cotton dataset."
 tags: [perception, vision]
 doi: https://doi.org/10.1038/s41597-026-07092-8
 code: https://figshare.com/articles/dataset/SoyCotton-Leafs/28466636?file=52552745

@@ -42,15 +42,18 @@ layout: default
       {% assign selected_pubs = site.publications | where: "homepage_selected", true | sort: "date" | reverse %}
       <div class="academic-list">
         {% for pub in selected_pubs limit:4 %}
+        {% assign preview_webm = pub.homepage_media_webm | default: pub.media_webm %}
+        {% assign preview_mp4 = pub.homepage_media_mp4 | default: pub.media_mp4 %}
+        {% assign preview_poster = pub.homepage_media_poster | default: pub.media_poster | default: pub.thumbnail %}
         <article class="academic-entry">
           <a class="academic-entry__image" href="{{ pub.url | relative_url }}">
-            {% if pub.media_webm or pub.media_mp4 %}
-            <video autoplay muted loop playsinline preload="metadata"{% if pub.media_poster %} poster="{{ pub.media_poster | relative_url }}"{% endif %} aria-label="Animated preview for {{ pub.title | escape }}">
-              {% if pub.media_webm %}<source src="{{ pub.media_webm | relative_url }}" type="video/webm">{% endif %}
-              {% if pub.media_mp4 %}<source src="{{ pub.media_mp4 | relative_url }}" type="video/mp4">{% endif %}
+            {% if preview_webm or preview_mp4 %}
+            <video autoplay muted loop playsinline preload="metadata"{% if preview_poster %} poster="{{ preview_poster | relative_url }}"{% endif %} aria-label="{{ pub.homepage_media_alt | default: pub.title | prepend: 'Animated preview: ' | escape }}">
+              {% if preview_webm %}<source src="{{ preview_webm | relative_url }}" type="video/webm">{% endif %}
+              {% if preview_mp4 %}<source src="{{ preview_mp4 | relative_url }}" type="video/mp4">{% endif %}
             </video>
             {% else %}
-            <img src="{{ pub.media_poster | default: pub.thumbnail | relative_url }}" alt="Preview for {{ pub.title | escape }}" loading="lazy">
+            <img src="{{ preview_poster | relative_url }}" alt="Preview for {{ pub.title | escape }}" loading="lazy">
             {% endif %}
           </a>
           <div class="academic-entry__body">
@@ -63,6 +66,7 @@ layout: default
               {% if pub.paperurl and pub.paperurl != "" %}<a href="{{ pub.paperurl }}" target="_blank" rel="noopener">paper</a>{% endif %}
               {% if pub.code and pub.code != "" %}<a href="{{ pub.code }}" target="_blank" rel="noopener">code</a>{% endif %}
               <a href="{{ pub.url | relative_url }}">details</a>
+              {% if pub.homepage_media_source %}<a href="{{ pub.homepage_media_source | relative_url }}">related video demonstration</a>{% endif %}
             </div>
           </div>
         </article>
