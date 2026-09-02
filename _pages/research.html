@@ -101,6 +101,7 @@ permalink: /research/
             {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
           </div>
           <div class="project-row__links">
+            {% if project.project_url %}<a class="btn btn--outline btn--small" href="{{ project.project_url }}" target="_blank" rel="noopener">Project page</a>{% endif %}
             {% if project.publication_url %}
               {% if project.publication_url contains 'http' %}<a class="btn btn--outline btn--small" href="{{ project.publication_url }}" target="_blank" rel="noopener">Project page</a>
               {% else %}<a class="btn btn--outline btn--small" href="{{ project.publication_url | relative_url }}">Publication page</a>{% endif %}

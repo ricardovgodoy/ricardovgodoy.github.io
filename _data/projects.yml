@@ -67,6 +67,28 @@
   paper_url: "/files/IROS___Conditioned_Traversability.pdf"
   video_url: "https://www.youtube.com/watch?v=reXul8PdFEo"
 
+- slug: "hiveboard"
+  area: "Manipulation benchmarks"
+  title: "HiveBoard: Modular benchmarks for robotic and prosthetic manipulation"
+  summary: "A modular, 3D-printed benchmark board for evaluating robot grippers, hands, and prostheses on industrial mechanisms, with reusable simulation assets."
+  image: "/images/projects/hiveboard-benchmark-board.webp"
+  media_webm: "/images/projects/hiveboard-benchmark-board.webm"
+  media_mp4: "/images/projects/hiveboard-benchmark-board.mp4"
+  media_poster: "/images/projects/hiveboard-benchmark-board.webp"
+  image_alt: "Boston Dynamics Spot turning a gate valve mounted on the hexagonal HiveBoard benchmark board"
+  evidence:
+    - "13 interchangeable attachments"
+    - "Four manipulation platforms"
+  components:
+    - "Modular hexagonal benchmark board"
+    - "Torque, precision, and composed-assembly tasks"
+    - "3D-printable hardware and articulated URDF/USD models"
+    - "Cross-platform evaluation protocol"
+  tags: ["Benchmark board", "Open hardware", "Manipulation"]
+  page_url: "/research/#hiveboard"
+  project_url: "https://hiveboard-bench.github.io/"
+  code_url: "https://github.com/EESC-LabRoM/HiveBoard"
+
 - slug: "legged-robot-teleoperation"
   area: "Human-guided control"
   title: "Vision-based teleoperation of a legged manipulator"
