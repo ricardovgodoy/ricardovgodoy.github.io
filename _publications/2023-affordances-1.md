@@ -4,6 +4,12 @@ collection: publications
 authors: "Ricardo V. Godoy, Bonnie Guan, Anany Dwivedi, Minas Liarokapis"
 category: conferences
 pubtype: conference
+media_webm: /images/publications/affordance-telemanipulation.webm
+media_mp4: /images/publications/affordance-telemanipulation.mp4
+media_poster: /images/publications/affordance-telemanipulation.webp
+main_figure: /images/publications/affordance-telemanipulation-framework-main.webp
+main_figure_alt: "Block diagram of robot arm-hand teleoperation combining electromyography decoding, object detection, affordance analysis, and object-specific grasp models."
+main_figure_caption: "Real-time affordance-based robot arm-hand teleoperation framework."
 tags: [teleoperation, shared-control, wearable-sensing, control, biosignal, manipulation]
 doi: 10.1109/IROS55552.2023.10341955        # optional
 permalink: /publication/2023-affordances-1

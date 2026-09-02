@@ -3,10 +3,16 @@ title: "A Vision-Based Shared-Control Teleoperation Scheme for Controlling the R
 collection: publications
 category: conferences
 pubtype: conference
+youtube_embed: klgpq57c8UM
+main_figure: /images/publications/autonomous-assistance-pipeline-main.webp
+main_figure_alt: "Teleoperation pipeline combining user input, autonomous assistance, grasp selection, and robot control."
+main_figure_caption: "Control pipeline for autonomous assistance during robotic teleoperation."
 featured: true
 homepage_selected: true
 thumbnail: /images/projects/spot-teleoperation.jpg
-media_poster: /images/projects/spot-teleoperation.jpg
+media_webm: /images/publications/vision-based-shared-control-teleoperation.webm
+media_mp4: /images/publications/vision-based-shared-control-teleoperation.mp4
+media_poster: /images/publications/vision-based-shared-control-teleoperation.webp
 authors: "Murilo Vinicius da Silva, Matheus Hipolito Carvalho, Juliano Negri, Thiago Segreto, Gustavo J. G. Lahr, Ricardo V. Godoy, Marcelo Becker"
 short_contribution: "An RGB-D camera maps wrist motion to Spot's arm. Shared control handles collision avoidance and grasp execution."
 award: "Best Paper, IEEE LARS 2025"
@@ -22,8 +28,6 @@ citation: 'M. V. da Silva et al., “A Vision-Based Shared-Control Teleoperation
 ---
 
 This paper received the Best Paper Award at IEEE LARS 2025.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/klgpq57c8UM?si=bR5CQGy6fnOEymTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 In hazardous and remote environments, robotic systems perform critical tasks demanding improved safety and efficiency. Among these, quadruped robots with manipulator arms offer mobility and versatility for complex operations. However, teleoperating quadruped robots is challenging due to the lack of integrated obstacle detection and intuitive control methods for the robotic arm, increasing collision risks in confined or dynamically changing workspaces. Teleoperation via joysticks or pads can be non-intuitive and demands a high level of expertise due to its complexity, culminating in a high cognitive load on the operator. To address this challenge, a teleoperation approach that directly maps human arm movements to the robotic manipulator offers a simpler and more accessible solution. This work proposes an intuitive remote control by leveraging a vision-based pose estimation pipeline that utilizes an external camera with a machine learning-based model to detect the operator's wrist position. The system maps these wrist movements into robotic arm commands to control the robot's arm in real-time. A trajectory planner ensures safe teleoperation by detecting and preventing collisions with both obstacles and the robotic arm itself. The system was validated on the real robot, demonstrating robust performance in real-time control. This teleoperation approach provides a cost-effective solution for industrial applications where safety, precision, and ease of use are paramount, ensuring reliable and intuitive robotic control in high-risk environments.

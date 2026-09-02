@@ -4,6 +4,12 @@ collection: publications
 authors: "Bonnie Guan, Ricardo V. Godoy, Felipe Sanches, Anany Dwivedi, Minas Liarokapis"
 category: conferences
 pubtype: conference
+media_webm: /images/publications/potential-fields-telemanipulation.webm
+media_mp4: /images/publications/potential-fields-telemanipulation.mp4
+media_poster: /images/publications/potential-fields-telemanipulation.webp
+main_figure: /images/publications/emg-potential-fields-framework-main.webp
+main_figure_alt: "Semi-autonomous telemanipulation framework combining electromyography-based arm-motion decoding, grasp triggering, object detection, potential fields, and robot-arm control."
+main_figure_caption: "Semi-autonomous EMG and potential-fields telemanipulation framework."
 tags: [teleoperation, shared-control, wearable-sensing, control, biosignal, manipulation, grasping]
 doi: 10.1109/IROS55552.2023.10342155
 permalink: /publication/2023-potentialfields-1

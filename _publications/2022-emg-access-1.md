@@ -4,6 +4,12 @@ collection: publications
 authors: "Ricardo V. Godoy, Anany Dwivedi, Bonnie Guan, Amber Turner, Dasha Shieff, Minas Liarokapis"
 category: manuscripts
 pubtype: journal
+media_webm: /images/publications/emg-telemanipulation.webm
+media_mp4: /images/publications/emg-telemanipulation.mp4
+media_poster: /images/publications/emg-telemanipulation.webp
+main_figure: /images/publications/emg-teleoperation-system-main.webp
+main_figure_alt: "EMG teleoperation framework linking the human operator, control models, and robotic assistance platform."
+main_figure_caption: "Overview of the EMG-based dexterous telemanipulation and shared-control framework."
 tags: [teleoperation, biosignal, control, grasping, manipulation, dexterous-manipulation, wearable-sensing]
 doi: 10.1109/ACCESS.2022.3206436        # optional
 permalink: /publication/2022-emg-access-1

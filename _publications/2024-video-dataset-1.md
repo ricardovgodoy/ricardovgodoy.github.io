@@ -4,6 +4,10 @@ collection: publications
 authors: "Ricardo V. Godoy, Bonnie Guan, Anany Dwivedi, Mahonri Owen, Minas Liarokapis"
 category: conferences
 pubtype: conference
+media_poster: /images/publications/prosthetic-grasp-video-dataset-main.webp
+main_figure: /images/publications/prosthetic-grasp-video-dataset-main.webp
+main_figure_alt: "Humanlike prosthetic hand and two onboard-camera views recorded while it approaches and grasps an everyday object."
+main_figure_caption: "Prosthetic device and camera viewpoints used to collect the everyday-grasp video dataset."
 tags: [vision, grasping, perception, manipulation]
 doi: 10.1109/EMBC53108.2024.10782638
 code: https://newdexterity.org/everydaygraspdataset/

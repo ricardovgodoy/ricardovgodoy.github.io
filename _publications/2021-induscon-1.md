@@ -4,6 +4,10 @@ collection: publications
 authors: "Ricardo V. Godoy, Tharik J. S. Reis, Gustavo J. G. Lahr, Paulo H. Polegato, Marcelo Becker, Daniel V. Magalhães, Glauco A. P. Caurin, Helio R. Machado, Marcelo V. Santos"
 category: conferences
 pubtype: conference
+media_poster: /images/publications/neurosurgical-robot-arm-main.webp
+main_figure: /images/publications/neurosurgical-robot-arm-main.webp
+main_figure_alt: "Seven-degree-of-freedom collaborative robot arm fitted with a stereoelectroencephalography electrode-placement guide beside a head model."
+main_figure_caption: "Collaborative robot and tool designed to guide SEEG electrode placement."
 tags: [teleoperation, control]
 doi: 10.1109/INDUSCON51756.2021.9529675
 permalink: /publication/2021-induscon-1

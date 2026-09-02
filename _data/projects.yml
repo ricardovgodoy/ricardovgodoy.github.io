@@ -3,6 +3,9 @@
   title: "Open-vocabulary shared autonomy for robotic manipulation"
   summary: "The operator selects a target with a free-form prompt and controls Spot through arm motion and hand gestures. The robot tracks the target, avoids collisions, and assists the final approach."
   image: "/images/projects/shared-autonomy-hero.jpg"
+  media_webm: "/images/publications/open-vocabulary-shared-autonomy.webm"
+  media_mp4: "/images/publications/open-vocabulary-shared-autonomy.mp4"
+  media_poster: "/images/publications/open-vocabulary-shared-autonomy.webp"
   image_alt: "Camera-based operator interface and Spot manipulating an industrial valve panel"
   evidence:
     - "All shared-control trials succeeded"
@@ -23,6 +26,9 @@
   title: "Language-guided grasping under partial observation"
   summary: "The operator names an object in the scene. The system segments it, completes the partial RGB-D geometry, selects a collision-free 6-DoF grasp, and executes it on Spot."
   image: "/images/projects/language-guided-grasping.jpg"
+  media_webm: "/images/publications/language-guided-grasping.webm"
+  media_mp4: "/images/publications/language-guided-grasping.mp4"
+  media_poster: "/images/publications/language-guided-grasping.webp"
   image_alt: "Boston Dynamics Spot reaching toward a target object in a cluttered manipulation experiment"
   evidence:
     - "9/10 successful grasps"
@@ -66,6 +72,9 @@
   title: "Vision-based teleoperation of a legged manipulator"
   summary: "An RGB-D camera maps the operator's wrist motion to Spot's arm. Trajectory planning prevents collisions, and hand gestures trigger grasping."
   image: "/images/projects/spot-teleoperation.jpg"
+  media_webm: "/images/publications/vision-based-shared-control-teleoperation.webm"
+  media_mp4: "/images/publications/vision-based-shared-control-teleoperation.mp4"
+  media_poster: "/images/publications/vision-based-shared-control-teleoperation.webp"
   image_alt: "Experimental setup for vision-based teleoperation of a Boston Dynamics Spot robot"
   evidence:
     - "Best Paper · LARS 2025"
@@ -87,6 +96,11 @@
   title: "Muscle–machine interfaces for intuitive robot control"
   summary: "EMG and lightmyography armbands decode gestures, in-hand motion, and grasping force for robot and prosthesis control."
   image: "/images/projects/lmg-armband-detail.jpg"
+  media_webm: "/images/publications/lightmyography-multigrasp.webm"
+  media_mp4: "/images/publications/lightmyography-multigrasp.mp4"
+  media_poster: "/images/publications/lightmyography-multigrasp.webp"
+  media_caption: "Related demonstration: lightmyography-based multigrasp robot-hand control."
+  media_source_url: "/publication/2023-embc-1"
   image_alt: "Lightmyography sensing module and wearable optical armband"
   evidence:
     - "Scientific Reports"

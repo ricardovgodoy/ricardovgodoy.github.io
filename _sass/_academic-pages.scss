@@ -39,6 +39,7 @@ body {
 .research-line, .research-line--reverse { grid-template-columns: 300px minmax(0,1fr); gap: 34px; padding: 30px 0; border-top: 1px solid #dedede; background: transparent; }
 .research-line--reverse .research-line__visual, .research-line--reverse .research-line__content { order: initial; }
 .research-line__visual img { width: 100%; height: auto !important; object-fit: contain; border-radius: 0; }
+.research-line__visual video { display: block; width: 100%; height: auto; object-fit: contain; }
 .research-line .section-label { display: none; }
 .research-line h2 { font-size: 21px; }
 .research-line p, .research-line li { color: #555; font-size: 13px; line-height: 1.65; }
@@ -61,6 +62,7 @@ body {
 .pub-entry__media { width: 150px; min-height: 92px; display: flex; align-items: center; overflow: hidden; background: #f7f7f7; }
 .pub-entry__media img, .pub-entry__media video { display: block; width: 100%; height: auto; max-height: 110px; object-fit: contain; }
 .project-row__media video { display: block; width: 100%; height: auto; object-fit: contain; }
+.project-row__media-caption { margin: 0; padding: 10px 12px; color: var(--text-muted); font-size: 11px; line-height: 1.5; }
 .video-card__image, .video-card__thumb { border-radius: 0; }
 .demos-page .video-card__title {
   color: #222;

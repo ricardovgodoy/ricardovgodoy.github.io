@@ -41,12 +41,16 @@
 .publication-header__authors strong { color: var(--text); font-weight: 600; }
 .publication-header__venue { margin-top: 10px; color: var(--accent); font-family: var(--font-mono); font-size: 11px; }
 .publication-header__award { display: inline-block; margin-top: 12px; padding: 5px 9px; border-left: 2px solid var(--gold); background: rgba(128,100,33,0.08); color: var(--gold); font-size: 12px; font-weight: 600; }
-.publication-visual { margin: 0 0 28px; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-elevated); }
-.publication-visual img { width: 100%; max-height: 560px; object-fit: cover; }
 .publication-contribution { margin: 0 0 22px; color: var(--text); font-size: 18px; font-weight: 500; line-height: 1.6; }
 .publication-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 .publication-topics { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 34px; }
 .publication-body { padding-top: 30px; border-top: 1px solid var(--border); }
+.publication-embedded-video { margin: 0 0 30px; }
+.publication-embedded-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0; border-radius: 8px; }
+.publication-main-figure { margin: 0 auto 30px; text-align: center; }
+.publication-main-figure img { display: block; width: auto; height: auto; max-width: 100%; max-height: 80vh; margin: 0 auto; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+.publication-main-figure figcaption { max-width: 760px; margin: 10px auto 0; color: var(--text-muted); font-size: 13px; line-height: 1.55; }
+.publication-abstract-title { margin: 0 0 18px; font-size: clamp(24px, 3vw, 32px); }
 .publication-body > iframe,
 .publication-body > p > iframe { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; height: auto; margin-bottom: 26px; border: 0; border-radius: 8px; }
 

@@ -4,6 +4,10 @@ collection: publications
 authors: "Gianluca Capezzuto, Felipe Tommaselli, Matheus P. Angarola, Ricardo V. Godoy, Marcelo Becker"
 category: conferences
 pubtype: conference
+youtube_embed: 6MZS3EgpG2I
+main_figure: /images/publications/traversability-navigation-system-main.webp
+main_figure_alt: "Capability-aware traversability system from environment perception through robot-conditioned prediction and navigation."
+main_figure_caption: "System overview for capability-aware traversability navigation in unstructured environments."
 homepage_selected: true
 thumbnail: /images/projects/capability-aware-navigation.jpg
 media_webm: /images/publications/capability-aware-traversability.webm
@@ -22,8 +26,6 @@ paperurl: 'https://arxiv.org/pdf/2607.20679'
 bibtexurl: ''
 citation: ''
 ---
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6MZS3EgpG2I?si=BCG8viiP3XAYYBrV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Estimating traversability in unstructured environments requires conditioning on robot embodiment, as the same terrain can be traversable for one platform and unsafe for another. Existing methods often transfer predictions across morphologies through late-stage trajectory filtering rather than encoding platform constraints in the learned representation. We propose Capability-Aware Traversability (CAT), a framework that embeds physical limits directly into the spatial feature space.
 
