@@ -7,7 +7,7 @@ tags:
   - papers
 ---
 
-Happy to share that our paper "Mind the Phase: Effective Rank and Representation Health in Legged Locomotion," led by Felipe Tommaselli, was accepted at the 2026 Conference on Robot Learning (CoRL)!
+Happy to share that our paper "Mind the Phase: Effective Rank and Representation Health in Legged Locomotion," was accepted at the 2026 Conference on Robot Learning (CoRL)!
 
 The paper studies the learned representations of legged-locomotion policies and connects phase-conditioned representation health with smoother sim-to-real transfer on Spot.
 
