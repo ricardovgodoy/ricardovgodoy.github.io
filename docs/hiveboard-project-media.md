@@ -1,27 +1,42 @@
 # HiveBoard project preview
 
-HiveBoard is featured as the fourth selected project on the homepage and as a research project under **Manipulation benchmarks**. The existing three homepage projects are retained. No publication entry or placeholder paper link is added.
+The homepage Research projects section and the Research page use the same
+10-second preview: printing parts, an assembled board with a ball valve,
+and the Macao hand operating the valve.
 
-- Project page: https://hiveboard-bench.github.io/
-- Code and hardware assets: https://github.com/EESC-LabRoM/HiveBoard
-- Description: A modular, 3D-printed benchmark board for evaluating robot grippers, hands, and prostheses on industrial mechanisms, with reusable simulation assets.
-- The project page reports 13 interchangeable attachments, four manipulation platforms, and articulated URDF/USD simulation models.
+- Project: https://hiveboard-bench.github.io/
+- Code and hardware: https://github.com/EESC-LabRoM/HiveBoard
+- Files: `images/projects/hiveboard-print-to-use.mp4`, `.webm`, and `.webp`.
 
-## Genuine preview footage
+## Sources and edit
 
-- Source: [Spot operating the large gate valve, linked by the HiveBoard project page](https://github.com/hiveboard-bench/hiveboard-bench.github.io/releases/download/v1.0-v1.0-videos/spot_big_valve.mp4).
-- Selected interval: 38.5–44.5 seconds; six seconds of physical gate-valve manipulation, selected after inspecting the full clip and the candidate interval.
-- Poster: source frame at 41.5 seconds.
-- Outputs: `images/projects/hiveboard-benchmark-board.webm`, `.mp4`, and `.webp`.
-- Original 1280 × 720 framing retained without cropping or stretching. Audio and ancillary metadata streams removed. WebM uses VP9; MP4 uses H.264 with yuv420p and fast-start metadata.
-- The natural loop has a small wrist-position reset at its seam; footage is not reversed or altered to imply an unrecorded result.
+1. **Printing, 0–3 seconds.** Source: https://hiveboard-bench.github.io/assets/videos/video_1.mp4
+   Source interval 6–126 seconds, played at 40×. Crop 960 × 540 at (240, 180)
+   in the 1280 × 720 source, then resize to 800 × 450.
+2. **Assembled board, 3–5 seconds.** Source: https://github.com/hiveboard-bench/hiveboard-bench.github.io/releases/download/v1.0-v1.0-videos/macao_torque_valve.mp4
+   Source interval 20–22 seconds at original speed. Crop 800 × 450 at
+   (220, 1120) in the 1080 × 1920 source. The board and installed valve are
+   stationary during this interval.
+3. **Manipulation, 5–10 seconds.** Same Macao source, interval 26.5–31.5 seconds
+   at original speed. Crop 960 × 540 at (120, 1020), then resize to 800 × 450.
 
-The full downloaded video remains outside the website repository.
+The printing and manipulation shots are separate recordings, not a continuous
+trial. Straight cuts separate the three shots; footage is not reversed.
+The poster is taken at 3.5 seconds in the edited video and shows the board
+with the valve installed.
+
+Both video formats are 800 × 450 at 24 fps, with audio and source metadata
+removed. MP4 uses H.264, yuv420p, CRF 26, and fast-start metadata. WebM uses
+VP9, yuv420p, CRF 34, and zero target bitrate. The still uses WebP quality 85.
 
 ## Validation
 
-- Complete Jekyll build passed with only the existing legacy/Sass warnings.
-- YAML and all three new media paths validated; both videos decode fully and have no audio streams.
-- Desktop (1440 × 1000) and mobile (390 × 844) checks passed for both pages: WebM playback, MP4 fallback, poster loading, original aspect ratio, source links, wording, and no horizontal overflow.
-- The homepage retains the original three projects and adds HiveBoard fourth. Research now contains six projects. Both pages have eight looping previews overall.
-- Publication records, workflows, navigation, and the YouTube updater are unchanged.
+Both outputs decode completely. Duration, dimensions, frame rate, absence
+of audio, and project media paths were checked. Frames across all three shots
+were inspected to check the board and the hand remain visible within the crop.
+The existing video elements provide autoplay, muted looping, MP4 fallback,
+and reduced-motion handling on both pages.
+
+The former `hiveboard-benchmark-board.*` assets remain available for existing
+links but are no longer selected by the project data. Full source downloads
+are not included in the website repository.
