@@ -1,8 +1,8 @@
 ---
 title: "Language-Guided Grasping under Partial Observation for Mobile Manipulation in Field Inspection and Maintenance"
 collection: publications
-category: preprints
-pubtype: preprint
+category: conferences
+pubtype: conference
 youtube_embed: 9Ca3zzUI8Ic
 main_figure: /images/publications/language-guided-grasping-system-main.webp
 main_figure_alt: "Language-guided grasping pipeline for target selection, object completion, grasp generation, pose selection, and robot execution."
@@ -18,9 +18,9 @@ tags: [control,grasping,vision,manipulation,mobile-manipulation,perception]
 doi: 
 code: 
 permalink: /publication/2026-vlm-grasp
-excerpt: 'We present an end-to-end pipeline for language-guided grasping that bridges open-vocabulary target selection to safe grasp execution on a real robot'
+excerpt: 'Accepted at SSRR 2026. A language-guided grasping system for field inspection and maintenance, combining object completion and grasp selection under partial observation on Spot.'
 date: 2026-02-24
-venue: 'Preprint · arXiv'
+venue: '2026 IEEE International Symposium on Safety, Security, and Rescue Robotics (SSRR) · Accepted'
 paperurl: 'https://arxiv.org/abs/2603.07866'
 bibtexurl: ''
 citation: ''

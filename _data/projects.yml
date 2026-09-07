@@ -33,6 +33,7 @@
   evidence:
     - "9/10 successful grasps"
     - "Real-robot evaluation"
+    - "Accepted at SSRR 2026"
   components:
     - "Language request and open-vocabulary grounding"
     - "Object-centric RGB-D reconstruction"
