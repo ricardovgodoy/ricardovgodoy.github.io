@@ -3,6 +3,8 @@ title: "Language-Guided Grasping under Partial Observation for Mobile Manipulati
 collection: publications
 category: conferences
 pubtype: conference
+homepage_selected: true
+short_contribution: "Combines object segmentation, shape completion, and 6-DoF grasp estimation to manipulate objects from partial RGB-D observations."
 youtube_embed: 9Ca3zzUI8Ic
 main_figure: /images/publications/language-guided-grasping-system-main.webp
 main_figure_alt: "Language-guided grasping pipeline for target selection, object completion, grasp generation, pose selection, and robot execution."
@@ -13,7 +15,6 @@ media_webm: /images/publications/language-guided-grasping.webm
 media_mp4: /images/publications/language-guided-grasping.mp4
 media_poster: /images/publications/language-guided-grasping.webp
 authors: "Dilermando Almeida, Juliano Negri, Guilherme Lazzarini, Thiago H. Segreto, Ranulfo Bezerra, Gustavo J. G. Lahr, Ricardo V. Godoy, Marcelo Becker"
-short_contribution: "Object-centric completion and execution-aware selection improved grasp success from 3/10 to 9/10 under partial observations."
 tags: [control,grasping,vision,manipulation,mobile-manipulation,perception]
 doi: 
 code: 

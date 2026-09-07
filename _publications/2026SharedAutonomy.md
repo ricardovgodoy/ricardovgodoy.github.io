@@ -14,7 +14,7 @@ thumbnail: /images/projects/shared-autonomy-hero.jpg
 media_webm: /images/publications/open-vocabulary-shared-autonomy.webm
 media_mp4: /images/publications/open-vocabulary-shared-autonomy.mp4
 media_poster: /images/publications/open-vocabulary-shared-autonomy.webp
-short_contribution: "All shared-control trials succeeded. Minimum obstacle clearance was 18 cm during deliberately unsafe commands."
+short_contribution: "Combines target grounding, volumetric obstacle mapping, and model-predictive control to assist teleoperated reaching and grasping."
 venue: 'arXiv preprint · RA-L submission'
 tags: [control, manipulation, teleoperation, locomanipulation, shared-autonomy, open-vocabulary, collision-avoidance]
 doi: 

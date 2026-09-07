@@ -216,3 +216,6 @@ body.home-clean-page {
   .academic-heading-row > a { display: inline-block; margin: 5px 0 8px; }
   .academic-news__list > a { grid-template-columns: 66px minmax(0, 1fr); gap: 12px; }
 }
+.academic-section > p + p {
+  margin-top: 12px;
+}
