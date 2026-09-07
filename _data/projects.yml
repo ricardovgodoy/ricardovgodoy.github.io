@@ -69,6 +69,7 @@
   video_url: "https://www.youtube.com/watch?v=reXul8PdFEo"
 
 - slug: "hiveboard"
+  homepage_resource: true
   area: "Manipulation benchmarks"
   title: "HiveBoard: Modular benchmarks for robotic and prosthetic manipulation"
   summary: "A modular, 3D-printed benchmark board for evaluating robot grippers, hands, and prostheses on industrial mechanisms, with reusable simulation assets."
@@ -93,7 +94,7 @@
 - slug: "legged-robot-teleoperation"
   area: "Human-guided control"
   title: "Vision-based teleoperation of a legged manipulator"
-  summary: "An RGB-D camera maps the operator's wrist motion to Spot's arm. Trajectory planning prevents collisions, and hand gestures trigger grasping."
+  summary: "An RGB-D camera maps the operator's wrist motion to Spot's arm. Collision-aware trajectory planning assists arm control, and hand gestures trigger grasping."
   image: "/images/projects/spot-teleoperation.jpg"
   media_webm: "/images/publications/vision-based-shared-control-teleoperation.webm"
   media_mp4: "/images/publications/vision-based-shared-control-teleoperation.mp4"

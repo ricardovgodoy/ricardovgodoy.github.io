@@ -7,8 +7,8 @@ layout: default
     <header class="academic-profile fade-in">
       <div class="academic-profile__copy">
         <h1>Ricardo V. Godoy</h1>
-        <p>I am a Postdoctoral Researcher at the University of São Paulo (USP), Center for Robotics. My research focuses on manipulation, locomanipulation, shared autonomy, and human–robot interaction, with an emphasis on systems evaluated on physical robots.</p>
-        <p>I am currently technical lead for manipulation and locomanipulation in an industry-funded field robotics project. I also serve as an Associate Editor for <em>IEEE Robotics and Automation Letters</em> in the area of Robot Learning.</p>
+        <p>I am a Postdoctoral Researcher at the University of São Paulo (USP), Center for Robotics, where I lead the manipulation and locomanipulation team in an industry-funded project on robotic inspection and maintenance of offshore platforms.</p>
+        <p>I received my PhD in Mechanical and Mechatronics Engineering from the University of Auckland. My doctoral research investigated human–machine interfaces for robotic and prosthetic control, combining biosignals, wearable sensors, and external sensing to estimate human motion and intent.</p>
 
         <nav class="academic-profile__links" aria-label="Academic and professional profiles">
           <a href="https://scholar.google.com/citations?user=vVXZEB8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener"><i class="ai ai-google-scholar" aria-hidden="true"></i> Scholar</a>
@@ -29,7 +29,8 @@ layout: default
 
     <section class="academic-section fade-in" aria-labelledby="research-heading">
       <h2 id="research-heading">Research</h2>
-      <p>My research focuses on robotic manipulation and locomanipulation, teleoperation and shared control, and human–robot interaction. I work with vision, EMG, lightmyography, gaze, gestures, and natural language to develop perception, planning, learning, and control methods for field, industrial, and assistive robots. I evaluate these systems on physical hardware, under real-time and safety constraints.</p>
+      <p>I develop perception and control methods for manipulation and locomanipulation, including grasp estimation from partial RGB-D observations, collision-aware motion planning, and shared control for teleoperated robots. My current work also investigates learned representations in locomotion policies and their effect on sim-to-real transfer.</p>
+      <p>In human–robot interaction, I study how to estimate operator intent from camera-based motion tracking, electromyography (EMG), and lightmyography, and how to combine these inputs with robot assistance. This work connects teleoperation of mobile manipulators with my earlier research on robotic hands and prostheses.</p>
       <p class="academic-more"><a href="{{ '/research/' | relative_url }}">Research overview</a></p>
     </section>
 
@@ -41,7 +42,7 @@ layout: default
 
       {% assign selected_pubs = site.publications | where: "homepage_selected", true | sort: "date" | reverse %}
       <div class="academic-list">
-        {% for pub in selected_pubs limit:4 %}
+        {% for pub in selected_pubs %}
         {% assign preview_webm = pub.homepage_media_webm | default: pub.media_webm %}
         {% assign preview_mp4 = pub.homepage_media_mp4 | default: pub.media_mp4 %}
         {% assign preview_poster = pub.homepage_media_poster | default: pub.media_poster | default: pub.thumbnail %}
@@ -59,7 +60,8 @@ layout: default
           <div class="academic-entry__body">
             <h3><a href="{{ pub.url | relative_url }}">{{ pub.title }}</a></h3>
             {% if pub.authors %}<p class="academic-entry__authors">{{ pub.authors | replace: 'Ricardo V. Godoy', '<strong>Ricardo V. Godoy</strong>' }}</p>{% endif %}
-            <p class="academic-entry__venue"><em>{{ pub.venue }}</em>, {{ pub.date | date: "%Y" }}</p>
+            {% assign pub_year = pub.date | date: "%Y" %}
+            <p class="academic-entry__venue"><em>{{ pub.venue }}</em>{% unless pub.venue contains pub_year %}, {{ pub_year }}{% endunless %}</p>
             {% if pub.short_contribution %}<p class="academic-entry__summary">{{ pub.short_contribution }}</p>{% endif %}
             <div class="academic-entry__links">
               {% if pub.projecturl and pub.projecturl != "" %}<a href="{{ pub.projecturl }}" target="_blank" rel="noopener">project page</a>{% endif %}
@@ -74,14 +76,16 @@ layout: default
       </div>
     </section>
 
+    {% assign homepage_resources = site.data.projects | where: "homepage_resource", true %}
+    {% if homepage_resources.size > 0 %}
     <section class="academic-section fade-in" aria-labelledby="projects-heading">
       <div class="academic-heading-row">
-        <h2 id="projects-heading">Selected projects</h2>
+        <h2 id="projects-heading">Research tools</h2>
         <a href="{{ '/research/' | relative_url }}">All research</a>
       </div>
 
       <div class="academic-list">
-        {% for project in site.data.projects limit:4 %}
+        {% for project in homepage_resources %}
         <article class="academic-entry academic-entry--project">
           <a class="academic-entry__image" href="{{ project.page_url | relative_url }}">
             {% if project.media_webm or project.media_mp4 %}
@@ -108,6 +112,7 @@ layout: default
         {% endfor %}
       </div>
     </section>
+    {% endif %}
 
     <section class="academic-section academic-news fade-in" aria-labelledby="news-heading">
       <div class="academic-heading-row">

@@ -9,7 +9,7 @@ permalink: /research/
   <div class="container">
     <div class="section-label">Research</div>
     <h1 class="page-header__title">Robotic systems for manipulation, locomanipulation, and human–robot interaction</h1>
-    <p class="page-header__desc">Perception, learning, planning, control, and hardware experiments for field, industrial, and assistive robotics.</p>
+    <p class="page-header__desc">Grasp perception, motion planning, learned locomotion policies, and operator interfaces for robotic and prosthetic control.</p>
   </div>
 </section>
 
@@ -25,9 +25,9 @@ permalink: /research/
       </figure>
       <div class="research-line__content">
         <div class="section-label">Robot autonomy</div>
-        <h2>Perception, manipulation, and navigation</h2>
-        <p>This work covers object grounding, 3D reconstruction, grasp selection, collision-aware planning, locomotion, and real-time control across manipulators, legged robots, and wheeled platforms. Experiments address clutter, occlusion, incomplete depth, calibration error, and changing environments.</p>
-        <p>Navigation models account for morphology and physical capability when estimating traversability and selecting motions.</p>
+        <h2>Manipulation, locomanipulation, and robot learning</h2>
+        <p>I study how mobile manipulators perceive and interact with objects when geometry is only partially observed. Current methods combine object segmentation and shape completion with 6-DoF grasp estimation, volumetric obstacle mapping, and collision-aware motion planning for reaching and grasping.</p>
+        <p>In legged locomotion, I investigate the representations learned by reinforcement-learning policies and their relationship to control smoothness during sim-to-real transfer. Related work conditions traversability estimates on the robot's morphology and physical capabilities.</p>
         <div class="research-line__work">
           <a href="#language-guided-manipulation"><strong>Language-guided mobile manipulation</strong><span>Target grounding, partial geometry, grasping</span></a>
           <a href="#shared-autonomy"><strong>Open-vocabulary shared autonomy</strong><span>Guidance, collision avoidance, valve tasks</span></a>
@@ -48,8 +48,8 @@ permalink: /research/
       <div class="research-line__content">
         <div class="section-label">Human–robot interaction</div>
         <h2>Teleoperation, shared control, and intent decoding</h2>
-        <p>The operator provides motion, target, or task commands through vision, gaze, muscle signals, and natural language. Robot assistance covers collision avoidance, local planning, grasp execution, and final alignment.</p>
-        <p>EMG and lightmyography support gesture, dexterous-motion, and force decoding. RGB-D tracking, mixed reality, and open-vocabulary perception support camera-based and assistive interfaces.</p>
+        <p>I develop interfaces that translate operator motion and intent into robot commands. In camera-based teleoperation, RGB-D tracking estimates arm motion and hand gestures, while shared control assists target alignment, collision avoidance, and grasp execution. Gaze and mixed-reality interfaces provide additional ways to select targets and interact with robots.</p>
+        <p>For robotic and prosthetic hands, I use electromyography (EMG) and lightmyography to estimate gestures, hand motion, and grasping force. These studies examine discrete command recognition and continuous control from wearable measurements.</p>
         <div class="research-line__work">
           <a href="#legged-robot-teleoperation"><strong>Vision-based robot teleoperation</strong><span>Motion mapping and shared grasp execution</span></a>
           <a href="#wearable-intent-decoding"><strong>Wearable intent decoding</strong><span>EMG, lightmyography, gesture and force</span></a>
