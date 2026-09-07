@@ -8,7 +8,7 @@ main_figure: /images/publications/autonomous-assistance-pipeline-main.webp
 main_figure_alt: "Teleoperation pipeline combining user input, autonomous assistance, grasp selection, and robot control."
 main_figure_caption: "Control pipeline for autonomous assistance during robotic teleoperation."
 featured: true
-homepage_selected: true
+homepage_selected: false
 thumbnail: /images/projects/spot-teleoperation.jpg
 media_webm: /images/publications/vision-based-shared-control-teleoperation.webm
 media_mp4: /images/publications/vision-based-shared-control-teleoperation.mp4
