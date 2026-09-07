@@ -16,7 +16,7 @@ permalink: /year-archive/
     {% for post in site.posts %}
     <div class="news-item">
       <div class="news-item__date">{{ post.date | date: "%B %d, %Y" }}</div>
-      <div class="news-item__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+      <div class="news-item__title"><a href="{{ post.url | relative_url }}">{% if forloop.index <= 2 %}<span class="news-new">New</span> {% endif %}{{ post.title }}</a></div>
       <div class="news-item__excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</div>
     </div>
     {% endfor %}

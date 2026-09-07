@@ -119,7 +119,7 @@ layout: default
         {% for post in site.posts limit:4 %}
         <a href="{{ post.url | relative_url }}">
           <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %Y" }}</time>
-          <span>{{ post.title }}</span>
+          <span class="academic-news__title">{% if forloop.index <= 2 %}<span class="news-new">New</span> {% endif %}{{ post.title }}</span>
         </a>
         {% endfor %}
       </div>

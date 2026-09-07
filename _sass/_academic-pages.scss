@@ -18,6 +18,34 @@ body {
 .nav-brand__name, .footer-info__name, .nav-brand__field { font-family: 'Lato', Arial, sans-serif; }
 .site-footer { background: #fff; border-color: #e5e5e5; }
 
+.news-new {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: #f8eee8;
+  color: #98432c;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+  white-space: nowrap;
+  animation: news-new-pulse 2s ease-in-out 2;
+}
+
+.academic-news:not(.is-visible) .news-new { animation: none; }
+
+@keyframes news-new-pulse {
+  0%, 100% { background-color: #f8eee8; }
+  50% { background-color: #edcfbd; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-new { animation: none; }
+}
+
 .not-found-page { min-height: calc(100vh - 210px); padding: 150px 20px 90px; background: #fff; }
 .not-found-shell { width: 100%; max-width: 700px; margin: 0 auto; }
 .not-found-label { margin: 0 0 12px; color: #777; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
