@@ -21,7 +21,7 @@ code:
 permalink: /publication/2026-vlm-grasp
 excerpt: 'Accepted at SSRR 2026. A language-guided grasping system for field inspection and maintenance, combining object completion and grasp selection under partial observation on Spot.'
 date: 2026-02-24
-venue: '2026 IEEE International Symposium on Safety, Security, and Rescue Robotics (SSRR) · Accepted'
+venue: '2026 IEEE International Symposium on Safety, Security, and Rescue Robotics (SSRR)'
 paperurl: 'https://arxiv.org/abs/2603.07866'
 bibtexurl: ''
 citation: ''
