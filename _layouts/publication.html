@@ -42,8 +42,11 @@ layout: default
           {% if page.main_figure_caption and page.main_figure_caption != "" %}<figcaption>{{ page.main_figure_caption }}</figcaption>{% endif %}
         </figure>
         {% endif %}
+        {% assign abstract_content = content | strip %}
+        {% if abstract_content != "" %}
         <h2 class="publication-abstract-title">Abstract</h2>
         {{ content }}
+        {% endif %}
       </div>
     </div>
   </div>
