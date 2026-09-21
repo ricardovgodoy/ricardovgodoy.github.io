@@ -68,7 +68,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : # Username for X / Twitter
+  twitter          : "ricardo_vgodoy" # Username for X / Twitter
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
@@ -134,7 +134,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "ricardo_vgodoy"
 facebook:
   username               :
   app_id                 :
