@@ -139,7 +139,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "/images/ricardo-godoy-og.jpg"
+og_image                 : "/images/projects/shared-autonomy-hero.jpg"
 og_description           : "Learning-enabled robotics for manipulation, locomanipulation, and human-guided autonomy."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
