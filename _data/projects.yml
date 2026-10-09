@@ -89,7 +89,7 @@
   tags: ["Benchmark board", "Open hardware", "Manipulation"]
   page_url: "/research/#hiveboard"
   project_url: "https://hiveboard-bench.github.io/"
-  code_url: "https://github.com/EESC-LabRoM/HiveBoard"
+  code_url: "https://github.com/hiveboard-bench/HiveBoard"
 
 - slug: "legged-robot-teleoperation"
   area: "Human-guided control"

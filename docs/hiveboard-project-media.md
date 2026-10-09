@@ -5,7 +5,7 @@ The homepage Research projects section and the Research page use the same
 and the Macao hand operating the valve.
 
 - Project: https://hiveboard-bench.github.io/
-- Code and hardware: https://github.com/EESC-LabRoM/HiveBoard
+- Code and hardware: https://github.com/hiveboard-bench/HiveBoard
 - Files: `images/projects/hiveboard-print-to-use.mp4`, `.webm`, and `.webp`.
 
 ## Sources and edit
