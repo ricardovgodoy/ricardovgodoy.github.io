@@ -10,6 +10,11 @@ var addressPoints = [
     174.7631803
   ],
   [
+    "Workshop: Robotic Fault-Detection Strategies for Complex Industrial Contexts<br />22nd International Conference on Advanced Robotics (ICAR 2025); San Juan, Argentina",
+    -30.7054363,
+    -69.1988222
+  ],
+  [
     "Invited talk: Human-Machine Interfaces: Applications of Biological Signals in Robotics<br />Hospital Albert Einstein; S\u00e3o Paulo, Brazil",
     -23.5506507,
     -46.6333824
