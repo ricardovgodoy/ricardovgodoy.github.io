@@ -1,10 +1,5 @@
 var addressPoints = [
   [
-    "From Human Intent to Robotic Manipulation: Industrial and Assistive Applications<br />Peking University, Beijing, China; Beijing, China",
-    39.9057136,
-    116.3912972
-  ],
-  [
     "Tutorial: Biosignal-Based Design Approaches for the Development of Human-Machine Interfaces for Shared Control of Computer Applications and Robotic Devices<br />IEEE International Conference on Automation Science and Engineering (CASE); Auckland, New Zealand",
     -36.852095,
     174.7631803
