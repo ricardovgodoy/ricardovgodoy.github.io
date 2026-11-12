@@ -9,7 +9,9 @@ date: 2026-10-29
 location: "Beijing, China"
 ---
 
-Invited seminar at Peking University on October 29, 2026, hosted by Prof. Hangxin Liu.
+Invited seminar at [Peking University](https://english.pku.edu.cn/) on October 29, 2026, at the invitation of [Prof. Hangxin Liu](https://liuhx111.github.io/).
+
+[Peking University’s seminar announcement](https://sai.pku.edu.cn/info/2330/11075.htm) · [Photos and visit report]({{ '/posts/2026/11/research-visits-macau-beijing-korea/' | relative_url }})
 
 ## Abstract
 
