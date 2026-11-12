@@ -21,7 +21,7 @@ Then it was on to Korea for SSRR, where I presented [our work on language-guided
 
 I also met with [Prof. Seokhwan Jeong](https://rim.sogang.ac.kr/advisor) from [Sogang University](https://www.sogang.ac.kr/), learned more about [RIM Lab’s work](https://rim.sogang.ac.kr/) and had a very productive discussion about future collaborations. Our conversation was another reminder of how small the robotics community can be: there always seems to be a shared colleague or an unexpected connection that neither of us knew about.
 
-These visits were a great opportunity to share my research and the work we do with [Prof. Marcelo Becker](https://www1.eesc.usp.br/sem/index.php/pt/pessoal/docentes/marcelo-becker) in the [Mobile Robotics Group](https://crob.eesc.usp.br/pesquisa/laboratorios/labrom/) at [University of São Paulo](https://www.usp.br/), São Carlos.
+These visits were a great opportunity to share my research and the work we do with [Prof. Marcelo Becker](https://www.linkedin.com/in/marcelo-becker-761bb524/en/) in the [Mobile Robotics Group](https://crob.eesc.usp.br/pesquisa/laboratorios/labrom/) at [University of São Paulo](https://www.usp.br/), São Carlos.
 
 Thank you to everyone who made time to host me, share their work, and discuss ideas. I’m looking forward to continuing these conversations and turning some of them into joint research!
 
