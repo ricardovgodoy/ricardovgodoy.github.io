@@ -9,8 +9,8 @@ co:
     degree: phd
     topic: "Image-based robotic inspection of stud-link anchor chains on docks"
     affiliation: "The University of Waikato"
-    start: 2025
-    year: "2025-2026"
+    start: 2026
+    year: "2026–present"
 
   - name: "Juliano Negri"
     degree: phd
@@ -31,8 +31,8 @@ co:
     degree: msc
     topic: "Foundation models for traversability in robotics"
     affiliation: "University of São Paulo"
-    start: 2025
-    year: "2025-2026"
+    start: 2026
+    year: "2026–present"
 
   - name: "Victor Van Halst"
     degree: msc
@@ -46,29 +46,29 @@ co:
     degree: ug
     topic: "Foundation models for manipulation, failure prediction and policy steering"
     affiliation: "University of São Paulo"
-    start: 2025
-    year: "2025-2026"
+    start: 2026
+    year: "2026–present"
 
   - name: "João Aléssio"
     degree: ug
     topic: ""
     affiliation: "University of São Paulo"
-    start: 2025
-    year: "2025-2026"
+    start: 2026
+    year: "2026–present"
 
   - name: "Lucas Kido"
     degree: ug
     topic: ""
     affiliation: "University of São Paulo"
-    start: 2025
-    year: "2025-2026"
+    start: 2026
+    year: "2026–present"
 
   - name: "Marco Tayar"
     degree: ug
     topic: "Subcentimeter accuracy foundation model for quadrotor control"
     affiliation: "University of São Paulo"
-    start: 2025
-    year: "2025-2026"
+    start: 2026
+    year: "2026–present"
 
   - name: "Murilo Vinicius"
     degree: ug
