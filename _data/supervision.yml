@@ -5,6 +5,11 @@ primary:
 
 co:
   # --- PhD (co-supervision) ---
+  - name: "Khirul Islam Badal"
+    degree: phd
+    topic: "Image-based robotic inspection of stud-link anchor chains on docks"
+    affiliation: "The University of Waikato"
+
   - name: "Juliano Negri"
     degree: phd
     topic: "Development of learning-based approaches for robust locomanipulation tasks"
@@ -20,6 +25,11 @@ co:
     year: "2024-2026"
 
   # --- MSc (co-supervision) ---
+  - name: "Gianluca Capezzuto"
+    degree: msc
+    topic: "Foundation models for traversability in robotics"
+    affiliation: "University of São Paulo"
+
   - name: "Victor Van Halst"
     degree: msc
     topic: "Towards dexterous manipulation using quadruped robots: from data collection to real-time deployment"
@@ -28,6 +38,26 @@ co:
     year: "2026"
 
   # --- Undergrad (co-supervision) ---
+  - name: "Matheus Paiva"
+    degree: ug
+    topic: "Foundation models for manipulation, failure prediction and policy steering"
+    affiliation: "University of São Paulo"
+
+  - name: "João Aléssio"
+    degree: ug
+    topic: ""
+    affiliation: "University of São Paulo"
+
+  - name: "Lucas Kido"
+    degree: ug
+    topic: ""
+    affiliation: "University of São Paulo"
+
+  - name: "Marco Tayar"
+    degree: ug
+    topic: "Subcentimeter accuracy foundation model for quadrotor control"
+    affiliation: "University of São Paulo"
+
   - name: "Murilo Vinicius"
     degree: ug
     topic: "Deployment of shared-control schemes for robust locomanipulation"
